@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Certificates of Analysis — Elevated Peptides</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="products.js"></script>
+<style>
+:root{
+  --ep:#00e5cc; --ep2:#007a6a; --ep3:#00fff0;
+  --bg:#040c0c; --card:#0a1818; --card2:#0d1e1e;
+  --tx:#edfaf7; --dim:#8fbfb8;
+  --bp:rgba(0,229,204,.2); --bc:rgba(0,229,204,.45);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;min-height:100vh;}
+h1,h2,h3,.brand{font-family:'Montserrat',sans-serif;letter-spacing:.01em;}
+
+#wallpaper{position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(4,12,12,.88),rgba(4,12,12,.96)),url('wallpaper.png') center top/cover no-repeat;background-attachment:fixed;}
+
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star{position:absolute;border-radius:50%;animation:twinkle var(--td,3s) ease-in-out var(--dl,0s) infinite;}
+
+@keyframes mistDrift{0%,100%{opacity:.14;transform:translate(-2%,-2%);}50%{opacity:.22;transform:translate(2%,2%);}}
+.teal-mist{position:fixed;inset:-10%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 40% at 20% 25%,rgba(0,229,204,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 45% at 80% 20%,rgba(0,180,160,.1) 0%,transparent 60%);filter:blur(30px);animation:mistDrift 18s ease-in-out infinite;}
+
+@keyframes sparkOrbit{from{transform:rotate(var(--oa,0deg)) translateX(var(--or,80px));}to{transform:rotate(calc(var(--oa,0deg) + 360deg)) translateX(var(--or,80px));}}
+@keyframes sparkPulse{0%,100%{opacity:var(--sop,.6);box-shadow:0 0 var(--sg,5px) 1px var(--sc,#00e5cc);}50%{opacity:1;box-shadow:0 0 calc(var(--sg,5px)*2) 2px var(--sc,#00e5cc);}}
+.logo-spark-wrap{position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:10;overflow:visible;}
+.logo-spark{position:absolute;top:50%;left:50%;width:var(--sw,4px);height:var(--sw,4px);margin:calc(var(--sw,4px)/-2);border-radius:50%;background:var(--sc,#00e5cc);box-shadow:0 0 var(--sg,5px) 1px var(--sc,#00e5cc);transform-origin:0 0;animation:sparkOrbit var(--od,10s) linear var(--odl,0s) infinite,sparkPulse var(--op,2.5s) ease-in-out var(--odl,0s) infinite;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:500;background:rgba(4,12,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bp);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:68px;}
+.brand-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.nav-logo-wrap{position:relative;width:46px;height:46px;flex-shrink:0;}
+@keyframes navLogoPulse{0%,100%{box-shadow:0 0 14px rgba(0,229,204,.5);}50%{box-shadow:0 0 28px rgba(0,229,204,.8),0 0 50px rgba(0,229,204,.3);}}
+.nav-logo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:2px solid rgba(0,229,204,.6);display:block;animation:navLogoPulse 3.5s ease-in-out infinite;}
+.brand{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:.1em;}
+.brand b{color:var(--ep);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links button,.nav-links a{background:transparent;border:none;border-bottom:2px solid transparent;color:var(--tx);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;cursor:pointer;padding:8px 12px;transition:all .2s;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;}
+.nav-links button:hover,.nav-links a:hover{color:var(--ep);border-bottom-color:var(--ep);}
+.hbg{display:none;flex-shrink:0;background:rgba(0,229,204,.06);border:1.5px solid var(--bp);border-radius:10px;width:42px;height:42px;color:var(--ep);font-size:20px;cursor:pointer;transition:all .2s;align-items:center;justify-content:center;}
+.hbg:hover{background:rgba(0,229,204,.14);border-color:var(--bc);}
+
+/* ── PAGE HEAD ── */
+@keyframes spinRing{to{transform:rotate(360deg)}}
+@keyframes epRingPulse{0%,100%{box-shadow:0 0 0 3px rgba(0,229,204,.35),0 0 30px rgba(0,229,204,.25);}50%{box-shadow:0 0 0 5px rgba(0,229,204,.6),0 0 55px rgba(0,229,204,.4);}}
+.pagehead{position:relative;z-index:2;text-align:center;padding:50px 20px 14px;}
+.coa-logo-badge{position:relative;width:140px;height:140px;margin:0 auto 22px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.coa-logo-badge::before{content:'';position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 0deg,rgba(0,229,204,.9) 0deg,rgba(0,180,160,.5) 60deg,transparent 100deg,rgba(0,229,204,.2) 140deg,rgba(0,180,160,.5) 180deg,rgba(0,229,204,.9) 220deg,rgba(0,180,160,.5) 280deg,transparent 320deg,rgba(0,229,204,.9) 360deg);filter:blur(3px);animation:spinRing 6s linear infinite;}
+.coa-logo-badge::after{content:'';position:absolute;inset:-3px;border-radius:50%;animation:epRingPulse 3s ease-in-out infinite;pointer-events:none;}
+.coa-logo-badge img{position:relative;z-index:2;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:cover;border-radius:50%;border:3px solid rgba(0,229,204,.7);box-shadow:inset 0 0 30px rgba(0,0,0,.5);}
+.pagehead-text{position:relative;z-index:2;max-width:640px;margin:0 auto;background:rgba(4,12,12,.94);border:1px solid var(--bp);border-radius:16px;padding:18px 26px 22px;backdrop-filter:blur(6px);}
+.pagehead h1{font-family:'Rajdhani',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:var(--tx);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.pagehead h1 b{color:var(--ep);}
+.pagehead p{color:var(--dim);font-size:14px;max-width:520px;margin:0 auto;}
+.ep-line{height:2px;background:linear-gradient(90deg,transparent,var(--ep),transparent);max-width:90%;margin:24px auto;opacity:.6;}
+
+/* ── SECTION TITLES ── */
+section{position:relative;z-index:2;padding:28px 24px;max-width:1100px;margin:0 auto;}
+.sec-head{max-width:640px;margin:0 auto 24px;text-align:center;background:rgba(4,12,12,.94);border:1px solid var(--bp);border-radius:14px;padding:16px 22px;backdrop-filter:blur(6px);}
+.sec-title{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--tx);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.sec-title b{color:var(--ep);}
+.sec-sub{color:var(--dim);font-size:13.5px;}
+
+/* ── WHAT IS A COA ── */
+.what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:860px;margin:0 auto;}
+.what-card{background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:20px;text-align:center;}
+.what-card .icon{font-size:32px;margin-bottom:10px;}
+.what-card h4{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--ep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
+.what-card p{font-size:12.5px;color:var(--dim);line-height:1.55;}
+
+/* ── SEARCH / FILTER ── */
+.coa-controls{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;position:sticky;top:68px;z-index:90;background:rgba(4,12,12,.85);backdrop-filter:blur(12px);padding:14px;border-radius:14px;border:1px solid var(--bp);}
+.coa-controls input[type=text]{flex:1;padding:10px 16px;border-radius:30px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;}
+.coa-controls input:focus{border-color:var(--ep);}
+.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.cat-tab{background:rgba(0,20,20,.7);border:1.5px solid var(--bp);border-radius:20px;padding:7px 14px;color:var(--tx);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.cat-tab:hover{border-color:var(--ep);color:var(--ep);}
+.cat-tab.active{background:linear-gradient(90deg,var(--ep2),#004d3d);border-color:var(--ep);color:#fff;box-shadow:0 0 14px rgba(0,229,204,.3);}
+
+/* ── COA GRID ── */
+.coa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.coa-card{background:var(--card);border:1.5px solid var(--bp);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:all .25s;box-shadow:0 0 14px rgba(0,229,204,.08);}
+.coa-card:hover{transform:translateY(-3px);border-color:var(--ep);box-shadow:0 10px 28px rgba(0,229,204,.2);}
+.coa-card-img{border-radius:9px;overflow:hidden;background:linear-gradient(160deg,rgba(10,24,24,.7),rgba(4,12,12,.9));}
+.coa-card-img img{display:block;width:100%;height:100px;object-fit:contain;padding:8px;}
+.coa-card h3{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--tx);letter-spacing:.04em;text-transform:uppercase;}
+.coa-card .coa-cat{font-size:11px;color:var(--ep);font-weight:700;background:rgba(0,229,204,.1);border:1px solid var(--bp);border-radius:20px;display:inline-block;padding:2px 10px;font-family:'Montserrat',sans-serif;}
+.coa-card .coa-note{font-size:11.5px;color:var(--dim);font-style:italic;line-height:1.4;}
+.coa-link-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:9px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;text-transform:uppercase;letter-spacing:.03em;}
+.coa-link-btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(0,229,204,.5);}
+.coa-pending{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;background:rgba(255,255,255,.04);border:1.5px dashed rgba(0,229,204,.25);border-radius:9px;color:var(--dim);font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.03em;}
+.coa-upload-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:rgba(0,229,204,.06);border:1.5px solid var(--bp);border-radius:9px;color:var(--ep);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
+.coa-upload-btn:hover{border-color:var(--ep);background:rgba(0,229,204,.12);}
+.no-results{text-align:center;color:var(--dim);padding:50px 0;font-size:14px;}
+
+/* ── UPLOAD MODAL ── */
+#uploadOv{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:950;display:none;align-items:center;justify-content:center;padding:20px;}
+#uploadOv.on{display:flex;}
+.upload-modal{position:relative;background:var(--card);border:1.5px solid var(--ep);border-radius:18px;padding:28px;max-width:460px;width:100%;box-shadow:0 0 50px rgba(0,229,204,.2);}
+.upload-modal h3{font-family:'Rajdhani',sans-serif;font-size:18px;color:var(--ep);margin-bottom:6px;letter-spacing:.05em;}
+.upload-modal p{font-size:12.5px;color:var(--dim);margin-bottom:16px;line-height:1.5;}
+.upload-modal label{display:block;font-size:12px;color:var(--ep);font-weight:700;margin-bottom:5px;margin-top:12px;font-family:'Montserrat',sans-serif;}
+.upload-modal input[type=url],.upload-modal select,.upload-modal input[type=text]{width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;outline:none;}
+.upload-modal input:focus,.upload-modal select:focus{border-color:var(--ep);}
+.upload-save-btn{width:100%;margin-top:16px;padding:12px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:10px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;}
+.upload-save-btn:hover{box-shadow:0 0 20px rgba(0,229,204,.4);}
+.upload-status{margin-top:10px;font-size:12px;min-height:16px;text-align:center;}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--dim);font-size:22px;cursor:pointer;}
+.gdrive-steps{background:rgba(0,0,0,.3);border:1px solid var(--bp);border-radius:10px;padding:12px 14px;margin-top:12px;}
+.gdrive-steps .step-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
+.gdrive-steps .step-row:last-child{margin-bottom:0;}
+.gdrive-steps .snum{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;}
+.gdrive-steps .stxt{font-size:12px;color:var(--dim);line-height:1.5;}
+.gdrive-steps .stxt b{color:var(--ep);}
+
+/* ── COA ADMIN AUTH MODAL ── */
+#coaAdminOv{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:960;display:none;align-items:center;justify-content:center;padding:20px;}
+#coaAdminOv.on{display:flex;}
+.coa-admin-modal{position:relative;background:var(--card);border:1.5px solid var(--ep2);border-radius:20px;padding:30px;max-width:360px;width:100%;box-shadow:0 0 50px rgba(0,229,204,.15);text-align:center;}
+.coa-admin-modal h3{font-family:'Rajdhani',sans-serif;font-size:20px;color:var(--ep);margin-bottom:6px;letter-spacing:.08em;}
+.coa-admin-modal p{font-size:13px;color:var(--dim);margin-bottom:18px;line-height:1.5;}
+.coa-admin-modal input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;text-align:center;}
+.coa-admin-modal input:focus{border-color:var(--ep);}
+.coa-admin-unlock-btn{width:100%;margin-top:14px;padding:13px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:10px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;cursor:pointer;text-transform:uppercase;}
+.coa-admin-err{margin-top:8px;font-size:12.5px;color:#ff6b6b;min-height:16px;}
+.secret-coa-btn{background:none;border:none;color:var(--ep);opacity:.7;font-size:.75em;vertical-align:middle;padding:0 0 0 12px;cursor:pointer;transition:opacity .2s;}
+.secret-coa-btn:hover{opacity:1;}
+.coa-remove-btn{display:flex;align-items:center;justify-content:center;gap:5px;padding:7px;background:rgba(185,28,28,.12);border:1.5px solid rgba(185,28,28,.35);border-radius:9px;color:#ff6b6b;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
+.coa-remove-btn:hover{background:rgba(185,28,28,.25);border-color:#ff6b6b;}
+
+/* ── INFO SECTION ── */
+.info-card{background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:22px 24px;margin-bottom:14px;}
+.info-card h4{font-family:'Rajdhani',sans-serif;font-size:17px;color:var(--ep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;}
+.info-card p,.info-card li{font-size:13px;color:var(--dim);line-height:1.65;margin-bottom:6px;}
+.info-card li{margin-left:18px;}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:2;text-align:center;padding:40px 20px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--bp);}
+footer::before{content:'⬡  EP  ⬡  ELEVATE YOUR RESEARCH  ⬡  EP  ⬡';display:block;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--ep);margin-bottom:14px;opacity:.6;}
+footer a{color:var(--ep);text-decoration:none;}
+
+/* ── FIGHTER PRAYER ── */
+@keyframes prayerGlow{0%,100%{text-shadow:0 0 18px rgba(0,229,204,.5),0 0 40px rgba(0,229,204,.2);}50%{text-shadow:0 0 32px rgba(0,229,204,.9),0 0 70px rgba(0,229,204,.4);}}
+.fighter-prayer-section{position:relative;z-index:2;padding:60px 24px;text-align:center;background:linear-gradient(180deg,transparent 0%,rgba(0,229,204,.04) 40%,rgba(0,229,204,.07) 60%,transparent 100%);border-top:1px solid rgba(0,229,204,.15);border-bottom:1px solid rgba(0,229,204,.15);}
+.fighter-prayer-wrap{max-width:680px;margin:0 auto;}
+.prayer-hex{font-size:28px;color:var(--ep);animation:prayerGlow 3.5s ease-in-out infinite;display:block;line-height:1;margin-bottom:14px;}
+.prayer-hex.bottom{margin-top:22px;margin-bottom:0;animation-delay:1.2s;}
+.prayer-title{font-family:'Rajdhani',sans-serif;font-size:clamp(20px,4vw,30px);font-weight:700;letter-spacing:.18em;color:var(--ep);text-transform:uppercase;margin-bottom:16px;animation:prayerGlow 3.5s ease-in-out infinite;}
+.prayer-divider{height:1px;background:linear-gradient(90deg,transparent,var(--ep),transparent);opacity:.5;margin:0 auto 28px;max-width:320px;}
+.prayer-text{font-family:'Inter',sans-serif;font-size:clamp(14px,2.2vw,16.5px);line-height:1.9;color:var(--tx);opacity:.9;font-style:italic;}
+.prayer-text em{color:var(--ep);font-style:normal;font-weight:600;}
+.prayer-text strong{color:#fff;font-style:normal;font-size:1.05em;letter-spacing:.04em;}
+.prayer-sig{color:var(--ep);font-style:normal;font-size:.9em;opacity:.75;letter-spacing:.06em;}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--ep2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--ep);}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media(max-width:780px){
+  .nav-links{display:none;position:fixed;top:68px;right:0;width:min(260px,84vw);height:calc(100vh - 68px);overflow-y:auto;background:rgba(2,8,8,.98);flex-direction:column;align-items:stretch;gap:4px;padding:18px;border-left:1px solid var(--bp);z-index:600;box-sizing:border-box;}
+  .nav-links.open{display:flex;}
+  .nav-links button,.nav-links a{width:100%;text-align:left;padding:13px 14px;border-bottom:1px solid rgba(0,229,204,.1)!important;}
+  .hbg{display:flex;}
+  .coa-controls{top:0;position:static;}
+}
+</style>
+</head>
+<body>
+<div id="wallpaper"></div>
+<div class="teal-mist"></div>
+<div id="starfield"></div>
+
+<nav>
+  <div class="brand-wrap" onclick="location.href='index.html'">
+    <div class="nav-logo-wrap">
+      <img src="logo.png" alt="Elevated Peptides logo"/>
+    </div>
+    <span class="brand">ELEVATED <b>PEPTIDES</b></span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="coas.html" style="color:var(--ep)!important;border-bottom-color:var(--ep)!important;">COAs</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="hbg" id="hbgBtn" onclick="toggleNav()">☰</button>
+</nav>
+
+<div class="pagehead">
+  <div class="coa-logo-badge">
+    <div class="logo-spark-wrap"></div>
+    <img src="logo.png" alt="Elevated Peptides"/>
+  </div>
+  <div class="pagehead-text reveal">
+    <h1>Certificates of <b>Analysis</b></h1>
+    <p>Third-party testing documentation for every Elevated Peptides compound. Transparency is the standard.</p>
+  </div>
+</div>
+
+<div class="ep-line"></div>
+
+<section>
+  <div class="sec-head reveal">
+    <h2 class="sec-title">WHAT IS A <b>COA?</b></h2>
+    <p class="sec-sub">Certificate of Analysis — your assurance of compound purity and accuracy.</p>
+  </div>
+  <div class="what-grid">
+    <div class="what-card reveal"><div class="icon">🔬</div><h4>Purity Verified</h4><p>COAs confirm the compound is what we say it is — no substitutions, no fillers.</p></div>
+    <div class="what-card reveal"><div class="icon">🧪</div><h4>Third-Party Tested</h4><p>Independent laboratory testing, not internal. Unbiased results you can trust.</p></div>
+    <div class="what-card reveal"><div class="icon">📄</div><h4>Full Transparency</h4><p>Every batch result is linked so you can review the exact data before ordering.</p></div>
+    <div class="what-card reveal"><div class="icon">⚡</div><h4>Research Grade</h4><p>All compounds are research-use only. COAs reflect research-grade purity standards.</p></div>
+  </div>
+</section>
+
+<div class="ep-line"></div>
+
+<section id="coa-catalog">
+  <div class="sec-head reveal">
+    <h2 class="sec-title">COA <b>LIBRARY</b><button class="secret-coa-btn" onclick="openCoaAdmin()" aria-label="Admin">⚙️</button></h2>
+    <p class="sec-sub">Click <b style="color:var(--ep);">View COA</b> to open the PDF document. COAs are added by admin only.</p>
+  </div>
+  <div class="coa-controls">
+    <input type="text" id="coaSearch" placeholder="🔍 Search compounds…" oninput="renderCOAs()"/>
+    <div class="cat-tabs" id="coaCatTabs"></div>
+  </div>
+  <div id="coaGrid" class="coa-grid"></div>
+</section>
+
+<div class="ep-line"></div>
+
+<section>
+  <div class="sec-head reveal">
+    <h2 class="sec-title">ABOUT OUR <b>TESTING</b></h2>
+  </div>
+  <div class="info-card reveal">
+    <h4>Our Testing Standards</h4>
+    <ul>
+      <li>HPLC (High-Performance Liquid Chromatography) purity analysis on every batch</li>
+      <li>Mass spectrometry identity confirmation</li>
+      <li>Endotoxin / sterility testing where applicable</li>
+      <li>Results from independent, accredited third-party labs</li>
+    </ul>
+  </div>
+  <div class="info-card reveal">
+    <h4>Research Use Only</h4>
+    <p>All Elevated Peptides compounds are sold strictly as research chemicals. COAs confirm compound identity and purity for laboratory research purposes. Not for human consumption. Not evaluated by the FDA.</p>
+  </div>
+  <div class="info-card reveal">
+    <h4>Missing a COA?</h4>
+    <p>If you don't see a COA for a compound you ordered, <a href="contact.html">contact us</a> — we'll get it to you directly. COAs are also included in packaging for select compounds.</p>
+  </div>
+  <div class="info-card reveal" style="border-color:rgba(0,229,204,.4);background:rgba(0,229,204,.03);">
+    <h4>📎 How COA Links Work</h4>
+    <p style="margin-bottom:12px;">Each COA is a PDF stored in Google Drive. To share one, follow these steps:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">1</div>
+        <p style="margin:0;padding-top:3px;">Upload the PDF to <b style="color:var(--ep);">Google Drive</b></p>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">2</div>
+        <p style="margin:0;padding-top:3px;">Right-click the file → <b style="color:var(--ep);">Share</b> → under "General access" select <b style="color:var(--ep);">"Anyone with the link"</b></p>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">3</div>
+        <p style="margin:0;padding-top:3px;">Click <b style="color:var(--ep);">Copy link</b> — it will look like:<br/><span style="font-family:monospace;font-size:11px;color:var(--ep);background:rgba(0,0,0,.3);padding:3px 8px;border-radius:5px;display:inline-block;margin-top:4px;">https://drive.google.com/file/d/XXXXX/view?usp=sharing</span></p>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">4</div>
+        <p style="margin:0;padding-top:3px;">Open the COA Library as admin → click <b style="color:var(--ep);">✏️ Add COA Link</b> on the product → paste the link → Save</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fighter-prayer-section">
+  <div class="fighter-prayer-wrap">
+    <div class="prayer-hex">⬡</div>
+    <h3 class="prayer-title">A PRAYER FOR THE FIGHTER</h3>
+    <div class="prayer-divider"></div>
+    <p class="prayer-text" data-ep-text="coas-prayer">
+      Lord God, as I step into this arena — heart pounding, hands wrapped, soul bared —
+      I ask You to walk with me into the fire.<br><br>
+      Give me strength beyond what my body knows. Give me courage that silences fear.
+      Give me clarity in the chaos, calm in the storm, and faith that does not flinch.<br><br>
+      Let every drop of sweat I have shed in training be a testimony to Your grace.
+      Let every sacrifice, every early morning, every time I chose discipline over comfort —
+      let it all mean something tonight.<br><br>
+      Cover me and my opponent. We are both warriors. We are both children of You.
+      Let us honor this moment with everything we have.<br><br>
+      Whatever the outcome — <em>I trust You.</em>
+      Win or lose, I rise knowing You never left my corner.<br><br>
+      <strong>Now let me go to work. Amen.</strong><br><br>
+      <span class="prayer-sig">— created by Sah</span>
+    </p>
+    <div class="prayer-hex bottom">⬡</div>
+  </div>
+</section>
+
+<footer>
+  <p><b style="color:var(--ep);">21+ ONLY.</b> All products are for <b>research purposes only</b> and are <b>not for human consumption</b>. Not evaluated by the FDA.</p>
+  <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides</p>
+</footer>
+
+<div id="coaAdminOv" onclick="if(event.target===this)closeCoaAdmin()">
+  <div class="coa-admin-modal">
+    <button class="modal-close" onclick="closeCoaAdmin()">×</button>
+    <div style="font-size:38px;margin-bottom:8px;">🔒</div>
+    <h3>ADMIN ACCESS</h3>
+    <p>Enter the admin password to manage COA links.</p>
+    <input type="password" id="coaAdminPw" placeholder="Admin password" onkeydown="if(event.key==='Enter')submitCoaAdminPw()"/>
+    <button class="coa-admin-unlock-btn" onclick="submitCoaAdminPw()">🔓 UNLOCK</button>
+    <div class="coa-admin-err" id="coaAdminErr"></div>
+  </div>
+</div>
+
+<div id="uploadOv" onclick="if(event.target===this)closeUploadModal()">
+  <div class="upload-modal">
+    <button class="modal-close" onclick="closeUploadModal()">×</button>
+    <h3>📄 ADD / EDIT COA LINK</h3>
+    <p>Paste the Google Drive share link for this compound's COA PDF.</p>
+    <label>Product</label>
+    <select id="uploadProd"></select>
+    <label>COA Share Link (Google Drive)</label>
+    <input type="url" id="uploadUrl" placeholder="https://drive.google.com/file/d/…/view?usp=sharing"/>
+    <div class="gdrive-steps">
+      <div class="step-row"><div class="snum">1</div><div class="stxt">Upload PDF to <b>Google Drive</b></div></div>
+      <div class="step-row"><div class="snum">2</div><div class="stxt">Right-click → <b>Share</b> → set to <b>"Anyone with the link"</b></div></div>
+      <div class="step-row"><div class="snum">3</div><div class="stxt">Click <b>Copy link</b> and paste it above</div></div>
+    </div>
+    <button class="upload-save-btn" onclick="saveCOALink()">💾 SAVE COA LINK</button>
+    <div class="upload-status" id="uploadStatus"></div>
+  </div>
+</div>
+
+<script>
+if(sessionStorage.getItem('umf_unlocked')!=='1'){ location.href='index.html'; }
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── STARFIELD ── */
+(function(){
+  const sf=document.getElementById('starfield');
+  const colors=['#fff','#d0f0ec','#00fff0','#b0e8e0'];
+  for(let i=0;i<130;i++){
+    const s=document.createElement('div'); s.className='star';
+    const sz=(Math.random()*2+0.3).toFixed(1);
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*90).toFixed(2)}%;background:${colors[Math.floor(Math.random()*colors.length)]};opacity:${(0.2+Math.random()*0.6).toFixed(2)};--td:${(2+Math.random()*5).toFixed(1)}s;--dl:${(Math.random()*5).toFixed(1)}s;`;
+    sf.appendChild(s);
+  }
+})();
+
+/* ── ORBIT SPARKS ── */
+(function(){
+  function spawnSparks(wrap){
+    const NUM=16, colors=['#00e5cc','#00fff0','#00b8a0','#80ffe8','#00d4b8','#40ffd4'];
+    const r=Math.round((wrap.offsetWidth||140)/2*0.9);
+    for(let i=0;i<NUM;i++){
+      const s=document.createElement('div'); s.className='logo-spark';
+      const oa=Math.round(i*(360/NUM)+(Math.random()*18-9));
+      const or=r+Math.round((Math.random()-.5)*10);
+      const dir=i%2===0?1:-1;
+      const od=(8+Math.random()*10).toFixed(1);
+      const odl=-(Math.random()*10).toFixed(1);
+      const sw=(2+Math.random()*3).toFixed(1);
+      const sc=colors[Math.floor(Math.random()*colors.length)];
+      const sg=(3+Math.random()*5).toFixed(0);
+      const sop=(0.4+Math.random()*0.55).toFixed(2);
+      const op=(1.4+Math.random()*2).toFixed(1);
+      s.style.cssText=`--oa:${oa}deg;--or:${or}px;--od:${dir<0?'-':''}${od}s;--odl:${odl}s;--sw:${sw}px;--sc:${sc};--sg:${sg}px;--sop:${sop};--op:${op}s;`;
+      wrap.appendChild(s);
+    }
+  }
+  setTimeout(()=>{ document.querySelectorAll('.logo-spark-wrap').forEach(spawnSparks); },120);
+})();
+
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hbgBtn').classList.toggle('active');
+}
+
+/* ── COA ADMIN AUTH ── */
+const COA_ADMIN_PASSWORD="Bo$$vibes!";
+let coaAdminUnlocked=sessionStorage.getItem('umf_shop_admin_unlocked')==='1';
+function openCoaAdmin(){
+  if(coaAdminUnlocked){ alert('Admin already unlocked. Use the ✏️ Add COA Link buttons on each product card.'); return; }
+  document.getElementById('coaAdminOv').classList.add('on');
+  document.getElementById('coaAdminPw').value='';
+  document.getElementById('coaAdminErr').textContent='';
+  setTimeout(()=>document.getElementById('coaAdminPw').focus(),100);
+}
+function closeCoaAdmin(){ document.getElementById('coaAdminOv').classList.remove('on'); }
+function submitCoaAdminPw(){
+  const pw=document.getElementById('coaAdminPw').value;
+  if(pw!==COA_ADMIN_PASSWORD){ document.getElementById('coaAdminErr').textContent='Incorrect password.'; return; }
+  coaAdminUnlocked=true; sessionStorage.setItem('umf_shop_admin_unlocked','1');
+  closeCoaAdmin(); renderCOAs();
+}
+
+/* ── COA DATA ── */
+let coaLinks={};
+try{ coaLinks=JSON.parse(localStorage.getItem('ep_coa_links')||'{}'); }catch(e){}
+async function loadDriveCOAs(){
+  const files=await fetchCOAFiles();
+  if(!files.length) return;
+  const matched=matchCOAFiles(STARTER_PRODUCTS,files);
+  Object.assign(coaLinks,matched);
+  renderCOAs();
+}
+
+let catFilter='all';
+function renderCatTabs(){
+  const tabs=[{key:'all',emoji:'⚡',label:'All'},...CATS];
+  document.getElementById('coaCatTabs').innerHTML=tabs.map(c=>
+    `<button class="cat-tab ${catFilter===c.key?'active':''}" onclick="setCatFilter('${c.key}')">${c.emoji} ${c.label}</button>`
+  ).join('');
+}
+function setCatFilter(key){ catFilter=key; renderCatTabs(); renderCOAs(); }
+renderCatTabs();
+
+function renderCOAs(){
+  const term=document.getElementById('coaSearch').value.trim().toLowerCase();
+  let list=STARTER_PRODUCTS.filter(p=>{
+    if(catFilter!=='all'&&p.cat!==catFilter) return false;
+    if(term&&!p.name.toLowerCase().includes(term)) return false;
+    return true;
+  });
+  if(!list.length){ document.getElementById('coaGrid').innerHTML='<div class="no-results">No compounds match your search.</div>'; return; }
+  document.getElementById('coaGrid').innerHTML=list.map(p=>{
+    const cat=CATS.find(c=>c.key===p.cat);
+    const url=coaLinks[p.key]||'';
+    const imgHtml=p.img?`<div class="coa-card-img"><img src="${p.img}" alt="${p.name}"/></div>`:'';
+    const adminBtns=coaAdminUnlocked?`
+      <button class="coa-upload-btn" onclick="openUploadModal('${p.key}')">✏️ ${url?'Edit':'Add'} COA Link</button>
+      ${url?`<button class="coa-remove-btn" onclick="removeCOALink('${p.key}')">🗑 Remove COA</button>`:''}
+    `:'';
+    return `<div class="coa-card">
+      ${imgHtml}
+      <h3>${p.name}</h3>
+      ${cat?`<span class="coa-cat">${cat.emoji} ${cat.label}</span>`:''}
+      ${p.note?`<div class="coa-note">${p.note}</div>`:''}
+      ${url
+        ? `<a class="coa-link-btn" href="${url}" target="_blank" rel="noopener">📄 View COA</a>`
+        : `<div class="coa-pending">⏳ COA Coming Soon</div>`}
+      ${adminBtns}
+    </div>`;
+  }).join('');
+}
+renderCOAs();
+loadDriveCOAs();
+
+/* ── UPLOAD MODAL ── */
+function openUploadModal(preselect){
+  const sel=document.getElementById('uploadProd');
+  sel.innerHTML=STARTER_PRODUCTS.map(p=>`<option value="${p.key}" ${p.key===preselect?'selected':''}>${p.name}</option>`).join('');
+  document.getElementById('uploadUrl').value=preselect&&coaLinks[preselect]?coaLinks[preselect]:'';
+  document.getElementById('uploadStatus').textContent='';
+  document.getElementById('uploadOv').classList.add('on');
+}
+function closeUploadModal(){ document.getElementById('uploadOv').classList.remove('on'); }
+function saveCOALink(){
+  const key=document.getElementById('uploadProd').value;
+  const url=document.getElementById('uploadUrl').value.trim();
+  const status=document.getElementById('uploadStatus');
+  if(!url){ status.style.color='#ff6b6b'; status.textContent='Please enter a URL.'; return; }
+  coaLinks[key]=url;
+  localStorage.setItem('ep_coa_links',JSON.stringify(coaLinks));
+  status.style.color='var(--ep)'; status.textContent='✅ COA link saved!';
+  renderCOAs();
+  setTimeout(closeUploadModal,1200);
+}
+function removeCOALink(key){
+  if(!confirm('Remove the COA link for this product?')) return;
+  delete coaLinks[key];
+  localStorage.setItem('ep_coa_links',JSON.stringify(coaLinks));
+  renderCOAs();
+}
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const io=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i%3*90); io.unobserve(e.target); } }); },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+<script src="page-editor.js"></script>
+</body>
+</html>

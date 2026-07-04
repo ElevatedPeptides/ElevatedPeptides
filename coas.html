@@ -100,41 +100,6 @@ section{position:relative;z-index:2;padding:28px 24px;max-width:1100px;margin:0 
 .coa-upload-btn:hover{border-color:var(--ep);background:rgba(0,229,204,.12);}
 .no-results{text-align:center;color:var(--dim);padding:50px 0;font-size:14px;}
 
-/* ── UPLOAD MODAL ── */
-#uploadOv{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:950;display:none;align-items:center;justify-content:center;padding:20px;}
-#uploadOv.on{display:flex;}
-.upload-modal{position:relative;background:var(--card);border:1.5px solid var(--ep);border-radius:18px;padding:28px;max-width:460px;width:100%;box-shadow:0 0 50px rgba(0,229,204,.2);}
-.upload-modal h3{font-family:'Rajdhani',sans-serif;font-size:18px;color:var(--ep);margin-bottom:6px;letter-spacing:.05em;}
-.upload-modal p{font-size:12.5px;color:var(--dim);margin-bottom:16px;line-height:1.5;}
-.upload-modal label{display:block;font-size:12px;color:var(--ep);font-weight:700;margin-bottom:5px;margin-top:12px;font-family:'Montserrat',sans-serif;}
-.upload-modal input[type=url],.upload-modal select,.upload-modal input[type=text]{width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;outline:none;}
-.upload-modal input:focus,.upload-modal select:focus{border-color:var(--ep);}
-.upload-save-btn{width:100%;margin-top:16px;padding:12px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:10px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;}
-.upload-save-btn:hover{box-shadow:0 0 20px rgba(0,229,204,.4);}
-.upload-status{margin-top:10px;font-size:12px;min-height:16px;text-align:center;}
-.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--dim);font-size:22px;cursor:pointer;}
-.gdrive-steps{background:rgba(0,0,0,.3);border:1px solid var(--bp);border-radius:10px;padding:12px 14px;margin-top:12px;}
-.gdrive-steps .step-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
-.gdrive-steps .step-row:last-child{margin-bottom:0;}
-.gdrive-steps .snum{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;}
-.gdrive-steps .stxt{font-size:12px;color:var(--dim);line-height:1.5;}
-.gdrive-steps .stxt b{color:var(--ep);}
-
-/* ── COA ADMIN AUTH MODAL ── */
-#coaAdminOv{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:960;display:none;align-items:center;justify-content:center;padding:20px;}
-#coaAdminOv.on{display:flex;}
-.coa-admin-modal{position:relative;background:var(--card);border:1.5px solid var(--ep2);border-radius:20px;padding:30px;max-width:360px;width:100%;box-shadow:0 0 50px rgba(0,229,204,.15);text-align:center;}
-.coa-admin-modal h3{font-family:'Rajdhani',sans-serif;font-size:20px;color:var(--ep);margin-bottom:6px;letter-spacing:.08em;}
-.coa-admin-modal p{font-size:13px;color:var(--dim);margin-bottom:18px;line-height:1.5;}
-.coa-admin-modal input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;text-align:center;}
-.coa-admin-modal input:focus{border-color:var(--ep);}
-.coa-admin-unlock-btn{width:100%;margin-top:14px;padding:13px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:10px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;cursor:pointer;text-transform:uppercase;}
-.coa-admin-err{margin-top:8px;font-size:12.5px;color:#ff6b6b;min-height:16px;}
-.secret-coa-btn{background:none;border:none;color:var(--ep);opacity:.7;font-size:.75em;vertical-align:middle;padding:0 0 0 12px;cursor:pointer;transition:opacity .2s;}
-.secret-coa-btn:hover{opacity:1;}
-.coa-remove-btn{display:flex;align-items:center;justify-content:center;gap:5px;padding:7px;background:rgba(185,28,28,.12);border:1.5px solid rgba(185,28,28,.35);border-radius:9px;color:#ff6b6b;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.coa-remove-btn:hover{background:rgba(185,28,28,.25);border-color:#ff6b6b;}
-
 /* ── INFO SECTION ── */
 .info-card{background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:22px 24px;margin-bottom:14px;}
 .info-card h4{font-family:'Rajdhani',sans-serif;font-size:17px;color:var(--ep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;}
@@ -227,8 +192,8 @@ footer a{color:var(--ep);text-decoration:none;}
 
 <section id="coa-catalog">
   <div class="sec-head reveal">
-    <h2 class="sec-title">COA <b>LIBRARY</b><button class="secret-coa-btn" onclick="openCoaAdmin()" aria-label="Admin">⚙️</button></h2>
-    <p class="sec-sub">Click <b style="color:var(--ep);">View COA</b> to open the PDF document. COAs are added by admin only.</p>
+    <h2 class="sec-title">COA <b>LIBRARY</b></h2>
+    <p class="sec-sub">Click <b style="color:var(--ep);">View COA</b> to open the PDF document.</p>
   </div>
   <div class="coa-controls">
     <input type="text" id="coaSearch" placeholder="🔍 Search compounds…" oninput="renderCOAs()"/>
@@ -278,7 +243,7 @@ footer a{color:var(--ep);text-decoration:none;}
       </div>
       <div style="display:flex;gap:12px;align-items:flex-start;">
         <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">4</div>
-        <p style="margin:0;padding-top:3px;">Open the COA Library as admin → click <b style="color:var(--ep);">✏️ Add COA Link</b> on the product → paste the link → Save</p>
+        <p style="margin:0;padding-top:3px;">Send the link to whoever maintains the site so they can add it to the product data</p>
       </div>
     </div>
   </div>
@@ -312,37 +277,6 @@ footer a{color:var(--ep);text-decoration:none;}
   <p><b style="color:var(--ep);">21+ ONLY.</b> All products are for <b>research purposes only</b> and are <b>not for human consumption</b>. Not evaluated by the FDA.</p>
   <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides</p>
 </footer>
-
-<div id="coaAdminOv" onclick="if(event.target===this)closeCoaAdmin()">
-  <div class="coa-admin-modal">
-    <button class="modal-close" onclick="closeCoaAdmin()">×</button>
-    <div style="font-size:38px;margin-bottom:8px;">🔒</div>
-    <h3>ADMIN ACCESS</h3>
-    <p>Enter the admin password to manage COA links.</p>
-    <input type="password" id="coaAdminPw" placeholder="Admin password" onkeydown="if(event.key==='Enter')submitCoaAdminPw()"/>
-    <button class="coa-admin-unlock-btn" onclick="submitCoaAdminPw()">🔓 UNLOCK</button>
-    <div class="coa-admin-err" id="coaAdminErr"></div>
-  </div>
-</div>
-
-<div id="uploadOv" onclick="if(event.target===this)closeUploadModal()">
-  <div class="upload-modal">
-    <button class="modal-close" onclick="closeUploadModal()">×</button>
-    <h3>📄 ADD / EDIT COA LINK</h3>
-    <p>Paste the Google Drive share link for this compound's COA PDF.</p>
-    <label>Product</label>
-    <select id="uploadProd"></select>
-    <label>COA Share Link (Google Drive)</label>
-    <input type="url" id="uploadUrl" placeholder="https://drive.google.com/file/d/…/view?usp=sharing"/>
-    <div class="gdrive-steps">
-      <div class="step-row"><div class="snum">1</div><div class="stxt">Upload PDF to <b>Google Drive</b></div></div>
-      <div class="step-row"><div class="snum">2</div><div class="stxt">Right-click → <b>Share</b> → set to <b>"Anyone with the link"</b></div></div>
-      <div class="step-row"><div class="snum">3</div><div class="stxt">Click <b>Copy link</b> and paste it above</div></div>
-    </div>
-    <button class="upload-save-btn" onclick="saveCOALink()">💾 SAVE COA LINK</button>
-    <div class="upload-status" id="uploadStatus"></div>
-  </div>
-</div>
 
 <script>
 if(sessionStorage.getItem('umf_unlocked')!=='1'){ location.href='index.html'; }
@@ -389,24 +323,6 @@ function toggleNav(){
   document.getElementById('hbgBtn').classList.toggle('active');
 }
 
-/* ── COA ADMIN AUTH ── */
-const COA_ADMIN_PASSWORD="Bo$$vibes!";
-let coaAdminUnlocked=sessionStorage.getItem('umf_shop_admin_unlocked')==='1';
-function openCoaAdmin(){
-  if(coaAdminUnlocked){ alert('Admin already unlocked. Use the ✏️ Add COA Link buttons on each product card.'); return; }
-  document.getElementById('coaAdminOv').classList.add('on');
-  document.getElementById('coaAdminPw').value='';
-  document.getElementById('coaAdminErr').textContent='';
-  setTimeout(()=>document.getElementById('coaAdminPw').focus(),100);
-}
-function closeCoaAdmin(){ document.getElementById('coaAdminOv').classList.remove('on'); }
-function submitCoaAdminPw(){
-  const pw=document.getElementById('coaAdminPw').value;
-  if(pw!==COA_ADMIN_PASSWORD){ document.getElementById('coaAdminErr').textContent='Incorrect password.'; return; }
-  coaAdminUnlocked=true; sessionStorage.setItem('umf_shop_admin_unlocked','1');
-  closeCoaAdmin(); renderCOAs();
-}
-
 /* ── COA DATA ── */
 let coaLinks={};
 try{ coaLinks=JSON.parse(localStorage.getItem('ep_coa_links')||'{}'); }catch(e){}
@@ -440,10 +356,6 @@ function renderCOAs(){
     const cat=CATS.find(c=>c.key===p.cat);
     const url=coaLinks[p.key]||'';
     const imgHtml=p.img?`<div class="coa-card-img"><img src="${p.img}" alt="${p.name}"/></div>`:'';
-    const adminBtns=coaAdminUnlocked?`
-      <button class="coa-upload-btn" onclick="openUploadModal('${p.key}')">✏️ ${url?'Edit':'Add'} COA Link</button>
-      ${url?`<button class="coa-remove-btn" onclick="removeCOALink('${p.key}')">🗑 Remove COA</button>`:''}
-    `:'';
     return `<div class="coa-card">
       ${imgHtml}
       <h3>${p.name}</h3>
@@ -452,39 +364,11 @@ function renderCOAs(){
       ${url
         ? `<a class="coa-link-btn" href="${url}" target="_blank" rel="noopener">📄 View COA</a>`
         : `<div class="coa-pending">⏳ COA Coming Soon</div>`}
-      ${adminBtns}
     </div>`;
   }).join('');
 }
 renderCOAs();
 loadDriveCOAs();
-
-/* ── UPLOAD MODAL ── */
-function openUploadModal(preselect){
-  const sel=document.getElementById('uploadProd');
-  sel.innerHTML=STARTER_PRODUCTS.map(p=>`<option value="${p.key}" ${p.key===preselect?'selected':''}>${p.name}</option>`).join('');
-  document.getElementById('uploadUrl').value=preselect&&coaLinks[preselect]?coaLinks[preselect]:'';
-  document.getElementById('uploadStatus').textContent='';
-  document.getElementById('uploadOv').classList.add('on');
-}
-function closeUploadModal(){ document.getElementById('uploadOv').classList.remove('on'); }
-function saveCOALink(){
-  const key=document.getElementById('uploadProd').value;
-  const url=document.getElementById('uploadUrl').value.trim();
-  const status=document.getElementById('uploadStatus');
-  if(!url){ status.style.color='#ff6b6b'; status.textContent='Please enter a URL.'; return; }
-  coaLinks[key]=url;
-  localStorage.setItem('ep_coa_links',JSON.stringify(coaLinks));
-  status.style.color='var(--ep)'; status.textContent='✅ COA link saved!';
-  renderCOAs();
-  setTimeout(closeUploadModal,1200);
-}
-function removeCOALink(key){
-  if(!confirm('Remove the COA link for this product?')) return;
-  delete coaLinks[key];
-  localStorage.setItem('ep_coa_links',JSON.stringify(coaLinks));
-  renderCOAs();
-}
 
 /* ── SCROLL REVEAL ── */
 (function(){
@@ -492,6 +376,5 @@ function removeCOALink(key){
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
-<script src="page-editor.js"></script>
 </body>
 </html>

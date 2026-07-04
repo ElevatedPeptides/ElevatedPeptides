@@ -225,44 +225,6 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1200px;margin:0 
 .modal-mail{background:linear-gradient(90deg,var(--ep2),var(--ep));color:#000;}
 .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--dim);font-size:22px;cursor:pointer;}
 
-/* ── ADMIN BUTTON ── */
-.secret-admin-btn{background:none;border:none;color:var(--dim);opacity:.3;font-size:.55em;vertical-align:middle;padding:0 0 0 10px;cursor:pointer;transition:opacity .2s;}
-.secret-admin-btn:hover{opacity:1;}
-
-/* ── ADMIN MODAL ── */
-#shopAdminOv{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:960;display:none;align-items:center;justify-content:center;padding:20px;}
-#shopAdminOv.on{display:flex;}
-.shop-admin-modal{position:relative;background:var(--card);border:1.5px solid var(--ep2);border-radius:20px;padding:30px;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 0 60px rgba(0,229,204,.15);}
-.shop-admin-modal h3{font-family:'Rajdhani',sans-serif;font-size:20px;color:var(--ep);margin-bottom:6px;text-align:center;letter-spacing:.08em;}
-.shop-admin-modal h4.admin-subhead{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--ep);margin:6px 0 14px;letter-spacing:.05em;}
-.shop-admin-modal p{font-size:13px;color:var(--dim);margin-bottom:18px;text-align:center;line-height:1.5;}
-.admin-auth-icon{font-size:42px;text-align:center;margin-bottom:6px;}
-.shop-admin-modal label{display:block;font-size:12px;color:var(--ep);font-weight:700;margin-bottom:5px;margin-top:14px;font-family:'Montserrat',sans-serif;}
-.shop-admin-modal input[type=text],.shop-admin-modal input[type=password],.shop-admin-modal input[type=number],.shop-admin-modal select{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;}
-.shop-admin-modal input:focus,.shop-admin-modal select:focus{border-color:var(--ep);}
-.admin-unlock-btn{width:100%;margin-top:18px;padding:13px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:10px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;cursor:pointer;text-transform:uppercase;}
-.admin-auth-err{margin-top:10px;font-size:12.5px;text-align:center;color:#ff6b6b;min-height:16px;}
-#adminProductList{max-height:340px;overflow-y:auto;margin-top:14px;display:flex;flex-direction:column;gap:10px;padding-right:4px;}
-.admin-product-row{background:rgba(0,20,20,.8);border:1px solid var(--bp);border-radius:12px;padding:14px;}
-.admin-product-row b{display:block;font-size:13.5px;color:var(--tx);margin-bottom:8px;}
-.admin-opt-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
-.admin-opt-row{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.03);border:1px solid var(--bp);border-radius:8px;padding:5px 8px;}
-.admin-opt-row span{font-size:12px;color:var(--dim);}
-.admin-price-input{width:70px!important;padding:5px 7px!important;font-size:12.5px!important;border-radius:6px!important;}
-.admin-label-input{width:80px!important;padding:5px 7px!important;font-size:12.5px!important;border-radius:6px!important;}
-.admin-stock-label{display:flex!important;align-items:center;gap:8px;font-size:12.5px;color:var(--ep);margin:8px 0!important;}
-.admin-stock-input{width:80px!important;padding:6px 8px!important;font-size:12.5px!important;}
-.admin-save-btn{padding:8px 16px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:8px;color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;cursor:pointer;}
-.admin-save-msg{margin-left:10px;font-size:12px;color:var(--ep);}
-.admin-empty{text-align:center;color:var(--dim);font-size:13px;padding:16px;}
-.admin-cat-tab{padding:6px 14px;border:1.5px solid var(--bp);border-radius:20px;background:rgba(0,229,204,.05);color:var(--tx);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
-.admin-cat-tab:hover{border-color:var(--ep);color:var(--ep);}
-.admin-cat-tab.active{background:linear-gradient(90deg,var(--ep2),#004d3d);border-color:var(--ep);color:#fff;}
-.new-opt-row{display:flex;gap:8px;margin-bottom:8px;align-items:center;}
-.new-opt-row input{flex:1;}
-.new-opt-row button{flex-shrink:0;background:none;border:1px solid var(--bp);border-radius:8px;color:#ff6b6b;width:34px;height:34px;cursor:pointer;}
-.add-opt-btn{width:100%;padding:9px;background:rgba(0,229,204,.08);border:1.5px dashed var(--ep);border-radius:9px;color:var(--ep);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;cursor:pointer;margin-top:4px;}
-
 /* ── FIGHTER PRAYER ── */
 @keyframes prayerGlow{0%,100%{text-shadow:0 0 18px rgba(0,229,204,.5),0 0 40px rgba(0,229,204,.2);}50%{text-shadow:0 0 32px rgba(0,229,204,.9),0 0 70px rgba(0,229,204,.4);}}
 .fighter-prayer-section{position:relative;z-index:2;padding:60px 24px;text-align:center;background:linear-gradient(180deg,transparent 0%,rgba(0,229,204,.04) 40%,rgba(0,229,204,.07) 60%,transparent 100%);border-top:1px solid rgba(0,229,204,.15);border-bottom:1px solid rgba(0,229,204,.15);}
@@ -337,7 +299,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     <img src="logo.png" alt="Elevated Peptides" data-ep-img="shop-badge-logo"/>
   </div>
   <div class="pagehead-text reveal">
-    <h1 data-ep-text="shop-title">The <b>Shop</b><button class="secret-admin-btn" onclick="openShopAdmin()" aria-label="Admin">⚙️</button></h1>
+    <h1 data-ep-text="shop-title">The <b>Shop</b></h1>
     <p data-ep-text="shop-sub">Browse the catalog, add your research compounds to the cart, then complete checkout right here.</p>
   </div>
   <div class="ep-vial-hero">
@@ -406,7 +368,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
 
 <footer>
   <p><b style="color:var(--ep);">21+ ONLY.</b> All products sold by Elevated Peptides are <b>for research purposes only</b> and are <b>not for human consumption</b>. Not evaluated by the FDA.</p>
-  <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides. <a onclick="openAdmin()">Admin</a></p>
+  <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides.</p>
 </footer>
 
 <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⬆</button>
@@ -459,66 +421,6 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     <div class="modal-btns">
       <button class="modal-copy" onclick="copyModalOrder()">📋 Copy Order</button>
       <a class="modal-mail" id="modalMailBtn" href="#">📧 Open in Email App</a>
-    </div>
-  </div>
-</div>
-
-<div id="shopAdminOv" onclick="if(event.target===this)closeShopAdmin()">
-  <div class="shop-admin-modal">
-    <button class="modal-close" onclick="closeShopAdmin()">×</button>
-
-    <div id="shopAdminAuthView">
-      <div class="admin-auth-icon">⚙️</div>
-      <h3>ADMIN ACCESS</h3>
-      <p>Enter the admin password to manage the catalog.</p>
-      <input type="password" id="shopAdminPwInput" placeholder="Admin password" onkeydown="if(event.key==='Enter')submitShopAdminPw()"/>
-      <button class="admin-unlock-btn" onclick="submitShopAdminPw()">🔓 UNLOCK</button>
-      <div class="admin-auth-err" id="shopAdminAuthErr"></div>
-    </div>
-
-    <div id="shopAdminPanelView" style="display:none;">
-      <h3>⚙️ MANAGE CATALOG</h3>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
-        <button class="admin-cat-tab active" onclick="setAdminCatFilter('all',this)">All</button>
-        <button class="admin-cat-tab" onclick="setAdminCatFilter('peptides',this)">🧬 Peptides</button>
-        <button class="admin-cat-tab" onclick="setAdminCatFilter('cosmetics',this)">💆 Cosmetics</button>
-        <button class="admin-cat-tab" onclick="setAdminCatFilter('supplies',this)">💧 Supplies</button>
-      </div>
-      <input type="text" id="adminSearchInput" placeholder="🔍 Search products…" oninput="renderAdminProductList()" style="margin-bottom:8px;"/>
-      <div id="adminProductList"></div>
-
-      <div class="ep-line" style="margin:20px auto;"></div>
-
-      <h4 class="admin-subhead">➕ ADD NEW PRODUCT</h4>
-      <label>Name</label>
-      <input type="text" id="newProdName" placeholder="e.g. Epitalon 25mg"/>
-      <label>Category</label>
-      <select id="newProdCat"></select>
-      <label>Note / Description <span style="font-weight:400;color:var(--dim)">(optional)</span></label>
-      <input type="text" id="newProdNote" placeholder="e.g. Anti-aging peptide"/>
-      <label>Image path <span style="font-weight:400;color:var(--dim)">(optional)</span></label>
-      <input type="text" id="newProdImg" placeholder="VIALSJP/5004.png"/>
-      <label>Price Options</label>
-      <div id="newProdOpts"></div>
-      <button type="button" class="add-opt-btn" onclick="addNewProdOptRow()">+ Add Price Option</button>
-      <label>Starting Stock</label>
-
-      <div class="ep-line" style="margin:20px auto;"></div>
-
-      <h4 class="admin-subhead">🗂️ ADD NEW CATEGORY</h4>
-      <label>Category Key <span style="font-weight:400;color:var(--dim)">(no spaces)</span></label>
-      <input type="text" id="newCatKey" placeholder="bundles"/>
-      <label>Display Label</label>
-      <input type="text" id="newCatLabel" placeholder="Bundles"/>
-      <label>Emoji</label>
-      <input type="text" id="newCatEmoji" placeholder="📦" style="max-width:80px;"/>
-      <button type="button" class="add-opt-btn" style="margin-top:10px;" onclick="submitNewCategory()">➕ Create Category</button>
-      <div id="newCatStatus" style="font-size:12px;margin-top:6px;min-height:16px;"></div>
-
-      <div style="margin-top:6px;"></div>
-      <input type="number" id="newProdStock" value="20" min="0"/>
-      <button class="admin-unlock-btn" onclick="submitNewProduct()">➕ ADD TO SHOP</button>
-      <div class="admin-auth-err" id="newProdStatus"></div>
     </div>
   </div>
 </div>
@@ -783,107 +685,11 @@ function openEmailModal(){
 function closeEmailModal(){ document.getElementById('emailModalOv').classList.remove('on'); }
 function copyModalOrder(){ const text=document.getElementById('modalBody').value; navigator.clipboard.writeText(text).then(()=>{ const btn=document.querySelector('.modal-copy'); const orig=btn.textContent; btn.textContent='✅ Copied!'; setTimeout(()=>{ btn.textContent=orig; },2000); }); }
 
-/* ══ IMAGE UPLOADS ══ */
-function saveImgData(key,dataUrl){
-  let m={}; try{m=JSON.parse(localStorage.getItem('umf_img_data')||'{}');}catch(e){}
-  m[key]=dataUrl; localStorage.setItem('umf_img_data',JSON.stringify(m));
-}
-function handleImgUpload(key,input){
-  if(!input.files||!input.files[0]) return;
-  const reader=new FileReader();
-  reader.onload=function(e){
-    const dataUrl=e.target.result;
-    saveImgData(key,dataUrl);
-    const p=products.find(x=>x.key===key); if(p) p.img=dataUrl;
-    const prev=document.getElementById('adminImgPreview-'+key);
-    if(prev){prev.src=dataUrl;prev.style.display='block';}
-    const msg=document.getElementById('adminMsg-'+key);
-    if(msg){msg.textContent='✅ Image uploaded!';setTimeout(()=>{if(msg)msg.textContent='';},2200);}
-    renderProducts();
-  };
-  reader.readAsDataURL(input.files[0]);
-}
-function removeImgUpload(key){
-  let m={}; try{m=JSON.parse(localStorage.getItem('umf_img_data')||'{}');}catch(e){}
-  delete m[key]; localStorage.setItem('umf_img_data',JSON.stringify(m));
-  const p=products.find(x=>x.key===key); if(p) p.img=null;
-  const prev=document.getElementById('adminImgPreview-'+key);
-  if(prev){prev.src='';prev.style.display='none';}
-  renderProducts();
-}
-
-/* ══ ADMIN ══ */
-const ADMIN_PASSWORD="Bo$$vibes!";
-let shopAdminUnlocked=sessionStorage.getItem('umf_shop_admin_unlocked')==='1';
-function openAdmin(){ openShopAdmin(); }
-function openShopAdmin(){
-  document.getElementById('shopAdminOv').classList.add('on');
-  if(shopAdminUnlocked){ document.getElementById('shopAdminAuthView').style.display='none'; document.getElementById('shopAdminPanelView').style.display='block'; populateNewProdCatSelect(); renderAdminProductList(); }
-  else { document.getElementById('shopAdminAuthView').style.display='block'; document.getElementById('shopAdminPanelView').style.display='none'; document.getElementById('shopAdminPwInput').value=''; document.getElementById('shopAdminAuthErr').textContent=''; }
-}
-function closeShopAdmin(){ document.getElementById('shopAdminOv').classList.remove('on'); }
-function submitShopAdminPw(){
-  const pw=document.getElementById('shopAdminPwInput').value;
-  if(pw!==ADMIN_PASSWORD){ document.getElementById('shopAdminAuthErr').textContent='Incorrect password.'; return; }
-  shopAdminUnlocked=true; sessionStorage.setItem('umf_shop_admin_unlocked','1');
-  document.getElementById('shopAdminAuthView').style.display='none'; document.getElementById('shopAdminPanelView').style.display='block';
-  populateNewProdCatSelect(); renderAdminProductList();
-}
-let adminCatFilter='all';
-function setAdminCatFilter(cat,btn){ adminCatFilter=cat; document.querySelectorAll('.admin-cat-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderAdminProductList(); }
-function renderAdminProductList(){
-  const root=document.getElementById('adminProductList');
-  const term=document.getElementById('adminSearchInput').value.trim().toLowerCase();
-  let list=products.slice();
-  if(adminCatFilter!=='all') list=list.filter(p=>p.cat===adminCatFilter);
-  if(term) list=list.filter(p=>p.name.toLowerCase().includes(term));
-  if(!list.length){ root.innerHTML='<p class="admin-empty">No products found.</p>'; return; }
-  root.innerHTML=list.map(p=>{
-    const catLabel=CATS.find(c=>c.key===p.cat);
-    const optsHtml=p.opts.map((o,i)=>`<div class="admin-opt-row"><input type="text" class="admin-label-input" data-key="${p.key}" data-i="${i}" value="${o[0]}"/><span>$</span><input type="number" step="0.01" min="0" class="admin-price-input" data-key="${p.key}" data-i="${i}" value="${o[1]}"/></div>`).join('');
-    const hasUploadedImg = p.img && p.img.startsWith('data:');
-    return `<div class="admin-product-row"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;"><div><b>${p.name}</b><span style="font-size:11px;color:var(--dim);margin-left:8px;">${catLabel?catLabel.emoji+' '+catLabel.label:p.cat}</span></div><button onclick="deleteAdminProduct('${p.key}')" style="background:rgba(185,28,28,.15);border:1px solid rgba(185,28,28,.4);color:#ff6b6b;border-radius:6px;padding:3px 10px;font-size:12px;cursor:pointer;flex-shrink:0;">🗑 Delete</button></div><div class="admin-opt-grid" style="margin-top:8px;">${optsHtml}</div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;"><label class="admin-stock-label">Stock: <input type="number" min="0" class="admin-stock-input" id="adminStock-${p.key}" value="${p.stock}" style="width:70px;"/></label></div><div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;"><div style="flex:1;min-width:160px;"><div style="font-size:11px;color:var(--ep);font-weight:700;margin-bottom:5px;font-family:'Montserrat',sans-serif;">PRODUCT IMAGE</div><label style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:linear-gradient(90deg,var(--ep2),var(--ep));border-radius:8px;color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;"><span>📁 Upload Image</span><input type="file" accept="image/*" style="display:none;" onchange="handleImgUpload('${p.key}',this)"/></label>${hasUploadedImg?`<button onclick="removeImgUpload('${p.key}')" style="margin-left:8px;background:rgba(185,28,28,.15);border:1px solid rgba(185,28,28,.4);color:#ff6b6b;border-radius:6px;padding:6px 10px;font-size:11px;cursor:pointer;">✕ Remove</button>`:''}</div>${p.img?`<img id="adminImgPreview-${p.key}" src="${p.img}" style="width:72px;height:72px;object-fit:cover;border-radius:8px;border:1.5px solid var(--bp);display:block;" onerror="this.style.display='none'"/>`:`<div id="adminImgPreview-${p.key}" style="width:72px;height:72px;border:1.5px dashed var(--bp);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--dim);">No img</div>`}</div><button class="admin-save-btn" onclick="saveAdminProductRow('${p.key}')" style="margin-top:8px;">💾 Save Changes</button><span class="admin-save-msg" id="adminMsg-${p.key}"></span></div>`;
-  }).join('');
-}
-function deleteAdminProduct(key){ if(!confirm('Delete this product?')) return; const idx=products.findIndex(p=>p.key===key); if(idx===-1) return; products.splice(idx,1); saveCustomProducts(); renderProducts(); renderAdminProductList(); }
-function saveAdminProductRow(key){
-  const p=products.find(x=>x.key===key); if(!p) return;
-  document.querySelectorAll(`.admin-label-input[data-key="${key}"]`).forEach(inp=>{ const i=parseInt(inp.dataset.i); const val=inp.value.trim(); if(val&&p.opts[i]) p.opts[i][0]=val; });
-  document.querySelectorAll(`.admin-price-input[data-key="${key}"]`).forEach(inp=>{ const i=parseInt(inp.dataset.i); const val=parseFloat(inp.value); if(!isNaN(val)) p.opts[i][1]=val; });
-  const si=document.getElementById(`adminStock-${key}`); if(si){ const v=parseInt(si.value); if(!isNaN(v)) p.stock=v; }
-  saveInventory(); savePriceOverride(key,p.opts); saveLabelOverride(key,p.opts); saveCustomProducts(); renderProducts(); renderAdminProductList();
-  const msg=document.getElementById(`adminMsg-${key}`); if(msg){ msg.textContent='✅ Saved'; setTimeout(()=>{ if(msg) msg.textContent=''; },2000); }
-}
-function populateNewProdCatSelect(){ document.getElementById('newProdCat').innerHTML=CATS.map(c=>`<option value="${c.key}">${c.emoji} ${c.label}</option>`).join(''); }
-function addNewProdOptRow(){ const root=document.getElementById('newProdOpts'); const row=document.createElement('div'); row.className='new-opt-row'; row.innerHTML=`<input type="text" placeholder="Label (e.g. 10mg Vial)" class="new-opt-label"/><input type="number" step="0.01" placeholder="Price" class="new-opt-price"/><button type="button" onclick="this.parentElement.remove()">✕</button>`; root.appendChild(row); }
-function submitNewProduct(){
-  const status=document.getElementById('newProdStatus');
-  const name=document.getElementById('newProdName').value.trim(),cat=document.getElementById('newProdCat').value,note=document.getElementById('newProdNote').value.trim(),img=document.getElementById('newProdImg').value.trim()||null,stock=parseInt(document.getElementById('newProdStock').value)||0;
-  const opts=[]; document.querySelectorAll('#newProdOpts .new-opt-row').forEach(row=>{ const label=row.querySelector('.new-opt-label').value.trim(),price=parseFloat(row.querySelector('.new-opt-price').value); if(label&&!isNaN(price)) opts.push([label,price]); });
-  if(!name||!opts.length){ status.style.color='#ff6b6b'; status.textContent='⚠️ Enter a name and at least one price option.'; return; }
-  const key='custom'+Date.now();
-  products.push({name,cat,opts,stock,note,img,key}); saveCustomProducts(); saveInventory(); renderProducts(); populateNewProdCatSelect();
-  status.style.color='var(--ep)'; status.textContent=`✅ "${name}" added!`;
-  ['newProdName','newProdNote','newProdImg'].forEach(id=>{ document.getElementById(id).value=''; });
-  document.getElementById('newProdOpts').innerHTML=''; document.getElementById('newProdStock').value='20'; renderAdminProductList();
-}
-function submitNewCategory(){
-  const status=document.getElementById('newCatStatus');
-  const key=document.getElementById('newCatKey').value.trim().replace(/\s+/g,'').toLowerCase(),label=document.getElementById('newCatLabel').value.trim(),emoji=document.getElementById('newCatEmoji').value.trim()||'📦';
-  if(!key||!label){ status.style.color='#ff6b6b'; status.textContent='⚠️ Key and label required.'; return; }
-  if(CATS.find(c=>c.key===key)){ status.style.color='#ff6b6b'; status.textContent='⚠️ Key already exists.'; return; }
-  CATS.push({key,emoji,label}); populateNewProdCatSelect();
-  const tabBar=document.querySelector('#shopAdminPanelView>div:first-child'); const newBtn=document.createElement('button'); newBtn.className='admin-cat-tab'; newBtn.textContent=`${emoji} ${label}`; newBtn.onclick=function(){ setAdminCatFilter(key,this); }; tabBar.appendChild(newBtn);
-  ['newCatKey','newCatLabel','newCatEmoji'].forEach(id=>{ document.getElementById(id).value=''; });
-  status.style.color='var(--ep)'; status.textContent=`✅ Category "${label}" created!`; renderProducts();
-}
-
 /* ══ SCROLL REVEAL ══ */
 (function(){
   const io=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i%3*90); io.unobserve(e.target); } }); },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
-<script src="page-editor.js"></script>
 </body>
 </html>

@@ -494,22 +494,7 @@ renderCatTabs();
 
 /* ══ PRODUCTS ══ */
 function loadProducts(){
-  let list=STARTER_PRODUCTS.map(p=>({...p,opts:p.opts.map(o=>[...o])}));
-  try{ const d=JSON.parse(localStorage.getItem('umf_deleted_keys')||'[]'); if(d.length) list=list.filter(p=>!d.includes(p.key)); }catch(e){}
-  try{ const c=JSON.parse(localStorage.getItem('umf_custom_products')||'[]'); list=list.concat(c); }catch(e){}
-  try{ const s=JSON.parse(localStorage.getItem('umf_inventory')||'{}'); list.forEach(p=>{ if(s[p.key]!=null) p.stock=s[p.key]; }); }catch(e){}
-  try{ const pm=JSON.parse(localStorage.getItem('umf_price_overrides')||'{}'); list.forEach(p=>{ if(pm[p.key]) pm[p.key].forEach((price,i)=>{ if(price!=null&&p.opts[i]) p.opts[i][1]=price; }); }); }catch(e){}
-  try{ const lm=JSON.parse(localStorage.getItem('umf_label_overrides')||'{}'); list.forEach(p=>{ if(lm[p.key]) lm[p.key].forEach((label,i)=>{ if(label!=null&&p.opts[i]) p.opts[i][0]=label; }); }); }catch(e){}
-  try{ const im=JSON.parse(localStorage.getItem('umf_img_data')||'{}'); list.forEach(p=>{ if(im[p.key]) p.img=im[p.key]; }); }catch(e){}
-  return list;
-}
-function saveInventory(){ const m={}; products.forEach(p=>m[p.key]=p.stock); localStorage.setItem('umf_inventory',JSON.stringify(m)); }
-function savePriceOverride(key,opts){ let m={}; try{m=JSON.parse(localStorage.getItem('umf_price_overrides')||'{}');}catch(e){} m[key]=opts.map(o=>o[1]); localStorage.setItem('umf_price_overrides',JSON.stringify(m)); }
-function saveLabelOverride(key,opts){ let m={}; try{m=JSON.parse(localStorage.getItem('umf_label_overrides')||'{}');}catch(e){} m[key]=opts.map(o=>o[0]); localStorage.setItem('umf_label_overrides',JSON.stringify(m)); }
-function saveCustomProducts(){
-  localStorage.setItem('umf_custom_products',JSON.stringify(products.filter(p=>p.key.startsWith('custom'))));
-  const sk=STARTER_PRODUCTS.map(p=>p.key);
-  localStorage.setItem('umf_deleted_keys',JSON.stringify(sk.filter(k=>!products.find(p=>p.key===k))));
+  return STARTER_PRODUCTS.map(p=>({...p,opts:p.opts.map(o=>[...o])}));
 }
 let products=loadProducts();
 
@@ -562,8 +547,7 @@ function renderProducts(){
       const sl=stockLabel(p);
       const isInquire=p.opts[0][0]==='Inquire';
       const coaUrl=coaMap[p.key];
-      const savedImg=localStorage.getItem('ep_edit_img_prod-img-'+p.key);
-      const imgSrc=savedImg||(p.img||'SHOPVIALS.png');
+      const imgSrc=p.img||'SHOPVIALS.png';
       if(selectedOpts[p.key]===undefined) selectedOpts[p.key]=0;
       const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>$${o[1]}</span></button>`).join('')}</div>`;
       const addDisabled=(p.stock<=0||isInquire)?'disabled':'';
@@ -661,7 +645,7 @@ function submitOrder(){
   const subject=`⚡ EP Order — $${total.toFixed(2)}`;
   const body=buildOrderEmailText(name,email,address,notes);
   cart.forEach(c=>{ const p=products.find(x=>x.key===c.key); if(p) p.stock=Math.max(0,p.stock-c.qty); });
-  saveInventory(); renderProducts();
+  renderProducts();
   status.style.color='var(--ep)'; status.textContent='⚡ Opening your email app — just hit Send to complete your order!';
   window.location.href=`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   cart=[]; updateCartUI();

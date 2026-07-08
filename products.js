@@ -36,8 +36,8 @@ const STARTER_PRODUCTS = [
   P('bacwater','BAC Water',        'supplies', [['10ml', 7]],       30, 'Bacteriostatic water for reconstitution', 'SHOPVIALS.png'),
 
   // ── Cosmetics ──
-  P('ghkcuserum',  'GHK-Cu Serum',  'cosmetics', [['30ml', 58]], 25, 'Firms, smooths & restores radiance — copper peptide complex for visibly healthier-looking skin.', 'ghkcu-serum-30ml.png'),
-  P('ghkculotion', 'GHK-Cu Lotion', 'cosmetics', [['60g', 65]],  25, 'Deeply hydrating barrier-repair lotion with GHK-Cu — softer, firmer skin with daily use.', 'ghkcu-lotion-60g.jpg'),
+  P('ghkcuserum',  'GHK-Cu Serum',  'cosmetics', [['30ml', 58]], 0, 'Firms, smooths & restores radiance — copper peptide complex for visibly healthier-looking skin.', 'ghkcu-serum-30ml.png'),
+  P('ghkculotion', 'GHK-Cu Lotion', 'cosmetics', [['60g', 65]],  0, 'Deeply hydrating barrier-repair lotion with GHK-Cu — softer, firmer skin with daily use.', 'ghkcu-lotion-60g.jpg'),
 ];
 
 /* ══════════════════ COA HELPER — Google Drive file matching ══════════════════

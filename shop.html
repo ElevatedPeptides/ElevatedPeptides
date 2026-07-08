@@ -116,6 +116,8 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1200px;margin:0 
 /* ── CYBERPUNK PRODUCT CARD ── */
 .pcard{background:#070e0e;border:1.5px solid rgba(0,229,204,.28);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;transition:all .28s;position:relative;box-shadow:0 0 18px rgba(0,0,0,.5),0 0 12px rgba(0,229,204,.06);}
 .pcard:hover{transform:translateY(-6px);border-color:rgba(0,229,204,.75);box-shadow:0 14px 42px rgba(0,0,0,.55),0 0 32px rgba(0,229,204,.25);}
+@keyframes pcardHighlight{0%,100%{border-color:rgba(0,229,204,.28);box-shadow:0 0 18px rgba(0,0,0,.5),0 0 12px rgba(0,229,204,.06);}20%,60%{border-color:var(--ep);box-shadow:0 0 40px rgba(0,229,204,.7),0 0 70px rgba(0,229,204,.4);}}
+.pcard.highlight{animation:pcardHighlight 1.6s ease-in-out 2;}
 
 /* Image area */
 .pcard-img-wrap{position:relative;width:100%;height:190px;overflow:hidden;background:linear-gradient(160deg,#0c1e1e,#040c0c);flex-shrink:0;}
@@ -552,7 +554,7 @@ function renderProducts(){
       const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>$${o[1]}</span></button>`).join('')}</div>`;
       const addDisabled=(p.stock<=0||isInquire)?'disabled':'';
       const addLabel=isInquire?'?':(p.stock<=0?'✕':'+');
-      return `<div class="pcard">
+      return `<div class="pcard" id="pcard-${p.key}">
         <div class="pcard-img-wrap">
           <img class="product-shot" src="${imgSrc}" alt="${p.name}" data-ep-img="prod-img-${p.key}" onerror="this.src='SHOPVIALS.png'"/>
           <span class="pcard-code-badge">${p.key.toUpperCase().slice(0,10)}</span>
@@ -577,6 +579,20 @@ function renderProducts(){
 }
 renderProducts();
 loadCOAs();
+
+/* ══ JUMP TO SPECIFIC PRODUCT ══ */
+(function(){
+  const params=new URLSearchParams(window.location.search);
+  const key=params.get('product');
+  if(!key) return;
+  setTimeout(()=>{
+    const card=document.getElementById('pcard-'+key);
+    if(!card) return;
+    card.scrollIntoView({behavior:'smooth',block:'center'});
+    card.classList.add('highlight');
+    setTimeout(()=>card.classList.remove('highlight'),3400);
+  },300);
+})();
 
 window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 

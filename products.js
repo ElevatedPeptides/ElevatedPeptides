@@ -11,30 +11,30 @@ function P(key, name, cat, opts, stock = 25, note = null, img = null) {
 
 const STARTER_PRODUCTS = [
   // ── GLP-1 / Weight Management ──
-  P('tirz',    'Tirzepatide',       'peptides', [['10mg Vial', 50], ['30mg Vial', 90]],  20, 'Dual GLP-1 & GIP receptor agonist — metabolic research compound', 'SHOPVIALS.png'),
-  P('reta',    'Retatrutide',       'peptides', [['10mg Vial', 70], ['30mg Vial', 100]], 20, 'Triple agonist — GLP-1 · GIP · Glucagon receptor', 'SHOPVIALS.png'),
+  P('tirz',    'Tirzepatide',       'peptides', [['10mg Vial', 50], ['30mg Vial', 90]],  10, 'Dual GLP-1 & GIP receptor agonist — metabolic research compound', 'SHOPVIALS.png'),
+  P('reta',    'Retatrutide',       'peptides', [['10mg Vial', 70], ['30mg Vial', 100]], 10, 'Triple agonist — GLP-1 · GIP · Glucagon receptor', 'SHOPVIALS.png'),
 
   // ── Healing / Recovery ──
-  P('bpctb',   'BPC-157 / TB-500', 'peptides', [['10/10mg Combo', 90]], 20, 'Synergistic healing blend — tissue repair & recovery research', 'SHOPVIALS.png'),
+  P('bpctb',   'BPC-157 / TB-500', 'peptides', [['10/10mg Combo', 90]], 10, 'Synergistic healing blend — tissue repair & recovery research', 'SHOPVIALS.png'),
   P('klow80',  'KLOW 80',          'peptides', [['4-in-1 Blend', 110]], 10, 'Advanced four-in-one peptide blend — BPC-157 (10mg), TB-500 (10mg), KPV (10mg) & GHK-Cu (50mg). Supports tissue repair, accelerates post-treatment healing, manages inflammation, and improves skin health.', 'SHOPVIALS.png'),
 
   // ── Skin / Anti-Aging ──
-  P('ghkcu',   'GHK-Cu',           'peptides', [['100mg Vial', 30]], 25, 'Copper peptide — collagen synthesis & skin regeneration', 'SHOPVIALS.png'),
-  P('ss31',    'SS-31',            'peptides', [['10mg Vial', 50]],  20, 'Mitochondria-targeted peptide — oxidative stress & aging research', 'SHOPVIALS.png'),
+  P('ghkcu',   'GHK-Cu',           'peptides', [['100mg Vial', 30]], 10, 'Copper peptide — collagen synthesis & skin regeneration', 'SHOPVIALS.png'),
+  P('ss31',    'SS-31',            'peptides', [['10mg Vial', 50]],  10, 'Mitochondria-targeted peptide — oxidative stress & aging research', 'SHOPVIALS.png'),
 
   // ── Metabolic / Longevity ──
-  P('motsc',   'MOTS-c',           'peptides', [['10mg Vial', 40]], 25, 'Mitochondrial peptide — metabolic regulation & longevity research', 'SHOPVIALS.png'),
-  P('nad',     'NAD+',             'peptides', [['1000mg', 55]],    20, 'Nicotinamide adenine dinucleotide — cellular energy & anti-aging research', 'SHOPVIALS.png'),
+  P('motsc',   'MOTS-c',           'peptides', [['10mg Vial', 40]], 10, 'Mitochondrial peptide — metabolic regulation & longevity research', 'SHOPVIALS.png'),
+  P('nad',     'NAD+',             'peptides', [['1000mg', 55]],    10, 'Nicotinamide adenine dinucleotide — cellular energy & anti-aging research', 'SHOPVIALS.png'),
 
   // ── GH Peptides ──
-  P('cjipa',   'CJC-1295 / Ipamorelin', 'peptides', [['5/5mg Combo', 50]], 25, 'Classic GH-releasing synergy blend — pulsatile GH secretion research', 'SHOPVIALS.png'),
+  P('cjipa',   'CJC-1295 / Ipamorelin', 'peptides', [['5/5mg Combo', 50]], 10, 'Classic GH-releasing synergy blend — pulsatile GH secretion research', 'SHOPVIALS.png'),
 
   // ── Sexual Health ──
-  P('pt141',   'PT-141',           'peptides', [['10mg Vial', 35]], 20, 'Melanocortin receptor agonist — sexual function research compound', 'SHOPVIALS.png'),
-  P('mt2',     'Melanotan II',     'peptides', [['10mg Vial', 35]], 20, 'Melanocortin peptide — pigmentation & sexual arousal research', 'SHOPVIALS.png'),
+  P('pt141',   'PT-141',           'peptides', [['10mg Vial', 35]], 10, 'Melanocortin receptor agonist — sexual function research compound', 'SHOPVIALS.png'),
+  P('mt2',     'Melanotan II',     'peptides', [['10mg Vial', 35]], 10, 'Melanocortin peptide — pigmentation & sexual arousal research', 'SHOPVIALS.png'),
 
   // ── Supplies ──
-  P('bacwater','BAC Water',        'supplies', [['10ml', 7]],       30, 'Bacteriostatic water for reconstitution', 'SHOPVIALS.png'),
+  P('bacwater','BAC Water',        'supplies', [['10ml', 7]],       10, 'Bacteriostatic water for reconstitution', 'SHOPVIALS.png'),
 
   // ── Cosmetics ──
   P('ghkcuserum',  'GHK-Cu Serum',  'cosmetics', [['30ml', 58]], 0, 'Firms, smooths & restores radiance — copper peptide complex for visibly healthier-looking skin.', 'ghkcu-serum-30ml.png'),

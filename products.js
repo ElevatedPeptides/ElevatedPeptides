@@ -5,8 +5,8 @@ const CATS = [
   { key: 'supplies',   emoji: '💧', label: 'Supplies' },
 ];
 
-function P(key, name, cat, opts, stock = 25, note = null, img = null) {
-  return { key, name, cat, opts, stock, note, img };
+function P(key, name, cat, opts, stock = 25, note = null, img = null, detail = null) {
+  return { key, name, cat, opts, stock, note, img, detail };
 }
 
 const STARTER_PRODUCTS = [

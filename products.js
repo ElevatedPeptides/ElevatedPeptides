@@ -16,7 +16,7 @@ const STARTER_PRODUCTS = [
 
   // ── Healing / Recovery ──
   P('bpctb',   'BPC-157 / TB-500', 'peptides', [['10/10mg Combo', 90]], 10, 'Synergistic healing blend — tissue repair & recovery research', 'SHOPVIALS.png'),
-  P('klow80',  'KLOW 80',          'peptides', [['4-in-1 Blend', 110]], 10, 'Advanced four-in-one peptide blend — BPC-157 (10mg), TB-500 (10mg), KPV (10mg) & GHK-Cu (50mg). Supports tissue repair, accelerates post-treatment healing, manages inflammation, and improves skin health.', 'SHOPVIALS.png'),
+  P('klow80',  'KLOW 80',          'peptides', [['80mg 4-in-1 Blend', 110]], 10, 'Advanced four-in-one peptide blend — BPC-157 (10mg), TB-500 (10mg), KPV (10mg) & GHK-Cu (50mg). Supports tissue repair, accelerates post-treatment healing, manages inflammation, and improves skin health.', 'SHOPVIALS.png'),
 
   // ── Skin / Anti-Aging ──
   P('ghkcu',   'GHK-Cu',           'peptides', [['100mg Vial', 30]], 10, 'Copper peptide — collagen synthesis & skin regeneration', 'SHOPVIALS.png'),

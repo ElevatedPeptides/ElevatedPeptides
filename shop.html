@@ -67,13 +67,6 @@ nav{position:sticky;top:0;z-index:500;background:rgba(4,12,12,.92);backdrop-filt
 .pagehead p{color:var(--dim);font-size:14px;max-width:520px;margin:0 auto;}
 
 /* EP vial hero — octagon frame */
-.ep-vial-hero{position:relative;z-index:2;display:flex;justify-content:center;gap:22px;margin-top:28px;flex-wrap:wrap;align-items:flex-end;}
-.ep-vial-oct{flex-shrink:0;padding:5px;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);background:linear-gradient(135deg,rgba(0,229,204,.85),rgba(0,180,160,.4),rgba(0,229,204,.85));animation:shopOctaGlow 3.5s ease-in-out infinite;transition:filter .3s,transform .3s;width:min(260px,44vw);height:min(260px,44vw);}
-.ep-vial-oct.mid{width:min(320px,54vw);height:min(320px,54vw);animation-delay:.5s;}
-.ep-vial-oct img{display:block;width:100%;height:100%;object-fit:cover;clip-path:polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);}
-.ep-vial-oct:hover{transform:scale(1.06) translateY(-10px);filter:drop-shadow(0 0 45px rgba(0,229,204,.95)) drop-shadow(0 0 90px rgba(0,229,204,.6));animation-play-state:paused;}
-@media(max-width:700px){.ep-vial-oct{width:min(110px,28vw);height:min(110px,28vw);}.ep-vial-oct.mid{width:min(140px,34vw);height:min(140px,34vw);}.ep-vial-hero{gap:10px;}}
-
 .shop-disclaimer{position:relative;z-index:2;max-width:760px;margin:18px auto 0;text-align:center;background:rgba(4,12,12,.96);border:1px solid var(--bp);border-radius:12px;padding:12px 18px;font-size:12.5px;color:var(--dim);line-height:1.6;}
 .shop-disclaimer b{color:var(--ep);}
 .shop-disclaimer a{color:var(--ep);text-decoration:none;}
@@ -303,11 +296,6 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
   <div class="pagehead-text reveal">
     <h1 data-ep-text="shop-title">The <b>Shop</b></h1>
     <p data-ep-text="shop-sub">Browse the catalog, add your research compounds to the cart, then complete checkout right here.</p>
-  </div>
-  <div class="ep-vial-hero">
-    <div class="ep-vial-oct" style="transform:rotate(-5deg) translateY(10px);"><img data-ep-img="shop-oct-1" src="OCTAGONVIALS-teal.png" alt="EP vials"/></div>
-    <div class="ep-vial-oct mid"><img data-ep-img="shop-oct-2" src="OCTAGONVIALS-teal.png" alt="EP vials"/></div>
-    <div class="ep-vial-oct" style="transform:rotate(5deg) translateY(10px);"><img data-ep-img="shop-oct-3" src="OCTAGONVIALS-teal.png" alt="EP vials"/></div>
   </div>
 </div>
 

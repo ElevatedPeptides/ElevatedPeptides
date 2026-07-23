@@ -35,7 +35,7 @@
 | `terms.html` | Terms of service page |
 | `page-editor.js` | In-browser visual editor (advanced) |
 | `logo.png` | Your logo — replace with your own, keep the same filename |
-| `wallpaper.png` | Background image — replace with your own, keep the same filename |
+| `wallpaper.jpg` | Background image — replace with your own, keep the same filename |
 | `OCTAGONVIALS.png` | Hero vial display image (homepage + shop header) |
 | `SHOPVIALS.png` | Default product image used on product cards |
 | `ghkcu-serum-30ml.png` | GHK-Cu Serum product image |

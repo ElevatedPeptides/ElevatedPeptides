@@ -137,7 +137,7 @@ footer a{color:var(--ep);text-decoration:none;cursor:pointer;}
 
   <div class="contact-card reveal">
     <div class="icon">📧</div>
-    <a class="email-link" href="mailto:tkmorgan68@gmail.com">tkmorgan68@gmail.com</a>
+    <a class="email-link" href="mailto:epicresearch26@gmail.com">epicresearch26@gmail.com</a>
     <p class="note">For order status or tracking, please reference the name and email you used at checkout.</p>
   </div>
 
@@ -232,7 +232,7 @@ if(fallbackCart.length){
   document.getElementById('fallbackCard').style.display='block';
   document.getElementById('cartFallbackBody').textContent=buildOrderText();
   const total=fallbackCart.reduce((a,c)=>a+c.price*c.qty,0);
-  document.getElementById('mailFallbackBtn').href=`mailto:tkmorgan68@gmail.com?subject=${encodeURIComponent('⚡ EP Order $'+total.toFixed(2))}&body=${encodeURIComponent(buildOrderText())}`;
+  document.getElementById('mailFallbackBtn').href=`mailto:epicresearch26@gmail.com?subject=${encodeURIComponent('⚡ EP Order $'+total.toFixed(2))}&body=${encodeURIComponent(buildOrderText())}`;
 }
 function copyCartOrder(){
   navigator.clipboard.writeText(buildOrderText()).then(()=>{

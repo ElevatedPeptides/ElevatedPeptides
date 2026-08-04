@@ -634,7 +634,7 @@ function renderOrderSummary(){
   if(!cart.length){ el.innerHTML='Cart is empty — add items from the catalog above.'; return; }
   el.innerHTML=`<b>Order Summary</b><br>${cart.map(c=>`${c.qty} × ${c.name} (${c.label}) — $${(c.price*c.qty).toFixed(2)}`).join('<br>')}<br><b>Total: $${cartTotal().toFixed(2)}</b>`;
 }
-const OWNER_EMAIL="tkmorgan68@gmail.com";
+const OWNER_EMAIL="epicresearch26@gmail.com";
 function buildOrderEmailText(name,email,address,notes){
   const lines=cart.map(c=>`${c.qty} x ${c.name} (${c.label}) - $${c.price.toFixed(2)} each = $${(c.price*c.qty).toFixed(2)}`);
   return `New order from Elevated Peptides — payment not yet sent.\n\nORDER DETAILS\nCustomer: ${name||'(name)'}\nEmail: ${email||'(email)'}\nShipping Address:\n${address||'(address)'}\n\nItems:\n${lines.join('\n')}\n\nTOTAL: $${cartTotal().toFixed(2)}\n\nNotes: ${notes||'(none)'}`;

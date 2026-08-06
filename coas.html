@@ -231,23 +231,19 @@ footer a{color:var(--ep);text-decoration:none;}
   </div>
   <div class="info-card reveal" style="border-color:rgba(0,229,204,.4);background:rgba(0,229,204,.03);">
     <h4>📎 How COA Links Work</h4>
-    <p style="margin-bottom:12px;">Each COA is a PDF stored in Google Drive. To share one, follow these steps:</p>
+    <p style="margin-bottom:12px;">Each COA file (PDF, JPG, or PNG) lives directly in the website's files. To add or update one:</p>
     <div style="display:flex;flex-direction:column;gap:10px;">
       <div style="display:flex;gap:12px;align-items:flex-start;">
         <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">1</div>
-        <p style="margin:0;padding-top:3px;">Upload the PDF to <b style="color:var(--ep);">Google Drive</b></p>
+        <p style="margin:0;padding-top:3px;">On GitHub, click <b style="color:var(--ep);">Add file → Upload files</b> and drag in the COA file</p>
       </div>
       <div style="display:flex;gap:12px;align-items:flex-start;">
         <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">2</div>
-        <p style="margin:0;padding-top:3px;">Right-click the file → <b style="color:var(--ep);">Share</b> → under "General access" select <b style="color:var(--ep);">"Anyone with the link"</b></p>
+        <p style="margin:0;padding-top:3px;">Commit the upload directly to the <b style="color:var(--ep);">main</b> branch</p>
       </div>
       <div style="display:flex;gap:12px;align-items:flex-start;">
         <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">3</div>
-        <p style="margin:0;padding-top:3px;">Click <b style="color:var(--ep);">Copy link</b> — it will look like:<br/><span style="font-family:monospace;font-size:11px;color:var(--ep);background:rgba(0,0,0,.3);padding:3px 8px;border-radius:5px;display:inline-block;margin-top:4px;">https://drive.google.com/file/d/XXXXX/view?usp=sharing</span></p>
-      </div>
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">4</div>
-        <p style="margin:0;padding-top:3px;">Send the link to whoever maintains the site so they can add it to the product data</p>
+        <p style="margin:0;padding-top:3px;">Tell whoever maintains the site which file goes with which compound, and they'll link it in the product data</p>
       </div>
     </div>
   </div>
@@ -328,16 +324,6 @@ function toggleNav(){
 }
 
 /* ── COA DATA ── */
-let coaLinks={};
-try{ coaLinks=JSON.parse(localStorage.getItem('ep_coa_links')||'{}'); }catch(e){}
-async function loadDriveCOAs(){
-  const files=await fetchCOAFiles();
-  if(!files.length) return;
-  const matched=matchCOAFiles(STARTER_PRODUCTS,files);
-  Object.assign(coaLinks,matched);
-  renderCOAs();
-}
-
 let catFilter='all';
 function renderCatTabs(){
   const tabs=[{key:'all',emoji:'⚡',label:'All'},...CATS];
@@ -358,7 +344,7 @@ function renderCOAs(){
   if(!list.length){ document.getElementById('coaGrid').innerHTML='<div class="no-results">No compounds match your search.</div>'; return; }
   document.getElementById('coaGrid').innerHTML=list.map(p=>{
     const cat=CATS.find(c=>c.key===p.cat);
-    const url=coaLinks[p.key]||'';
+    const url=p.coa||'';
     const imgHtml=p.img?`<div class="coa-card-img"><img src="${p.img}" alt="${p.name}"/></div>`:'';
     return `<div class="coa-card">
       ${imgHtml}
@@ -372,7 +358,6 @@ function renderCOAs(){
   }).join('');
 }
 renderCOAs();
-loadDriveCOAs();
 
 /* ── SCROLL REVEAL ── */
 (function(){

@@ -488,14 +488,6 @@ function loadProducts(){
 }
 let products=loadProducts();
 
-let coaMap={};
-async function loadCOAs(forceRefresh){
-  const files=await fetchCOAFiles(forceRefresh);
-  if(!files.length) return;
-  coaMap=matchCOAFiles(products,files);
-  renderProducts();
-}
-
 function stockLabel(p){
   if(p.opts[0][0]==='Inquire') return {cls:'out',txt:p.note||'Inquire for pricing'};
   if(p.stock<=0) return {cls:'out',txt:'Out of stock'};
@@ -512,7 +504,7 @@ function showCompoundInfo(key){
   const p=products.find(x=>x.key===key); if(!p) return;
   const cat=CATS.find(c=>c.key===p.cat);
   const sl=stockLabel(p);
-  const coaUrl=coaMap[p.key];
+  const coaUrl=p.coa;
   document.getElementById('compInfoContent').innerHTML=`
     <div style="font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--ep);text-transform:uppercase;margin-bottom:6px;">${cat?.emoji||''} ${cat?.label||p.cat}</div>
     <h3 style="font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.1;">${p.name}</h3>
@@ -536,7 +528,7 @@ function renderProducts(){
     const cards=list.map(p=>{
       const sl=stockLabel(p);
       const isInquire=p.opts[0][0]==='Inquire';
-      const coaUrl=coaMap[p.key];
+      const coaUrl=p.coa;
       const imgSrc=p.img||'SHOPVIALS.png';
       if(selectedOpts[p.key]===undefined) selectedOpts[p.key]=0;
       const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>$${o[1]}</span></button>`).join('')}</div>`;
@@ -566,7 +558,6 @@ function renderProducts(){
   if(!any) root.innerHTML='<div class="no-results">No products match your search</div>';
 }
 renderProducts();
-loadCOAs();
 
 /* ══ JUMP TO SPECIFIC PRODUCT ══ */
 (function(){

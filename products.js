@@ -5,13 +5,13 @@ const CATS = [
   { key: 'supplies',   emoji: '💧', label: 'Supplies' },
 ];
 
-function P(key, name, cat, opts, stock = 25, note = null, img = null, detail = null) {
-  return { key, name, cat, opts, stock, note, img, detail };
+function P(key, name, cat, opts, stock = 25, note = null, img = null, detail = null, coa = null) {
+  return { key, name, cat, opts, stock, note, img, detail, coa };
 }
 
 const STARTER_PRODUCTS = [
   // ── GLP-1 / Weight Management ──
-  P('tirz',    'Tirzepatide',       'peptides', [['10mg Vial', 50], ['30mg Vial', 90]],  10, 'Dual GLP-1 & GIP receptor agonist — metabolic research compound', 'trizep-vial.png', 'Tirzepatide is a synthetic dual agonist that activates both GLP-1 and GIP receptors, two incretin hormone pathways involved in glucose regulation and appetite signaling. In research models, dual-receptor activation has been studied for its effects on insulin secretion, gastric emptying, and energy balance, making it one of the most actively researched compounds in metabolic and obesity-related studies.'),
+  P('tirz',    'Tirzepatide',       'peptides', [['10mg Vial', 50], ['30mg Vial', 90]],  10, 'Dual GLP-1 & GIP receptor agonist — metabolic research compound', 'trizep-vial.png', 'Tirzepatide is a synthetic dual agonist that activates both GLP-1 and GIP receptors, two incretin hormone pathways involved in glucose regulation and appetite signaling. In research models, dual-receptor activation has been studied for its effects on insulin secretion, gastric emptying, and energy balance, making it one of the most actively researched compounds in metabolic and obesity-related studies.', 'coa-trizepatide10.png'),
   P('reta',    'Retatrutide',       'peptides', [['10mg Vial', 70], ['30mg Vial', 100]], 10, 'Triple agonist — GLP-1 · GIP · Glucagon receptor', 'reta-vial.png', 'Retatrutide is a next-generation triple agonist engineered to activate GLP-1, GIP, and glucagon receptors simultaneously. This triple-pathway approach is being studied for its potential to influence energy expenditure alongside appetite and glucose regulation, positioning it at the frontier of metabolic peptide research.'),
 
   // ── Healing / Recovery ──
@@ -30,8 +30,8 @@ const STARTER_PRODUCTS = [
   P('cjipa',   'CJC-1295 / Ipamorelin', 'peptides', [['5/5mg Combo', 50]], 10, 'Classic GH-releasing synergy blend — pulsatile GH secretion research', 'cjc-ipa-vials.png', 'This combination pairs CJC-1295, a growth-hormone-releasing hormone (GHRH) analog studied for its ability to promote a steady elevation in growth hormone levels, with Ipamorelin, a selective growth hormone secretagogue known for stimulating pulsatile GH release without significantly affecting cortisol or prolactin. Together, they are commonly studied for their synergistic effect on the growth hormone axis.'),
 
   // ── Sexual Health ──
-  P('pt141',   'PT-141',           'peptides', [['10mg Vial', 35]], 10, 'Melanocortin receptor agonist — sexual function research compound', 'pt41-vials.png', 'PT-141 (Bremelanotide) is a melanocortin receptor agonist studied for its activity on central nervous system pathways involved in sexual arousal. Unlike traditional approaches that target vascular pathways, PT-141 research focuses on melanocortin receptor activation in the brain.'),
-  P('mt2',     'Melanotan II',     'peptides', [['10mg Vial', 35]], 10, 'Melanocortin peptide — pigmentation & sexual arousal research', 'MTII-vial.png', 'Melanotan II is a synthetic analog of alpha-melanocyte-stimulating hormone (α-MSH), studied for its effects on melanocortin receptors involved in pigmentation and appetite regulation. Research has also explored secondary effects on libido and mood via melanocortin receptor pathways.'),
+  P('pt141',   'PT-141',           'peptides', [['10mg Vial', 35]], 10, 'Melanocortin receptor agonist — sexual function research compound', 'pt41-vials.png', 'PT-141 (Bremelanotide) is a melanocortin receptor agonist studied for its activity on central nervous system pathways involved in sexual arousal. Unlike traditional approaches that target vascular pathways, PT-141 research focuses on melanocortin receptor activation in the brain.', 'coa-pt141.jpeg'),
+  P('mt2',     'Melanotan II',     'peptides', [['10mg Vial', 35]], 10, 'Melanocortin peptide — pigmentation & sexual arousal research', 'MTII-vial.png', 'Melanotan II is a synthetic analog of alpha-melanocyte-stimulating hormone (α-MSH), studied for its effects on melanocortin receptors involved in pigmentation and appetite regulation. Research has also explored secondary effects on libido and mood via melanocortin receptor pathways.', 'coa-melanotan2.jpeg'),
 
   // ── Supplies ──
   P('bacwater','BAC Water',        'supplies', [['10ml', 7]],       10, 'Bacteriostatic water for reconstitution', 'bac-water-vial.png', 'Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, which inhibits bacterial growth, making it suitable for reconstituting lyophilized (freeze-dried) peptides for research use. It is a standard laboratory reagent used across peptide research applications.'),
@@ -41,52 +41,3 @@ const STARTER_PRODUCTS = [
   P('ghkculotion', 'GHK-Cu Lotion', 'cosmetics', [['60g', 65]],  0, 'Deeply hydrating barrier-repair lotion with GHK-Cu — softer, firmer skin with daily use.', 'ghkcu-lotion-60g.jpg', 'This deeply hydrating lotion combines GHK-Cu with a barrier-repair formula to support skin softness, firmness, and moisture retention. Designed for daily use, it\'s formulated to work with the skin\'s natural renewal processes for long-term texture and hydration benefits.'),
 ];
 
-/* ══════════════════ COA HELPER — Google Drive file matching ══════════════════
-   Set DRIVE_FOLDER_ID and DRIVE_API_KEY below to enable auto-matched COA links.
-   Leave blank to skip COA features. */
-const DRIVE_FOLDER_ID = '';
-const DRIVE_API_KEY   = '';
-
-async function fetchCOAFiles(forceRefresh){
-  if(!DRIVE_FOLDER_ID || !DRIVE_API_KEY) return [];
-  const CACHE_KEY = 'ep_coa_cache', CACHE_TS = 'ep_coa_cache_ts', TTL = 3600000;
-  if(!forceRefresh){
-    try{
-      const ts = parseInt(localStorage.getItem(CACHE_TS)||'0');
-      if(Date.now()-ts < TTL){
-        const cached = JSON.parse(localStorage.getItem(CACHE_KEY)||'[]');
-        if(cached.length) return cached;
-      }
-    }catch(e){}
-  }
-  try{
-    const url = `https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents+and+trashed=false&fields=files(id,name,mimeType)&pageSize=200&key=${DRIVE_API_KEY}`;
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const files = (data.files||[]).map(f=>({
-      id: f.id, name: f.name,
-      url: f.mimeType==='application/vnd.google-apps.document'
-        ? `https://docs.google.com/document/d/${f.id}/export?format=pdf`
-        : `https://drive.google.com/uc?export=download&id=${f.id}`
-    }));
-    localStorage.setItem(CACHE_KEY, JSON.stringify(files));
-    localStorage.setItem(CACHE_TS, String(Date.now()));
-    return files;
-  }catch(e){ return []; }
-}
-
-function matchCOAFiles(products, files){
-  const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g,'');
-  const map = {};
-  products.forEach(p=>{
-    const pn = norm(p.name);
-    for(const f of files){
-      const fn = norm(f.name);
-      if(fn.includes(pn) || pn.split(' ').every(w=>fn.includes(w))){
-        map[p.key] = f.url;
-        break;
-      }
-    }
-  });
-  return map;
-}

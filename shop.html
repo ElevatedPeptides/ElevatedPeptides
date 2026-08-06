@@ -145,8 +145,6 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1200px;margin:0 
 .pcard-add-btn:hover{transform:scale(1.1);box-shadow:0 0 20px rgba(0,229,204,.55);}
 .pcard-add-btn:disabled{opacity:.3;cursor:not-allowed;transform:none;}
 
-/* COA link */
-.coa-link{display:block;text-align:center;font-size:11.5px;font-weight:700;color:var(--ep);background:rgba(0,229,204,.08);border:1px solid var(--bp);border-radius:8px;padding:6px;text-decoration:none;}
 .no-results{text-align:center;color:var(--dim);padding:50px 0;}
 
 /* Compound info modal */
@@ -504,14 +502,12 @@ function showCompoundInfo(key){
   const p=products.find(x=>x.key===key); if(!p) return;
   const cat=CATS.find(c=>c.key===p.cat);
   const sl=stockLabel(p);
-  const coaUrl=p.coa;
   document.getElementById('compInfoContent').innerHTML=`
     <div style="font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--ep);text-transform:uppercase;margin-bottom:6px;">${cat?.emoji||''} ${cat?.label||p.cat}</div>
     <h3 style="font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.1;">${p.name}</h3>
     ${(p.detail||p.note)?`<p style="font-size:13.5px;color:var(--dim);line-height:1.6;margin-bottom:12px;">${p.detail||p.note}</p>`:''}
     ${sl.txt?`<div class="pcard-stock stock ${sl.cls}" style="font-size:12.5px;font-weight:700;margin-bottom:14px;">${sl.txt}</div>`:''}
     <div style="font-size:12.5px;color:var(--dim);line-height:1.7;"><b style="color:var(--ep);">Options:</b><br>${p.opts.map(o=>`${o[0]} &mdash; <b style="color:#fff;">$${o[1]}</b>`).join('<br>')}</div>
-    ${coaUrl?`<a href="${coaUrl}" target="_blank" rel="noopener" style="display:block;margin-top:16px;text-align:center;font-size:12.5px;font-weight:700;color:var(--ep);background:rgba(0,229,204,.08);border:1px solid rgba(0,229,204,.3);border-radius:8px;padding:9px;text-decoration:none;">📄 View Certificate of Analysis</a>`:''}
   `;
   document.getElementById('compInfoOv').classList.add('on');
 }
@@ -528,7 +524,6 @@ function renderProducts(){
     const cards=list.map(p=>{
       const sl=stockLabel(p);
       const isInquire=p.opts[0][0]==='Inquire';
-      const coaUrl=p.coa;
       const imgSrc=p.img||'SHOPVIALS.png';
       if(selectedOpts[p.key]===undefined) selectedOpts[p.key]=0;
       const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>$${o[1]}</span></button>`).join('')}</div>`;
@@ -544,7 +539,6 @@ function renderProducts(){
           <div class="pcard-name">${p.name}</div>
           ${p.note?`<p class="pcard-note">${p.note}</p>`:''}
           ${sl.txt?`<div class="pcard-stock stock ${sl.cls}">${sl.txt}</div>`:''}
-          ${coaUrl?`<a class="coa-link" href="${coaUrl}" target="_blank" rel="noopener">📄 View COA</a>`:''}
           ${sizeBtns}
           <div class="pcard-actions">
             <button class="compound-info-btn" onclick="showCompoundInfo('${p.key}')">COMPOUND INFO</button>

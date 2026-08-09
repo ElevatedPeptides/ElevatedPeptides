@@ -569,6 +569,40 @@ renderProducts();
 
 window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 
+const OWNER_EMAIL="epicresearch26@gmail.com";
+
+/* ══ ABANDONED CART NOTIFICATIONS ══ */
+const ABANDONED_CART_ENDPOINT="https://formspree.io/f/xkjwwqnj";
+let abandonedSent=null;
+try{ abandonedSent=JSON.parse(localStorage.getItem('umf_cart_sent')||'null'); }catch(e){ abandonedSent=null; }
+let cartActivityTimer=null;
+let orderJustSubmitted=false;
+function cartSignature(){ return cart.map(c=>`${c.ckey}x${c.qty}`).sort().join('|'); }
+function sendAbandonedCartEmail(reason){
+  if(!cart.length||orderJustSubmitted) return;
+  const sig=cartSignature();
+  const now=Date.now();
+  if(abandonedSent&&abandonedSent.sig===sig&&(now-abandonedSent.time)<30*60*1000) return;
+  const name=document.getElementById('ord-name')?.value.trim()||'';
+  const email=document.getElementById('ord-email')?.value.trim()||'';
+  const lines=cart.map(c=>`${c.qty} x ${c.name} (${c.label}) - $${c.price.toFixed(2)} each = $${(c.price*c.qty).toFixed(2)}`).join('\n');
+  const fd=new FormData();
+  fd.append('_subject',`⚡ Abandoned Cart — $${cartTotal().toFixed(2)}`);
+  fd.append('message',`A visitor left items in their cart without checking out (${reason}).\n\nItems:\n${lines}\n\nTotal: $${cartTotal().toFixed(2)}\n\nName entered: ${name||'(none)'}\nEmail entered: ${email||'(none)'}`);
+  if(email) fd.append('email',email);
+  if(name) fd.append('name',name);
+  try{ navigator.sendBeacon(ABANDONED_CART_ENDPOINT,fd); }catch(e){}
+  abandonedSent={sig,time:now};
+  try{ localStorage.setItem('umf_cart_sent',JSON.stringify(abandonedSent)); }catch(e){}
+}
+function resetCartActivityTimer(){
+  clearTimeout(cartActivityTimer);
+  if(!cart.length) return;
+  cartActivityTimer=setTimeout(()=>sendAbandonedCartEmail('idle 5+ min'),5*60*1000);
+}
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') sendAbandonedCartEmail('left page'); });
+window.addEventListener('pagehide',()=>{ sendAbandonedCartEmail('closed/navigated away'); });
+
 /* ══ CART ══ */
 let cart=[];
 try{ cart=JSON.parse(localStorage.getItem('umf_cart')||'[]'); }catch(e){ cart=[]; }
@@ -619,39 +653,6 @@ function renderOrderSummary(){
   if(!cart.length){ el.innerHTML='Cart is empty — add items from the catalog above.'; return; }
   el.innerHTML=`<b>Order Summary</b><br>${cart.map(c=>`${c.qty} × ${c.name} (${c.label}) — $${(c.price*c.qty).toFixed(2)}`).join('<br>')}<br><b>Total: $${cartTotal().toFixed(2)}</b>`;
 }
-const OWNER_EMAIL="epicresearch26@gmail.com";
-
-/* ══ ABANDONED CART NOTIFICATIONS ══ */
-const ABANDONED_CART_ENDPOINT="https://formspree.io/f/xkjwwqnj";
-let abandonedSent=null;
-try{ abandonedSent=JSON.parse(localStorage.getItem('umf_cart_sent')||'null'); }catch(e){ abandonedSent=null; }
-let cartActivityTimer=null;
-let orderJustSubmitted=false;
-function cartSignature(){ return cart.map(c=>`${c.ckey}x${c.qty}`).sort().join('|'); }
-function sendAbandonedCartEmail(reason){
-  if(!cart.length||orderJustSubmitted) return;
-  const sig=cartSignature();
-  const now=Date.now();
-  if(abandonedSent&&abandonedSent.sig===sig&&(now-abandonedSent.time)<30*60*1000) return;
-  const name=document.getElementById('ord-name')?.value.trim()||'';
-  const email=document.getElementById('ord-email')?.value.trim()||'';
-  const lines=cart.map(c=>`${c.qty} x ${c.name} (${c.label}) - $${c.price.toFixed(2)} each = $${(c.price*c.qty).toFixed(2)}`).join('\n');
-  const fd=new FormData();
-  fd.append('_subject',`⚡ Abandoned Cart — $${cartTotal().toFixed(2)}`);
-  fd.append('message',`A visitor left items in their cart without checking out (${reason}).\n\nItems:\n${lines}\n\nTotal: $${cartTotal().toFixed(2)}\n\nName entered: ${name||'(none)'}\nEmail entered: ${email||'(none)'}`);
-  if(email) fd.append('email',email);
-  if(name) fd.append('name',name);
-  try{ navigator.sendBeacon(ABANDONED_CART_ENDPOINT,fd); }catch(e){}
-  abandonedSent={sig,time:now};
-  try{ localStorage.setItem('umf_cart_sent',JSON.stringify(abandonedSent)); }catch(e){}
-}
-function resetCartActivityTimer(){
-  clearTimeout(cartActivityTimer);
-  if(!cart.length) return;
-  cartActivityTimer=setTimeout(()=>sendAbandonedCartEmail('idle 5+ min'),5*60*1000);
-}
-document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') sendAbandonedCartEmail('left page'); });
-window.addEventListener('pagehide',()=>{ sendAbandonedCartEmail('closed/navigated away'); });
 function buildOrderEmailText(name,email,address,notes){
   const lines=cart.map(c=>`${c.qty} x ${c.name} (${c.label}) - $${c.price.toFixed(2)} each = $${(c.price*c.qty).toFixed(2)}`);
   return `New order from Elevated Peptides — payment not yet sent.\n\nORDER DETAILS\nCustomer: ${name||'(name)'}\nEmail: ${email||'(email)'}\nShipping Address:\n${address||'(address)'}\n\nItems:\n${lines.join('\n')}\n\nTOTAL: $${cartTotal().toFixed(2)}\n\nNotes: ${notes||'(none)'}`;

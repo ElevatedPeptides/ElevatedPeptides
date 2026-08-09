@@ -401,7 +401,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
   <div class="email-modal">
     <button class="modal-close" onclick="closeEmailModal()">×</button>
     <h3>✉️ EMAIL US YOUR ORDER</h3>
-    <p>Backup method — copy the order below or click "Open in Email App" to send it directly.</p>
+    <p>Tap "Open in Email App" to send it directly, or use "Copy Order" and paste it into any email, text, or DM.</p>
     <label>Subject</label>
     <input id="modalSubject" type="text" readonly/>
     <label>Order Details</label>
@@ -660,16 +660,19 @@ function submitOrder(){
   const name=document.getElementById('ord-name').value.trim(),email=document.getElementById('ord-email').value.trim(),address=document.getElementById('ord-address').value.trim(),notes=document.getElementById('ord-notes').value.trim();
   const status=document.getElementById('ordStatus');
   status.style.display='block';
-  if(!cart.length){ status.style.color='#ff6b6b'; status.textContent='Your cart is empty — add items first!'; return; }
-  if(!name||!email||!address){ status.style.color='#ff6b6b'; status.textContent='Please fill in your name, email & address.'; return; }
+  if(!cart.length){ status.style.color='#ff6b6b'; status.textContent='Your cart is empty — add items first!'; status.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  if(!name||!email||!address){ status.style.color='#ff6b6b'; status.textContent='Please fill in your name, email & address.'; status.scrollIntoView({behavior:'smooth',block:'center'}); return; }
   const total=cartTotal();
   const subject=`⚡ EP Order — $${total.toFixed(2)}`;
   const body=buildOrderEmailText(name,email,address,notes);
   cart.forEach(c=>{ const p=products.find(x=>x.key===c.key); if(p) p.stock=Math.max(0,p.stock-c.qty); });
   renderProducts();
-  status.style.color='var(--ep)'; status.textContent='⚡ Opening your email app — just hit Send to complete your order!';
+  status.style.color='var(--ep)'; status.textContent='⚡ Order captured — use the window below to send it to us.';
   orderJustSubmitted=true; setTimeout(()=>{ orderJustSubmitted=false; },3000);
-  window.location.href=`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('modalSubject').value=subject;
+  document.getElementById('modalBody').value=body;
+  document.getElementById('modalMailBtn').href=`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('emailModalOv').classList.add('on');
   cart=[]; updateCartUI();
   ['ord-name','ord-email','ord-address','ord-notes'].forEach(id=>{ document.getElementById(id).value=''; });
 }

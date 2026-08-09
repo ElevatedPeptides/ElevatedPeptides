@@ -164,7 +164,7 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1200px;margin:0 
 .steps .step:nth-child(4n+4){border-radius:5px 5px 14px 14px!important;}
 
 /* ── ADD TOAST ── */
-.add-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);border:1.5px solid var(--ep);color:var(--tx);font-size:13.5px;padding:12px 22px;border-radius:30px;box-shadow:0 0 30px rgba(0,229,204,.4);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;}
+.add-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);border:1.5px solid var(--ep);color:var(--tx);font-size:13.5px;padding:12px 22px;border-radius:30px;box-shadow:0 0 30px rgba(0,229,204,.4);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:90vw;text-align:center;}
 .add-toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* ── SCROLL TOP ── */
@@ -323,7 +323,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
   </div>
   <div class="reveal" style="display:flex;gap:10px;align-items:center;background:rgba(0,229,204,.06);border:1.5px solid rgba(0,229,204,.3);border-radius:12px;padding:14px 18px;margin-bottom:20px;">
     <span style="font-size:20px;flex-shrink:0;">🔍</span>
-    <p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--tx);">Don't see the peptide you're looking for? <a href="mailto:epicresearch26@gmail.com?subject=Peptide%20Preorder%20Request" style="color:var(--ep);font-weight:700;">Send us a preorder request</a> and we'll do our best to get it for you.</p>
+    <p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--tx);">Don't see the peptide you're looking for? <a href="mailto:epicresearch26@gmail.com?subject=Peptide%20Preorder%20Request" onclick="requestPreorder();return false;" style="color:var(--ep);font-weight:700;cursor:pointer;">Tap here to send us a preorder request</a> — if it doesn't open your email, we'll copy our email address so you can paste it into a text, DM, or email.</p>
   </div>
   <div class="shop-controls">
     <div class="search-row">
@@ -628,6 +628,17 @@ function showAddedToast(name){
   t.classList.add('on');
   clearTimeout(t._hideTimer);
   t._hideTimer=setTimeout(()=>t.classList.remove('on'),1800);
+}
+function requestPreorder(){
+  const email='epicresearch26@gmail.com';
+  try{ navigator.clipboard.writeText(email); }catch(e){}
+  let t=document.getElementById('addToast');
+  if(!t){ t=document.createElement('div'); t.id='addToast'; t.className='add-toast'; document.body.appendChild(t); }
+  t.textContent=`📋 If your email app didn't open, we copied our email for you: ${email}`;
+  t.classList.add('on');
+  clearTimeout(t._hideTimer);
+  t._hideTimer=setTimeout(()=>t.classList.remove('on'),5000);
+  window.location.href=`mailto:${email}?subject=${encodeURIComponent('Peptide Preorder Request')}`;
 }
 function removeFromCart(ckey){ cart=cart.filter(c=>c.ckey!==ckey); updateCartUI(); }
 function changeQty(ckey,delta){ const item=cart.find(c=>c.ckey===ckey); if(!item) return; item.qty+=delta; if(item.qty<=0) cart=cart.filter(c=>c.ckey!==ckey); updateCartUI(); }

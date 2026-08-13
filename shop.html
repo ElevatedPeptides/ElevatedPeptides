@@ -294,6 +294,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
   <div class="pagehead-text reveal">
     <h1 data-ep-text="shop-title">The <b>Shop</b></h1>
     <p data-ep-text="shop-sub">Browse the catalog, add your research compounds to the cart, then complete checkout right here.</p>
+    <p style="margin-top:10px;font-size:13px;color:var(--ep);font-weight:700;">🚚 Free shipping on orders $50+</p>
   </div>
 </div>
 
@@ -374,7 +375,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
       <div class="ep-line" style="margin:8px auto 16px;"></div>
       <h4 class="checkout-title">Complete Your Order</h4>
       <div id="orderItemsSummary" class="order-summary"></div>
-      <div class="pay-note">💸 Submit below first — we'll reply with our <b>PayPal</b> info. Once payment is confirmed, we'll send your <b>tracking number within 24 hours</b>.</div>
+      <div class="pay-note">💸 Submit below first — we'll reply with our <b>PayPal</b> info (includes shipping if your order is under <b>$50</b> — orders <b>$50+ ship free</b>). Once payment is confirmed, we'll send your <b>tracking number within 24 hours</b>.</div>
       <label>Full Name *</label>
       <input id="ord-name" type="text" placeholder="Jane Doe"/>
       <label>Email *</label>
@@ -390,6 +391,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     </div>
   </div>
   <div class="cdrw-ft" id="cfoot">
+    <div id="shipProgress" style="font-size:12px;font-weight:700;color:var(--ep);margin-bottom:8px;text-align:center;"></div>
     <div class="tot"><span>Subtotal</span><span id="ctot">$0</span></div>
   </div>
 </div>
@@ -574,6 +576,7 @@ renderProducts();
 window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 
 const OWNER_EMAIL="epicresearch26@gmail.com";
+const FREE_SHIPPING_THRESHOLD=50;
 
 /* ══ ABANDONED CART NOTIFICATIONS ══ */
 const ABANDONED_CART_ENDPOINT="https://formspree.io/f/xkjwwqnj";
@@ -653,6 +656,8 @@ function updateCartUI(){
     body.innerHTML=cart.map(c=>`<div class="c-row"><div class="ci"><b>${c.name} (${c.label})</b><span>$${c.price} × ${c.qty}</span></div><button onclick="changeQty('${c.ckey}',-1)">−</button><button onclick="changeQty('${c.ckey}',1)">+</button><button onclick="removeFromCart('${c.ckey}')">✕</button></div>`).join('');
     foot.style.display='block'; checkoutBlock.style.display='block';
     document.getElementById('ctot').textContent='$'+cartTotal().toFixed(2);
+    const remaining=FREE_SHIPPING_THRESHOLD-cartTotal();
+    document.getElementById('shipProgress').textContent=remaining>0?`🚚 Add $${remaining.toFixed(2)} more for FREE shipping!`:'🚚 You qualify for FREE shipping!';
   }
   saveCart(); renderOrderSummary(); resetCartActivityTimer();
 }

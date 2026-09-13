@@ -6,7 +6,6 @@
 <title>Certificates of Analysis — Elevated Peptides</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="products.js"></script>
 <style>
 :root{
   --ep:#00e5cc; --ep2:#007a6a; --ep3:#00fff0;
@@ -75,30 +74,14 @@ section{position:relative;z-index:2;padding:28px 24px;max-width:1100px;margin:0 
 .what-card h4{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--ep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
 .what-card p{font-size:12.5px;color:var(--dim);line-height:1.55;}
 
-/* ── SEARCH / FILTER ── */
-.coa-controls{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;position:sticky;top:68px;z-index:90;background:rgba(4,12,12,.85);backdrop-filter:blur(12px);padding:14px;border-radius:14px;border:1px solid var(--bp);}
-.coa-controls input[type=text]{flex:1;padding:10px 16px;border-radius:30px;border:1.5px solid var(--bp);background:rgba(0,20,20,.8);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;}
-.coa-controls input:focus{border-color:var(--ep);}
-.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
-.cat-tab{background:rgba(0,20,20,.7);border:1.5px solid var(--bp);border-radius:20px;padding:7px 14px;color:var(--tx);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;transition:all .2s;white-space:nowrap;}
-.cat-tab:hover{border-color:var(--ep);color:var(--ep);}
-.cat-tab.active{background:linear-gradient(90deg,var(--ep2),#004d3d);border-color:var(--ep);color:#fff;box-shadow:0 0 14px rgba(0,229,204,.3);}
-
-/* ── COA GRID ── */
-.coa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
-.coa-card{background:var(--card);border:1.5px solid var(--bp);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:all .25s;box-shadow:0 0 14px rgba(0,229,204,.08);}
-.coa-card:hover{transform:translateY(-3px);border-color:var(--ep);box-shadow:0 10px 28px rgba(0,229,204,.2);}
-.coa-card-img{border-radius:9px;overflow:hidden;background:linear-gradient(160deg,rgba(10,24,24,.7),rgba(4,12,12,.9));}
-.coa-card-img img{display:block;width:100%;height:100px;object-fit:contain;padding:8px;}
-.coa-card h3{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--tx);letter-spacing:.04em;text-transform:uppercase;}
-.coa-card .coa-cat{font-size:11px;color:var(--ep);font-weight:700;background:rgba(0,229,204,.1);border:1px solid var(--bp);border-radius:20px;display:inline-block;padding:2px 10px;font-family:'Montserrat',sans-serif;}
-.coa-card .coa-note{font-size:11.5px;color:var(--dim);font-style:italic;line-height:1.4;}
-.coa-link-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;background:linear-gradient(90deg,var(--ep2),var(--ep));border:none;border-radius:9px;color:#000;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;text-transform:uppercase;letter-spacing:.03em;}
-.coa-link-btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(0,229,204,.5);}
-.coa-pending{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;background:rgba(255,255,255,.04);border:1.5px dashed rgba(0,229,204,.25);border-radius:9px;color:var(--dim);font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.03em;}
-.coa-upload-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:rgba(0,229,204,.06);border:1.5px solid var(--bp);border-radius:9px;color:var(--ep);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.coa-upload-btn:hover{border-color:var(--ep);background:rgba(0,229,204,.12);}
-.no-results{text-align:center;color:var(--dim);padding:50px 0;font-size:14px;}
+/* ── COA REQUEST CARD ── */
+.coa-request-card{max-width:640px;margin:0 auto;background:linear-gradient(160deg,rgba(10,24,24,.96),rgba(4,12,12,.99));border:1.5px solid var(--bc);border-radius:18px;padding:34px 30px;text-align:center;box-shadow:0 0 40px rgba(0,229,204,.15);}
+.coa-request-icon{font-size:44px;margin-bottom:14px;}
+.coa-request-card h3{font-family:'Rajdhani',sans-serif;font-size:20px;color:var(--tx);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px;line-height:1.3;}
+.coa-request-card p{font-size:13.5px;color:var(--dim);line-height:1.65;margin-bottom:22px;max-width:480px;margin-left:auto;margin-right:auto;}
+.coa-request-btn{display:inline-block;background:linear-gradient(90deg,var(--ep2),var(--ep));color:#000;border:none;border-radius:10px;padding:12px 24px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13.5px;text-decoration:none;letter-spacing:.03em;margin:6px;transition:transform .15s,box-shadow .2s;}
+.coa-request-btn:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(0,229,204,.5);}
+.coa-request-btn-alt{background:rgba(0,229,204,.08);color:var(--ep);border:1.5px solid var(--bc);}
 
 /* ── INFO SECTION ── */
 .info-card{background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:22px 24px;margin-bottom:14px;}
@@ -136,7 +119,6 @@ footer a{color:var(--ep);text-decoration:none;}
   .nav-links.open{display:flex;}
   .nav-links button,.nav-links a{width:100%;text-align:left;padding:13px 14px;border-bottom:1px solid rgba(0,229,204,.1)!important;}
   .hbg{display:flex;}
-  .coa-controls{top:0;position:static;}
 }
 </style>
 </head>
@@ -155,6 +137,7 @@ footer a{color:var(--ep);text-decoration:none;}
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
+    <a href="peptide-index.html">Peptide Index</a>
     <a href="coas.html" style="color:var(--ep)!important;border-bottom-color:var(--ep)!important;">COAs</a>
     <a href="terms.html">Terms</a>
     <a href="contact.html">Contact</a>
@@ -169,7 +152,7 @@ footer a{color:var(--ep);text-decoration:none;}
   </div>
   <div class="pagehead-text reveal">
     <h1>Certificates of <b>Analysis</b></h1>
-    <p>Third-party testing documentation for every Elevated Peptides compound. Transparency is the standard.</p>
+    <p>Third-party testing documentation for every Elevated Peptides compound. Transparency is the standard — COAs are provided upon request.</p>
   </div>
 </div>
 
@@ -183,7 +166,7 @@ footer a{color:var(--ep);text-decoration:none;}
   <div class="what-grid">
     <div class="what-card reveal"><div class="icon">🔬</div><h4>Purity Verified</h4><p>COAs confirm the compound is what we say it is — no substitutions, no fillers.</p></div>
     <div class="what-card reveal"><div class="icon">🧪</div><h4>Third-Party Tested</h4><p>Independent laboratory testing, not internal. Unbiased results you can trust.</p></div>
-    <div class="what-card reveal"><div class="icon">📄</div><h4>Full Transparency</h4><p>Every batch result is linked so you can review the exact data before ordering.</p></div>
+    <div class="what-card reveal"><div class="icon">📄</div><h4>Full Transparency</h4><p>Just ask — we'll send you the exact batch data so you can review it before ordering.</p></div>
     <div class="what-card reveal"><div class="icon">⚡</div><h4>Research Grade</h4><p>All compounds are research-use only. COAs reflect research-grade purity standards.</p></div>
   </div>
 </section>
@@ -192,18 +175,16 @@ footer a{color:var(--ep);text-decoration:none;}
 
 <section id="coa-catalog">
   <div class="sec-head reveal">
-    <h2 class="sec-title">COA <b>LIBRARY</b></h2>
-    <p class="sec-sub">Click <b style="color:var(--ep);">View COA</b> to open the PDF document.</p>
+    <h2 class="sec-title">COAs <b>Upon Request</b></h2>
+    <p class="sec-sub">We keep every batch's testing documentation on file and send it directly when asked.</p>
   </div>
-  <div class="reveal" style="display:flex;gap:10px;align-items:center;background:rgba(0,229,204,.06);border:1.5px solid rgba(0,229,204,.3);border-radius:12px;padding:14px 18px;margin-bottom:20px;">
-    <span style="font-size:20px;flex-shrink:0;">⏳</span>
-    <p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--tx);">We're actively uploading COAs for every compound — check back soon. Need one right now? <a href="contact.html" style="color:var(--ep);font-weight:700;">Contact us</a> and we'll send it directly.</p>
+  <div class="coa-request-card reveal">
+    <div class="coa-request-icon">📄</div>
+    <h3>Certificates of Analysis Are Provided Upon Request</h3>
+    <p>To keep documentation accurate and up to date for every batch, we don't publish a static COA library. Instead, just reach out with the compound (and batch, if you have it) and we'll email the matching COA straight to you — usually within 24 hours.</p>
+    <a href="contact.html" class="coa-request-btn">✉ Request a COA</a>
+    <a href="mailto:epicresearch26@gmail.com?subject=COA%20Request" class="coa-request-btn coa-request-btn-alt">📧 Email Us Directly</a>
   </div>
-  <div class="coa-controls">
-    <input type="text" id="coaSearch" placeholder="🔍 Search compounds…" oninput="renderCOAs()"/>
-    <div class="cat-tabs" id="coaCatTabs"></div>
-  </div>
-  <div id="coaGrid" class="coa-grid"></div>
 </section>
 
 <div class="ep-line"></div>
@@ -228,24 +209,6 @@ footer a{color:var(--ep);text-decoration:none;}
   <div class="info-card reveal">
     <h4>Missing a COA?</h4>
     <p>If you don't see a COA for a compound you ordered, <a href="contact.html">contact us</a> — we'll get it to you directly. COAs are also included in packaging for select compounds.</p>
-  </div>
-  <div class="info-card reveal" style="border-color:rgba(0,229,204,.4);background:rgba(0,229,204,.03);">
-    <h4>📎 How COA Links Work</h4>
-    <p style="margin-bottom:12px;">Each COA file (PDF, JPG, or PNG) lives directly in the website's files. To add or update one:</p>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">1</div>
-        <p style="margin:0;padding-top:3px;">On GitHub, click <b style="color:var(--ep);">Add file → Upload files</b> and drag in the COA file</p>
-      </div>
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">2</div>
-        <p style="margin:0;padding-top:3px;">Commit the upload directly to the <b style="color:var(--ep);">main</b> branch</p>
-      </div>
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;">3</div>
-        <p style="margin:0;padding-top:3px;">Tell whoever maintains the site which file goes with which compound, and they'll link it in the product data</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -322,42 +285,6 @@ function toggleNav(){
   document.getElementById('navLinks').classList.toggle('open');
   document.getElementById('hbgBtn').classList.toggle('active');
 }
-
-/* ── COA DATA ── */
-let catFilter='all';
-function renderCatTabs(){
-  const tabs=[{key:'all',emoji:'⚡',label:'All'},...CATS];
-  document.getElementById('coaCatTabs').innerHTML=tabs.map(c=>
-    `<button class="cat-tab ${catFilter===c.key?'active':''}" onclick="setCatFilter('${c.key}')">${c.emoji} ${c.label}</button>`
-  ).join('');
-}
-function setCatFilter(key){ catFilter=key; renderCatTabs(); renderCOAs(); }
-renderCatTabs();
-
-function renderCOAs(){
-  const term=document.getElementById('coaSearch').value.trim().toLowerCase();
-  let list=STARTER_PRODUCTS.filter(p=>{
-    if(catFilter!=='all'&&p.cat!==catFilter) return false;
-    if(term&&!p.name.toLowerCase().includes(term)) return false;
-    return true;
-  });
-  if(!list.length){ document.getElementById('coaGrid').innerHTML='<div class="no-results">No compounds match your search.</div>'; return; }
-  document.getElementById('coaGrid').innerHTML=list.map(p=>{
-    const cat=CATS.find(c=>c.key===p.cat);
-    const url=p.coa||'';
-    const imgHtml=p.img?`<div class="coa-card-img"><img src="${p.img}" alt="${p.name}"/></div>`:'';
-    return `<div class="coa-card">
-      ${imgHtml}
-      <h3>${p.name}</h3>
-      ${cat?`<span class="coa-cat">${cat.emoji} ${cat.label}</span>`:''}
-      ${p.note?`<div class="coa-note">${p.note}</div>`:''}
-      ${url
-        ? `<a class="coa-link-btn" href="${url}" target="_blank" rel="noopener">📄 View COA</a>`
-        : `<div class="coa-pending">⏳ COA Coming Soon</div>`}
-    </div>`;
-  }).join('');
-}
-renderCOAs();
 
 /* ── SCROLL REVEAL ── */
 (function(){

@@ -169,6 +169,18 @@ section{position:relative;z-index:2;padding:50px 24px;max-width:1100px;margin:0 
 .sec-sub{text-align:center;color:var(--dim);font-size:14px;margin-bottom:0;}
 
 /* ── HOW IT WORKS ── */
+.how-drop{max-width:640px;margin:0 auto;}
+.how-summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:rgba(4,12,12,.94);border:1px solid var(--bp);border-radius:14px;padding:18px 24px;backdrop-filter:blur(6px);transition:border-color .2s,box-shadow .2s;}
+.how-summary::-webkit-details-marker{display:none;}
+.how-summary:hover{border-color:var(--bc);box-shadow:0 0 24px rgba(0,229,204,.15);}
+.how-summary .sec-title,.how-summary .sec-sub{text-align:left;}
+.how-summary .sec-title{margin-bottom:4px;}
+.how-summary .sec-sub{margin-bottom:0;}
+.how-arrow{flex-shrink:0;font-size:20px;color:var(--ep);transition:transform .25s ease;}
+.how-drop[open] .how-arrow{transform:rotate(180deg);}
+.how-drop .steps{margin-top:22px;max-width:none;}
+@keyframes howReveal{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+.how-drop[open] .steps{animation:howReveal .35s ease;}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;}
 .step{background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:22px;text-align:center;position:relative;}
 .step::before{content:'';position:absolute;inset:5px;border:1px solid rgba(0,229,204,.08);border-radius:10px;pointer-events:none;}
@@ -273,6 +285,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     <button onclick="go('top')">Home</button>
     <button onclick="location.href='shop.html'">Shop</button>
     <button onclick="go('how')">How It Works</button>
+    <a href="peptide-index.html">Peptide Index</a>
     <a href="coas.html">COAs</a>
     <a href="terms.html">Terms</a>
     <a href="contact.html">Contact</a>
@@ -402,16 +415,21 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
 <div class="ep-line"></div>
 
 <section id="how">
-  <div class="sec-head reveal">
-    <h2 class="sec-title">HOW TO <b>ORDER</b></h2>
-    <p class="sec-sub">Simple, smooth, and seamless</p>
-  </div>
-  <div class="steps">
-    <div class="step reveal"><div class="n">1</div><h4 data-ep-text="home-step1-h">Add to Cart</h4><p data-ep-text="home-step1-p">Browse the Shop and add your items &amp; quantities — your total updates automatically.</p></div>
-    <div class="step reveal"><div class="n">2</div><h4 data-ep-text="home-step2-h">Submit Order</h4><p data-ep-text="home-step2-p">Fill in your name, email &amp; shipping address at checkout, then submit — this emails us your order.</p></div>
-    <div class="step reveal"><div class="n">3</div><h4 data-ep-text="home-step3-h">We Send Payment Info</h4><p data-ep-text="home-step3-p">We'll reply with our <b>PayPal</b> (Friends &amp; Family) info so you can send payment for your total.</p></div>
-    <div class="step reveal"><div class="n">4</div><h4 data-ep-text="home-step4-h">Tracking Sent</h4><p data-ep-text="home-step4-p">Once payment is confirmed, we'll reply with your <b>tracking number</b> — usually within 24 hours. 📦</p></div>
-  </div>
+  <details class="how-drop reveal">
+    <summary class="how-summary">
+      <span>
+        <h2 class="sec-title">HOW TO <b>ORDER</b></h2>
+        <p class="sec-sub">Simple, smooth, and seamless — tap to view the steps</p>
+      </span>
+      <span class="how-arrow">▾</span>
+    </summary>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4 data-ep-text="home-step1-h">Add to Cart</h4><p data-ep-text="home-step1-p">Browse the Shop and add your items &amp; quantities — your total updates automatically.</p></div>
+      <div class="step"><div class="n">2</div><h4 data-ep-text="home-step2-h">Submit Order</h4><p data-ep-text="home-step2-p">Fill in your name, email &amp; shipping address at checkout, then submit — this emails us your order.</p></div>
+      <div class="step"><div class="n">3</div><h4 data-ep-text="home-step3-h">We Send Payment Info</h4><p data-ep-text="home-step3-p">We'll reply with our <b>PayPal</b> (Friends &amp; Family) info so you can send payment for your total.</p></div>
+      <div class="step"><div class="n">4</div><h4 data-ep-text="home-step4-h">Tracking Sent</h4><p data-ep-text="home-step4-p">Once payment is confirmed, we'll reply with your <b>tracking number</b> — usually within 24 hours. 📦</p></div>
+    </div>
+  </details>
 </section>
 
 <section class="fighter-prayer-section">

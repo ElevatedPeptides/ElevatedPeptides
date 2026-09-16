@@ -111,6 +111,11 @@ footer a{color:var(--ep);text-decoration:none;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--ep2);border-radius:3px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--ep);}
+
+/* ── SCROLL TOP ── */
+#scrollTopBtn{position:fixed;bottom:24px;right:20px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));border:none;color:#000;font-size:20px;cursor:pointer;box-shadow:0 0 20px rgba(0,229,204,.5);z-index:850;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;}
+#scrollTopBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+#scrollTopBtn:hover{transform:translateY(-3px);}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 
@@ -241,9 +246,12 @@ footer a{color:var(--ep);text-decoration:none;}
   <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides</p>
 </footer>
 
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⬆</button>
+
 <script>
 if(sessionStorage.getItem('umf_unlocked')!=='1'){ location.href='index.html'; }
 document.getElementById('yr').textContent = new Date().getFullYear();
+window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 
 /* ── STARFIELD ── */
 (function(){

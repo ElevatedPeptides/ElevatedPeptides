@@ -236,6 +236,11 @@ footer a{color:var(--ep);text-decoration:none;cursor:pointer;}
 /* ── HOVER GLOW ── */
 a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5));transition:filter .2s ease;}
 
+/* ── SCROLL TOP ── */
+#scrollTopBtn{position:fixed;bottom:24px;right:20px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));border:none;color:#000;font-size:20px;cursor:pointer;box-shadow:0 0 20px rgba(0,229,204,.5);z-index:850;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;}
+#scrollTopBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+#scrollTopBtn:hover{transform:translateY(-3px);}
+
 /* ── MOBILE NAV ── */
 @media(max-width:780px){
   .nav-links{display:none;position:fixed;top:68px;right:0;width:min(260px,84vw);height:calc(100vh - 68px);overflow-y:auto;background:rgba(2,8,8,.98);flex-direction:column;align-items:stretch;gap:4px;padding:18px;border-left:1px solid var(--bp);z-index:600;box-sizing:border-box;}
@@ -461,6 +466,8 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
   <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides. <a onclick="location.href='terms.html'">Terms</a> · <a onclick="location.href='contact.html'">Contact</a></p>
 </footer>
 
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⬆</button>
+
 </div><!-- /#site -->
 
 <script>
@@ -504,6 +511,7 @@ if(sessionStorage.getItem('umf_unlocked')==='1'){
 }
 
 document.getElementById('yr').textContent = new Date().getFullYear();
+window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 
 /* ══ STARFIELD ══ */
 (function(){

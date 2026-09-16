@@ -89,9 +89,10 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1180px;margin:0 
 .pep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;}
 .pep-card{background:#070e0e;border:1.5px solid rgba(0,229,204,.28);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all .28s;box-shadow:0 0 18px rgba(0,0,0,.5),0 0 12px rgba(0,229,204,.06);}
 .pep-card:hover{transform:translateY(-4px);border-color:rgba(0,229,204,.7);box-shadow:0 14px 42px rgba(0,0,0,.55),0 0 32px rgba(0,229,204,.2);}
-.pep-card-top{display:flex;gap:14px;padding:18px 18px 4px;}
-.pep-card-img{width:76px;height:76px;flex-shrink:0;border-radius:12px;background:linear-gradient(160deg,#0c1e1e,#040c0c);display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.pep-card-img img{width:100%;height:100%;object-fit:contain;padding:8px;}
+.pep-card-top{display:flex;gap:16px;padding:18px 18px 4px;}
+.pep-card-img{width:140px;height:140px;flex-shrink:0;border-radius:12px;background:linear-gradient(160deg,#0c1e1e,#040c0c);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pep-card-img img{width:100%;height:100%;object-fit:contain;padding:6px;}
+@media(max-width:520px){.pep-card-img{width:100px;height:100px;}}
 .pep-card-heading{flex:1;min-width:0;}
 .pep-cat-line{font-family:'Rajdhani',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--ep);text-transform:uppercase;opacity:.9;}
 .pep-name{font-family:'Rajdhani',sans-serif;font-size:21px;font-weight:700;color:#fff;letter-spacing:.02em;line-height:1.15;margin:2px 0 4px;}
@@ -112,6 +113,40 @@ section{position:relative;z-index:2;padding:30px 24px;max-width:1180px;margin:0 
 .pep-shop-btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(0,229,204,.5);}
 .pep-coa-btn{flex:1;text-align:center;background:transparent;border:1.5px solid rgba(0,229,204,.35);color:var(--tx);border-radius:10px;padding:9px 8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
 .pep-coa-btn:hover{background:rgba(0,229,204,.1);border-color:var(--ep);color:#fff;}
+.pep-info-btn{flex:1;text-align:center;background:rgba(0,229,204,.08);border:1.5px solid rgba(0,229,204,.35);color:var(--tx);border-radius:10px;padding:10px 8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.pep-info-btn:hover{background:rgba(0,229,204,.15);border-color:var(--ep);color:#fff;}
+
+.pep-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;}
+.pep-badge.stocked{background:rgba(0,229,204,.15);color:var(--ep);border:1px solid rgba(0,229,204,.4);}
+.pep-badge.pending{background:rgba(255,180,0,.12);color:#ffc94d;border:1px solid rgba(255,180,0,.35);}
+.pep-badge.ref{background:rgba(255,255,255,.06);color:var(--dim);border:1px solid rgba(255,255,255,.15);}
+.pep-icon-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:46px;}
+
+.pep-evidence{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-top:6px;}
+.pep-evidence.ev-fda{background:rgba(0,229,204,.14);color:var(--ep);border:1px solid rgba(0,229,204,.4);}
+.pep-evidence.ev-trial{background:rgba(120,150,255,.12);color:#9ab4ff;border:1px solid rgba(120,150,255,.35);}
+.pep-evidence.ev-limited{background:rgba(255,180,0,.12);color:#ffc94d;border:1px solid rgba(255,180,0,.35);}
+.pep-evidence.ev-preclinical{background:rgba(255,90,90,.1);color:#ff8a8a;border:1px solid rgba(255,90,90,.32);}
+.pep-sources{font-size:10.5px;color:var(--dim);opacity:.8;line-height:1.6;border-top:1px dashed rgba(0,229,204,.18);padding-top:8px;}
+.pep-sources b{color:var(--dim);opacity:.9;}
+.pep-sources a{color:var(--ep);text-decoration:none;}
+.pep-sources a:hover{text-decoration:underline;}
+
+/* ── QUICK JUMP NAV ── */
+.pep-jump{position:relative;z-index:2;max-width:1000px;margin:20px auto 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:rgba(4,12,12,.85);border:1px solid var(--bp);border-radius:14px;padding:14px 16px;}
+.pep-jump a{background:rgba(0,229,204,.06);border:1.5px solid var(--bp);border-radius:20px;padding:6px 13px;color:var(--tx);font-family:'Montserrat',sans-serif;font-weight:600;font-size:11.5px;text-decoration:none;transition:all .18s;white-space:nowrap;}
+.pep-jump a:hover{border-color:var(--ep);color:var(--ep);background:rgba(0,229,204,.12);}
+
+/* ── SEARCH ── */
+.pep-search-wrap{position:relative;z-index:2;max-width:520px;margin:20px auto 0;}
+.pep-search-wrap input{width:100%;padding:12px 20px 12px 42px;border-radius:30px;border:1.5px solid var(--bp);background:rgba(0,20,20,.85);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;}
+.pep-search-wrap input:focus{border-color:var(--ep);box-shadow:0 0 16px rgba(0,229,204,.25);}
+.pep-search-wrap input::placeholder{color:var(--dim);}
+.pep-search-wrap .icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none;opacity:.7;}
+.pep-search-clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:rgba(0,229,204,.12);border:none;color:var(--ep);width:26px;height:26px;border-radius:50%;font-size:14px;cursor:pointer;display:none;align-items:center;justify-content:center;}
+.pep-search-clear.show{display:flex;}
+.pep-search-count{text-align:center;font-size:12px;color:var(--dim);margin-top:8px;}
+.pep-no-results{text-align:center;color:var(--dim);padding:50px 0;font-size:14px;display:none;}
 
 /* ── BOTTOM DISCLAIMER CARD ── */
 .pep-footer-note{max-width:820px;margin:0 auto;background:var(--card2);border:1px solid var(--bp);border-radius:14px;padding:22px 24px;text-align:center;}
@@ -140,6 +175,11 @@ footer a{color:var(--ep);text-decoration:none;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--ep2);border-radius:3px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--ep);}
+
+/* ── SCROLL TOP ── */
+#scrollTopBtn{position:fixed;bottom:24px;right:20px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));border:none;color:#000;font-size:20px;cursor:pointer;box-shadow:0 0 20px rgba(0,229,204,.5);z-index:850;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;}
+#scrollTopBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+#scrollTopBtn:hover{transform:translateY(-3px);}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 
@@ -183,11 +223,18 @@ footer a{color:var(--ep);text-decoration:none;}
   </div>
   <div class="pagehead-text reveal">
     <h1>The Peptide <b>Index</b></h1>
-    <p>A deep-dive reference on every compound we carry — mechanism, research background, and the dosage ranges most commonly referenced in the research literature and community protocols.</p>
+    <p>A deep-dive reference on every widely known research peptide — mechanism, current research background, and dosage ranges, each labeled by real evidence quality and cited to primary sources (FDA labels, PubMed, ClinicalTrials.gov) wherever they exist. Compounds we currently stock are marked <span class="pep-badge stocked" style="margin-left:0;">In Stock</span>; everything else is here as background reference material.</p>
   </div>
 </div>
 
 <div class="pep-disclaimer">⚠️ <b>FOR LABORATORY RESEARCH USE ONLY — NOT FOR HUMAN OR ANIMAL CONSUMPTION.</b> Every dosage figure on this page reflects ranges referenced in published research literature and peptide-research community protocols. This is not medical advice, is not a recommendation to administer anything to a human or animal, and has not been evaluated by the FDA. Always consult the primary research literature and applicable regulations for your jurisdiction. See our <a href="terms.html">Terms &amp; Conditions</a>.</div>
+
+<div class="pep-search-wrap reveal">
+  <span class="icon">🔍</span>
+  <input type="text" id="pepSearch" placeholder="Search peptides by name, mechanism, or research use…" oninput="filterPeptides()"/>
+  <button class="pep-search-clear" id="pepSearchClear" onclick="clearPepSearch()" aria-label="Clear search">✕</button>
+  <div class="pep-search-count" id="pepSearchCount"></div>
+</div>
 
 <div class="recon-calc-banner reveal">
   <div class="recon-calc-icon">🧮</div>
@@ -198,33 +245,47 @@ footer a{color:var(--ep);text-decoration:none;}
   <a class="recon-calc-btn" href="https://glowklowcalc.com/" target="_blank" rel="noopener">Open Calculator →</a>
 </div>
 
+<div class="pep-jump reveal">
+  <a href="#cat-metabolic">⚖️ Metabolic</a>
+  <a href="#cat-healing">🩹 Healing</a>
+  <a href="#cat-skin">✨ Skin</a>
+  <a href="#cat-longevity">🧬 Longevity</a>
+  <a href="#cat-gh">💪 GH Axis</a>
+  <a href="#cat-sexual">💊 Sexual Health</a>
+  <a href="#cat-cognitive">🧠 Cognitive</a>
+  <a href="#cat-sleep">😴 Sleep</a>
+</div>
+
 <div class="ep-line"></div>
 
 <section>
 
+  <div class="pep-no-results" id="pepNoResults">🔍 No peptides match your search. Try a different name or keyword.</div>
+
   <!-- ══ METABOLIC / GLP-1 ══ -->
-  <div class="cat-group">
+  <div class="cat-group" id="cat-metabolic">
     <div class="cat-group-hd reveal"><span class="emoji">⚖️</span><h3>Metabolic &amp; GLP-1 Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="trizep-vial.png" alt="Tirzepatide"/></div>
+          <div class="pep-card-img"><img src="Tirzepatide 30mg.png" alt="Tirzepatide"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Dual Agonist</div>
+            <div class="pep-cat-line">Dual Agonist <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">Tirzepatide</h3>
             <p class="pep-tagline">Dual GLP-1 &amp; GIP receptor agonist</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">Tirzepatide is a synthetic dual agonist that activates both GLP-1 and GIP receptors — two incretin hormone pathways involved in glucose regulation and appetite signaling. Research models have studied dual-receptor activation for its effects on insulin secretion, gastric emptying, and energy balance, making it one of the most actively researched compounds in metabolic and obesity-related literature. Approximate elimination half-life referenced in pharmacokinetic literature: ~5 days, which underlies the once-weekly dosing interval studied in trials.</p>
+          <p class="pep-detail">Tirzepatide is a synthetic dual agonist that activates both GLP-1 and GIP receptors — two incretin hormone pathways involved in glucose regulation and appetite signaling. It is FDA-approved as Mounjaro (type 2 diabetes) and Zepbound (chronic weight management); the dosing below mirrors that approved human label, not a self-derived research figure. Elimination half-life is ~5 days, which underlies the once-weekly dosing interval.<br><span class="pep-evidence ev-fda">FDA-Approved Drug</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">2.5 mg – 15 mg per dose</span></div>
-            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 2.5 mg; increase in 2.5 mg steps every 4 weeks as studied, up to a 15 mg ceiling referenced in trials</span></div>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">2.5 mg – 15 mg per dose (5/10/15 mg are the approved maintenance doses; 2.5 mg is a start-only dose, not a maintenance dose)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 2.5 mg for 4 weeks, then increase in 2.5 mg steps no sooner than every 4 weeks, up to a 15 mg ceiling</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://pi.lilly.com/us/zepbound-uspi.pdf" target="_blank" rel="noopener">Zepbound FDA Prescribing Information</a> · <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/217806s031lbl.pdf" target="_blank" rel="noopener">FDA label (accessdata.fda.gov)</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=tirz">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
@@ -234,25 +295,121 @@ footer a{color:var(--ep);text-decoration:none;}
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="reta-vial.png" alt="Retatrutide"/></div>
+          <div class="pep-card-img"><img src="Retatrutide 30mg.png" alt="Retatrutide"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Triple Agonist</div>
+            <div class="pep-cat-line">Triple Agonist <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">Retatrutide</h3>
             <p class="pep-tagline">GLP-1 · GIP · Glucagon receptor agonist</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">Retatrutide is a next-generation triple agonist engineered to activate GLP-1, GIP, and glucagon receptors simultaneously. This triple-pathway approach is studied for its potential to influence energy expenditure alongside appetite and glucose regulation, positioning it at the frontier of metabolic peptide research. Pharmacokinetic literature references an elimination half-life of roughly 6 days, consistent with once-weekly research dosing intervals.</p>
+          <p class="pep-detail">Retatrutide (LY3437943) is a next-generation triple agonist engineered to activate GLP-1, GIP, and glucagon receptors simultaneously. It is <b>not FDA-approved</b> — it remains an investigational compound in Eli Lilly's Phase 3 program (TRIUMPH trials). The dosing below reflects the arms actually tested in the published Phase 2 obesity trial (Jastreboff et al., NEJM 2023), not an independent research estimate.<br><span class="pep-evidence ev-trial">Clinical Trial — Investigational, Not Approved</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">1 mg – 12 mg per dose</span></div>
-            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 1–2 mg; trial literature references ~2 mg step increases every 4 weeks toward studied maintenance doses</span></div>
+            <div class="pep-dose-row"><span class="lbl">Trial Arms</span><span class="val">1 mg, 4 mg, 8 mg, or 12 mg once weekly (the 4/8/12 mg arms used a lower 2 mg starting dose for the first 4 weeks)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Trial protocol stepped doses up over several 4-week intervals — no FDA-approved titration schedule exists</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2301972" target="_blank" rel="noopener">Jastreboff et al., NEJM 2023 (PMID 37366315)</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=reta">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">⚖️</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GLP-1 Agonist <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Semaglutide</h3>
+            <p class="pep-tagline">Single-pathway GLP-1 receptor agonist</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Semaglutide is a single-pathway GLP-1 receptor agonist studied for its effects on insulin secretion, gastric emptying, and appetite regulation. It shares the same receptor target as tirzepatide's GLP-1 component but without GIP or glucagon activity. It is FDA-approved as Ozempic/Rybelsus (type 2 diabetes) and Wegovy (chronic weight management); half-life is roughly one week.<br><span class="pep-evidence ev-fda">FDA-Approved Drug</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">0.25 mg – 2.4 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 0.25 mg for 4 weeks, then 0.5 mg, 1 mg, 1.7 mg, and 2.4 mg — each step held for at least 4 weeks per the approved label</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/215256s000lbl.pdf" target="_blank" rel="noopener">Wegovy FDA Prescribing Information</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">⚖️</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GLP-1 Agonist <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Liraglutide</h3>
+            <p class="pep-tagline">Short-acting GLP-1 receptor agonist</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Liraglutide is an earlier-generation GLP-1 receptor agonist studied for the same incretin pathway as semaglutide and tirzepatide, but with a much shorter half-life (~13 hours), requiring daily rather than weekly dosing. It is FDA-approved as Victoza (type 2 diabetes) and Saxenda (chronic weight management).<br><span class="pep-evidence ev-fda">FDA-Approved Drug</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">0.6 mg – 3.0 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 0.6 mg, increasing in 0.6 mg weekly steps per the approved Saxenda label</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2014/206321orig1s000lbl.pdf" target="_blank" rel="noopener">Saxenda FDA Prescribing Information</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">⚖️</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Amylin Agonist <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Cagrilintide</h3>
+            <p class="pep-tagline">Amylin receptor agonist, often paired with GLP-1 research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Cagrilintide is a long-acting amylin receptor agonist studied for its effects on satiety and gastric emptying via a pathway distinct from GLP-1. It has no standalone FDA approval; nearly all human data comes from Novo Nordisk's CagriSema program, where it is co-administered with semaglutide (the combination itself also remains investigational — Phase 3 trials, not yet approved).<br><span class="pep-evidence ev-trial">Clinical Trial — Investigational, Not Approved</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Trial Dose</span><span class="val">2.4 mg once weekly is the dose used in the published CagriSema Phase 2/3 trials (paired with 2.4 mg semaglutide)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Trial protocols escalated gradually over several months — no FDA-approved titration schedule exists</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2502081" target="_blank" rel="noopener">Coadministered Cagrilintide and Semaglutide, NEJM 2025</a> · <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(23)01163-7/abstract" target="_blank" rel="noopener">Lancet 2023 Phase 2 trial</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">⚖️</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GH Fragment <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">AOD-9604</h3>
+            <p class="pep-tagline">Modified hGH fragment (176–191), lipolysis research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">AOD-9604 is a modified fragment of the C-terminus of human growth hormone, engineered to isolate the fat-metabolizing (lipolytic) region of the GH molecule without the growth-promoting or insulin-resistance effects associated with full-length GH. Its most important research fact: Metabolic Pharmaceuticals' 24-week Phase 2b obesity trial (536 subjects) <b>failed to show statistically significant weight loss over placebo</b>, and the compound was never advanced to Phase 3 or submitted for FDA approval — development was terminated in 2007. It is currently an FDA Category 2 bulk substance, meaning compounding it is restricted pending further FDA review.<br><span class="pep-evidence ev-preclinical">Failed Trial — No Approval</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Note</span><span class="val">300 mcg – 500 mcg/day is the figure most widely circulated in community protocols, but this was not the dose shown effective in the compound's own failed obesity trial — treat this as an unverified community convention, not a validated research dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous, commonly referenced fasted upon waking</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://healthrx.com/regulatory-aod-9604/fda-approval-history" target="_blank" rel="noopener">AOD-9604 FDA regulatory history</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
           </div>
         </div>
       </div>
@@ -261,28 +418,30 @@ footer a{color:var(--ep);text-decoration:none;}
   </div>
 
   <!-- ══ HEALING / RECOVERY ══ -->
-  <div class="cat-group">
+  <div class="cat-group" id="cat-healing">
     <div class="cat-group-hd reveal"><span class="emoji">🩹</span><h3>Healing &amp; Recovery Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="bpc-tb-vial.png" alt="BPC-157 / TB-500"/></div>
+          <div class="pep-card-img"><img src="BPC157 TB500 20mg.png" alt="BPC-157 / TB-500"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Healing Blend</div>
+            <div class="pep-cat-line">Healing Blend <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">BPC-157 / TB-500</h3>
             <p class="pep-tagline">Synergistic tissue repair &amp; recovery blend</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">This combination pairs BPC-157, a stable gastric pentadecapeptide studied for its role in angiogenesis and tissue repair, with TB-500 (Thymosin Beta-4), a peptide fragment researched for its influence on cell migration and actin regulation during wound healing. Together, they are commonly studied as a synergistic stack for recovery and regenerative research.</p>
+          <p class="pep-detail">This combination pairs BPC-157, a stable gastric pentadecapeptide studied for its role in angiogenesis and tissue repair, with TB-500, a synthetic fragment (amino acids 17–23, "LKKTETQ") of the naturally occurring 43-amino-acid protein Thymosin Beta-4. <b>Important distinction:</b> essentially all published human clinical data on tissue-repair peptides in this space comes from animal/rodent studies of BPC-157, or from RegeneRx Biopharmaceuticals' human trials of the full-length Thymosin Beta-4 molecule (marketed as RGN-352 and RGN-259 eye drops) — not from the shorter TB-500 fragment itself, which has no published human clinical trial data as of this writing. Findings on full-length Tβ4 do not automatically transfer to the fragment.<br><span class="pep-evidence ev-preclinical">Preclinical / No Human Trial Data (as sold)</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Note</span><span class="val">Figures below are the community protocol most widely circulated online — not derived from a published human clinical trial of either compound</span></div>
             <div class="pep-dose-row"><span class="lbl">BPC-157</span><span class="val">250 mcg – 500 mcg, once or twice daily</span></div>
             <div class="pep-dose-row"><span class="lbl">TB-500</span><span class="val">2 mg – 2.5 mg, once or twice weekly</span></div>
             <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Research cycles of ~4–6 weeks are commonly referenced</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.regenerx.com/" target="_blank" rel="noopener">RegeneRx Biopharmaceuticals (Tβ4 clinical program)</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=bpctb">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
@@ -292,15 +451,15 @@ footer a{color:var(--ep);text-decoration:none;}
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="klow-vial.png" alt="KLOW 80"/></div>
+          <div class="pep-card-img"><img src="KLOW 80mg.png" alt="KLOW 80"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">4-in-1 Blend</div>
+            <div class="pep-cat-line">4-in-1 Blend <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">KLOW 80</h3>
             <p class="pep-tagline">BPC-157 · TB-500 · KPV · GHK-Cu blend</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">KLOW 80 combines four extensively studied peptides into a single blend: BPC-157 (10mg) and TB-500 (10mg) for their synergistic role in tissue repair research, KPV (10mg), a tripeptide studied for its anti-inflammatory signaling properties, and GHK-Cu (50mg), a copper-binding peptide researched for collagen synthesis and skin regeneration. This combination is designed for researchers studying compounded approaches to recovery, inflammation modulation, and tissue health.</p>
+          <p class="pep-detail">KLOW 80 combines four peptides into a single blend: BPC-157 (10mg) and TB-500 (10mg), both studied mainly in animal models with no published human trial data as sold (see the individual BPC-157/TB-500 cards for the full distinction between TB-500 and RegeneRx's clinically-tested full-length Thymosin Beta-4), KPV (10mg), a preclinical tripeptide studied for anti-inflammatory signaling, and GHK-Cu (50mg), a copper-binding peptide with a substantially stronger published research base in collagen synthesis and skin regeneration. This blend itself has not been studied as a combined formulation in any published trial.<br><span class="pep-evidence ev-preclinical">Preclinical Blend — No Combined-Formulation Trial Data</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">Reconstitute the full 80mg vial, then draw a proportional daily fraction (commonly referenced as 20–40 units on an insulin syringe, once or twice daily)</span></div>
@@ -314,29 +473,124 @@ footer a{color:var(--ep);text-decoration:none;}
         </div>
       </div>
 
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="BPC157 20mg.png" alt="BPC-157"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Gastric Pentadecapeptide <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">BPC-157</h3>
+            <p class="pep-tagline">Standalone tissue repair research compound</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">BPC-157 is a synthetic pentadecapeptide based on a protective sequence identified in gastric juice, independent of TB-500. It is one of the most-referenced compounds in tissue-repair research, with a large body of published <i>animal</i> literature on angiogenesis, tendon/ligament repair, and gut-lining protection. As of this writing there are no published randomized controlled human clinical trials of BPC-157 — the widely circulated mg-level dosing below comes from extrapolated animal studies and community protocols, not human trial data.<br><span class="pep-evidence ev-preclinical">Preclinical — No Human Trial Data</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">250 mcg – 500 mcg per dose (community-derived, not clinically validated)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once or twice daily, subcutaneous</span></div>
+            <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Research cycles of ~4–6 weeks commonly referenced</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-shop-btn" href="shop.html?product=bpc157">View in Shop</a>
+            <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="TB500 10mg.png" alt="TB-500"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Thymosin Beta-4 Fragment <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">TB-500</h3>
+            <p class="pep-tagline">Standalone systemic recovery research compound</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">TB-500 is a synthetic 7-amino-acid fragment ("LKKTETQ," residues 17–23) of Thymosin Beta-4, a naturally occurring 43-amino-acid protein. <b>This is not the same molecule studied in human trials.</b> The published human clinical evidence for this actin-regulation pathway comes from RegeneRx Biopharmaceuticals' trials of the <i>full-length</i> Thymosin Beta-4 (RGN-352 for cardiac repair, RGN-259 eye drops for corneal/dry-eye healing) — TB-500 itself has not been evaluated in a published human RCT. The fragment shares the full protein's actin-binding domain but not its other functional domains, so results from full-length Tβ4 studies cannot be assumed to transfer directly.<br><span class="pep-evidence ev-preclinical">Preclinical — No Human Trial Data for This Fragment</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">2 mg – 2.5 mg per dose (community-derived, not clinically validated)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once or twice weekly, subcutaneous</span></div>
+            <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Research cycles of ~4–6 weeks commonly referenced</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.regenerx.com/" target="_blank" rel="noopener">RegeneRx Biopharmaceuticals (Tβ4 clinical program)</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-shop-btn" href="shop.html?product=tb500">View in Shop</a>
+            <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="KPV 10mg.png" alt="KPV"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">α-MSH Fragment <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">KPV</h3>
+            <p class="pep-tagline">Standalone anti-inflammatory tripeptide</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">KPV is a tripeptide fragment of alpha-melanocyte-stimulating hormone (α-MSH), studied for anti-inflammatory and antimicrobial signaling without the pigmentation or appetite effects associated with full-length melanocortin peptides. The supporting evidence is almost entirely preclinical — cell-culture and rodent models of colitis and skin inflammation — with no published human clinical trials and no established human dosing in the literature.<br><span class="pep-evidence ev-preclinical">Preclinical — No Human Trial Data</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">200 mcg – 500 mcg per dose (community-derived, not clinically validated)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once or twice daily, subcutaneous (oral capsule forms also referenced in some research protocols)</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-shop-btn" href="shop.html?product=kpv">View in Shop</a>
+            <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">🛡️</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Immune-Modulating Peptide <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Thymosin Alpha-1</h3>
+            <p class="pep-tagline">Immune function &amp; antiviral research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Thymosin Alpha-1 is a naturally occurring thymic peptide studied for its role in modulating T-cell function and immune response. Marketed as Zadaxin (thymalfasin), it is approved in more than 35 countries (including China and Italy) for chronic hepatitis B, sometimes combined with interferon. It has never received full FDA marketing approval in the U.S., though it holds FDA Orphan Drug designation for hepatocellular carcinoma and hepatitis B.<br><span class="pep-evidence ev-trial">Approved Outside the U.S. — No FDA Approval</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">1.6 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Twice weekly, subcutaneous — matches the Zadaxin label dosing for hepatitis B (typically continued 6–12 months in that indication)</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.rxlist.com/zadaxin-drug.htm" target="_blank" rel="noopener">Zadaxin (thymalfasin) prescribing information</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- ══ SKIN / ANTI-AGING ══ -->
-  <div class="cat-group">
+  <div class="cat-group" id="cat-skin">
     <div class="cat-group-hd reveal"><span class="emoji">✨</span><h3>Skin &amp; Anti-Aging Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="ghk-cu-vial.png" alt="GHK-Cu"/></div>
+          <div class="pep-card-img"><img src="GHK-Cu 100mg.png" alt="GHK-Cu"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Copper Peptide</div>
+            <div class="pep-cat-line">Copper Peptide <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">GHK-Cu</h3>
             <p class="pep-tagline">Collagen synthesis &amp; skin regeneration</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">GHK-Cu is a naturally occurring copper-binding tripeptide studied extensively for its role in collagen and elastin production, wound healing, and antioxidant activity. Research has explored its effects on skin remodeling, hair follicle stimulation, and anti-inflammatory pathways, making it a widely referenced compound in dermatological and regenerative research.</p>
+          <p class="pep-detail">GHK-Cu is a naturally occurring copper-binding tripeptide first characterized by Dr. Loren Pickart, with a substantial published body of work (cell-culture, animal, and topical human studies) on collagen/elastin stimulation, wound healing, and antioxidant activity — the topical/dermatological evidence base here is genuinely stronger than for most compounds on this page. The subcutaneous injectable dosing below, however, is a community convention rather than a figure derived from a published human injectable trial.<br><span class="pep-evidence ev-limited">Established Topical Research — Injectable Dosing Unverified</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Topical</span><span class="val">Formulations studied at ~1–2% concentration, applied daily</span></div>
-            <div class="pep-dose-row"><span class="lbl">Subcutaneous</span><span class="val">1 mg – 2 mg per day commonly referenced in research protocols</span></div>
+            <div class="pep-dose-row"><span class="lbl">Subcutaneous</span><span class="val">1 mg – 2 mg per day (community-derived, not from a published injectable trial)</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
           <div class="pep-card-actions">
@@ -348,21 +602,22 @@ footer a{color:var(--ep);text-decoration:none;}
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="ss31-vial.png" alt="SS-31"/></div>
+          <div class="pep-card-img"><img src="SS-31 10mg.png" alt="SS-31"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Mitochondrial</div>
+            <div class="pep-cat-line">Mitochondrial <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">SS-31</h3>
             <p class="pep-tagline">Mitochondria-targeted peptide (Elamipretide)</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">SS-31 (elamipretide) is a mitochondria-targeted peptide studied for its ability to concentrate in the inner mitochondrial membrane and stabilize cardiolipin, a phospholipid critical to mitochondrial energy production. Research has focused on its potential role in reducing oxidative stress and studying age-related mitochondrial dysfunction.</p>
+          <p class="pep-detail">SS-31 (elamipretide) is a mitochondria-targeted peptide studied for its ability to concentrate in the inner mitochondrial membrane and stabilize cardiolipin, a phospholipid critical to mitochondrial energy production. In September 2025 the FDA granted accelerated approval to elamipretide (brand name Forzinity) specifically for Barth syndrome in patients ≥30 kg, based on the TAZPOWER trial — but that approval is narrow to Barth syndrome, not a general anti-aging or oxidative-stress indication, which remains investigational.<br><span class="pep-evidence ev-fda">FDA-Approved (Barth Syndrome Only)</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">1 mg – 5 mg per day, referenced in research-community protocols</span></div>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">1 mg – 5 mg per day — a community-circulated range, not the Forzinity label dose, which is weight-based and specific to Barth syndrome</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://umdf.org/fda-approves-elamipretide/" target="_blank" rel="noopener">FDA approval of elamipretide for Barth syndrome (UMDF)</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=ss31">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
@@ -370,31 +625,80 @@ footer a{color:var(--ep);text-decoration:none;}
         </div>
       </div>
 
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="Epithalon 50mg.png" alt="Epithalon"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Pineal Tetrapeptide <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">Epithalon</h3>
+            <p class="pep-tagline">Telomerase &amp; longevity research (also spelled Epitalon)</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Epithalon (Epitalon) is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) developed by Prof. Vladimir Khavinson at the St. Petersburg Institute of Bioregulation and Gerontology, modeled on the natural pineal extract Epithalamin. The most-cited human longevity data (e.g., a ~266-patient elderly cohort followed 6–8 years) actually used Epithalamin, the crude pineal peptide extract — not the synthesized 4-amino-acid Epithalon itself — and those studies were not randomized, double-blind, or placebo-controlled by Western standards, with no independent Western replication. Telomerase-activation evidence for the synthetic tetrapeptide is preclinical (cell-culture/animal).<br><span class="pep-evidence ev-preclinical">Preclinical / Non-Western Human Data Only</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">5 mg – 10 mg per day (community-derived, not from a controlled trial of the synthetic peptide)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Short research cycles of ~10–20 days, commonly referenced 2–3 times per year</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Vladimir_Khavinson" target="_blank" rel="noopener">Vladimir Khavinson — research background</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-shop-btn" href="shop.html?product=epithalon">View in Shop</a>
+            <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">✨</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Myostatin Inhibitor <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Follistatin-344</h3>
+            <p class="pep-tagline">Muscle-growth &amp; myostatin-inhibition research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Follistatin-344 is a naturally occurring protein that binds and inhibits myostatin and related growth-differentiation factors that normally limit muscle growth. <b>Important distinction:</b> the published human clinical evidence for follistatin in muscle disease (Mendell et al., Nationwide Children's Hospital, NCT02354781 and related trials) used an AAV1 gene-therapy vector (AAV1.CMV.huFS344) injected directly into muscle to make the body produce its own follistatin over time — a fundamentally different delivery mechanism from a recombinant Follistatin-344 protein injected directly, which is what is sold under this name in the research-peptide market. The gene-therapy trial results cannot be assumed to apply to injectable Follistatin-344 protein, which has no published human trial data of its own.<br><span class="pep-evidence ev-preclinical">No Human Trial Data (as sold) — Distinct From Gene Therapy</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Note</span><span class="val">Research literature references highly variable dosing; no widely standardized community protocol exists — consult the primary literature closely</span></div>
+            <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Short research cycles (~10 days) are most commonly referenced given cost and complexity</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/25322757/" target="_blank" rel="noopener">Mendell et al., Follistatin gene therapy trial (PMID 25322757)</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ══ METABOLIC / LONGEVITY ══ -->
-  <div class="cat-group">
+  <!-- ══ LONGEVITY ══ -->
+  <div class="cat-group" id="cat-longevity">
     <div class="cat-group-hd reveal"><span class="emoji">🧬</span><h3>Longevity &amp; Cellular Energy Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="motsc-vial.png" alt="MOTS-c"/></div>
+          <div class="pep-card-img"><img src="MOTS-c 10mg.png" alt="MOTS-c"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Mitochondrial</div>
+            <div class="pep-cat-line">Mitochondrial <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">MOTS-c</h3>
             <p class="pep-tagline">Metabolic regulation &amp; longevity research</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">MOTS-c is a mitochondrial-derived peptide encoded within the mitochondrial genome, studied for its role as a metabolic regulator. Research has examined its influence on insulin sensitivity, AMPK activation, and exercise-related metabolic adaptation, positioning it as a compound of interest in longevity and metabolic research.</p>
+          <p class="pep-detail">MOTS-c is a mitochondrial-derived peptide encoded within the mitochondrial genome, studied for its role as a metabolic regulator. The endogenous biology is well documented — human studies show MOTS-c rises roughly 12-fold in skeletal muscle during acute exercise, and higher circulating levels correlate with muscle mass and power output. However, <i>injectable</i> MOTS-c as a therapeutic has no completed human efficacy trials; a Phase 2a trial in prediabetes/obesity (NCT07505745) is newly recruiting. Treat the dosing below as unverified.<br><span class="pep-evidence ev-preclinical">Endogenous Biology Studied — Injectable Trials Still Early</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">5 mg – 10 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">5 mg – 10 mg per dose (community-derived, not from a completed clinical trial)</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">2–3 times per week (every other day), subcutaneous</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://clinicaltrials.gov/study/NCT07505745" target="_blank" rel="noopener">Phase 2a MOTS-c trial (ClinicalTrials.gov)</a> · <a href="https://www.nature.com/articles/s41598-021-96419-z" target="_blank" rel="noopener">MOTS-c and exercise, Sci Rep 2021</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=motsc">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
@@ -404,18 +708,18 @@ footer a{color:var(--ep);text-decoration:none;}
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="nad-vial.png" alt="NAD+"/></div>
+          <div class="pep-card-img"><img src="NAD+ 1000mg.png" alt="NAD+"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Longevity</div>
+            <div class="pep-cat-line">Longevity <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">NAD+</h3>
             <p class="pep-tagline">Cellular energy &amp; anti-aging research</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every living cell, essential to energy metabolism and DNA repair processes. Research interest centers on its decline with age and its potential role in studies of cellular energy production, sirtuin activation, and anti-aging pathways.</p>
+          <p class="pep-detail">NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every living cell, essential to energy metabolism and DNA repair. Its decline with age is well established biochemically, and it is widely used in IV-infusion wellness clinics, but there is no FDA-approved injectable NAD+ drug product and no standardized clinical dosing — infusion clinics and community protocols vary widely, and long-term human outcome data is limited.<br><span class="pep-evidence ev-limited">Widely Used, Clinically Unstandardized</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mg – 500 mg per week, split across 2–3 doses</span></div>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mg – 500 mg per week, split across 2–3 doses (community-derived range)</span></div>
             <div class="pep-dose-row"><span class="lbl">Administration</span><span class="val">Slow subcutaneous / IM push commonly referenced to reduce flushing/discomfort</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mg/mL</span></div>
           </div>
@@ -426,29 +730,50 @@ footer a{color:var(--ep);text-decoration:none;}
         </div>
       </div>
 
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">🧬</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Mitochondrial-Derived Peptide <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Humanin</h3>
+            <p class="pep-tagline">Cytoprotective peptide, preclinical research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Humanin is a short peptide encoded within mitochondrial DNA, studied for cytoprotective effects in neurodegeneration, cardiovascular, and metabolic research models. All available evidence is preclinical (cell-culture and animal); there are no published human clinical trials of injectable Humanin, and no clinically derived dosing exists.<br><span class="pep-evidence ev-preclinical">Preclinical — No Human Trial Data</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Note</span><span class="val">Dosing is not well standardized — most available data comes from preclinical/animal studies that don't directly translate to a per-dose figure</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- ══ GH PEPTIDES ══ -->
-  <div class="cat-group">
+  <div class="cat-group" id="cat-gh">
     <div class="cat-group-hd reveal"><span class="emoji">💪</span><h3>Growth Hormone Axis Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="cjc-ipa-vials.png" alt="CJC-1295 / Ipamorelin"/></div>
+          <div class="pep-card-img"><img src="CJC-IPA NO DAC 10MG.png" alt="CJC-1295 (No DAC) / Ipamorelin"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">GH Secretagogue</div>
-            <h3 class="pep-name">CJC-1295 / Ipamorelin</h3>
+            <div class="pep-cat-line">GH Secretagogue <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">CJC-1295 (No DAC) / Ipamorelin</h3>
             <p class="pep-tagline">Pulsatile GH secretion research blend</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">This combination pairs CJC-1295, a growth-hormone-releasing hormone (GHRH) analog studied for its ability to promote a steady elevation in growth hormone levels, with Ipamorelin, a selective growth hormone secretagogue known for stimulating pulsatile GH release without significantly affecting cortisol or prolactin. Together, they are commonly studied for their synergistic effect on the growth hormone axis.</p>
+          <p class="pep-detail">This combination pairs CJC-1295 without DAC (also referenced as Mod GRF 1-29), a growth-hormone-releasing hormone (GHRH) analog, with Ipamorelin, a selective growth hormone secretagogue reported to stimulate pulsatile GH release with comparatively little effect on cortisol or prolactin. Unlike the DAC version, No-DAC CJC-1295 has a short half-life (referenced at roughly 30 minutes), favoring multiple smaller daily doses. Neither compound is FDA-approved, and this specific combination has not itself been studied in a published human trial — each peptide's evidence comes from separate, smaller studies.<br><span class="pep-evidence ev-limited">No Combined-Formulation Trial Data</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mcg – 300 mcg of each peptide, combined into one dose</span></div>
-            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily (commonly referenced at bedtime, fasted), often cycled 5 days on / 2 days off</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">2–3 times daily (commonly referenced upon waking, pre-workout, and before bed, fasted), often cycled 5 days on / 2 days off — more frequent than DAC-bound CJC-1295 due to its short half-life</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
           <div class="pep-card-actions">
@@ -458,31 +783,170 @@ footer a{color:var(--ep);text-decoration:none;}
         </div>
       </div>
 
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💪</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GHRH Analog <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">CJC-1295 (with DAC)</h3>
+            <p class="pep-tagline">Extended half-life GHRH analog</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">CJC-1295 with DAC (Drug Affinity Complex) is a modified GHRH analog engineered to bind serum albumin, extending its half-life to roughly 5.8–8.1 days — in contrast to the No-DAC version's ~30-minute half-life. The main human pharmacokinetic study (Teichman et al., J Clin Endocrinol Metab 2006) tested doses of 30 and 60 mcg/kg — for a 75 kg adult that's roughly 2.25–4.5 mg per dose, notably higher than the 1–2 mg figure most commonly circulated in community protocols below. It is not FDA-approved.<br><span class="pep-evidence ev-limited">Published Trial Dose Differs From Common Protocol</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Community Range</span><span class="val">1 mg – 2 mg per dose (most commonly circulated figure)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Published Trial Dose</span><span class="val">30–60 mcg/kg (≈2.25–4.5 mg for a 75 kg adult) per Teichman et al. 2006</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous, reflecting its extended half-life</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/16352683/" target="_blank" rel="noopener">Teichman et al., JCEM 2006 (PMID 16352683)</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💪</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GH Secretagogue <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Ipamorelin</h3>
+            <p class="pep-tagline">Selective GH secretagogue, standalone</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Ipamorelin is a selective growth hormone secretagogue studied for stimulating pulsatile GH release with minimal reported impact on cortisol, prolactin, or appetite compared to older secretagogues like GHRP-6. It was studied clinically by Novo Nordisk (including a Phase 2 trial for postoperative ileus that did not proceed to approval); it is not FDA-approved for any indication, and standalone human dosing data is limited.<br><span class="pep-evidence ev-limited">Studied Clinically, Not Approved</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">200 mcg – 300 mcg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, subcutaneous</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💪</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GHRH Fragment <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Sermorelin</h3>
+            <p class="pep-tagline">Shorter GHRH fragment analog</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Sermorelin is a 29-amino-acid fragment analog of GHRH. It was FDA-approved in 1997 as Geref, for pediatric growth hormone deficiency and as a pituitary-function diagnostic agent. The manufacturer (EMD Serono) voluntarily discontinued Geref in 2008 for manufacturing and commercial reasons — the FDA has confirmed the withdrawal was not for safety or effectiveness concerns. No FDA-approved sermorelin product currently exists on the U.S. market; it is available today only as a compounded (non-FDA-approved) preparation. It is rapidly metabolized (short half-life), and protocols typically pair it with a nightly dosing schedule.<br><span class="pep-evidence ev-trial">Formerly FDA-Approved — Discontinued 2008</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">200 mcg – 500 mcg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once nightly, subcutaneous, fasted</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="Tesamorlin 20mg.png" alt="Tesamorelin"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GHRH Analog <span class="pep-badge stocked">In Stock</span></div>
+            <h3 class="pep-name">Tesamorelin</h3>
+            <p class="pep-tagline">Visceral fat research compound</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Tesamorelin is a stabilized GHRH analog FDA-approved as Egrifta/Egrifta SV specifically for reducing excess visceral adipose tissue in HIV-associated lipodystrophy — it is not approved for general fat loss or broader GH-axis research outside that indication.<br><span class="pep-evidence ev-fda">FDA-Approved (HIV Lipodystrophy Only)</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Original Egrifta</span><span class="val">2 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Egrifta SV (reformulated)</span><span class="val">1.4 mg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous, abdomen</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=3d783378-b02d-4f19-99dd-0fc91a042224" target="_blank" rel="noopener">Egrifta SV FDA label (DailyMed)</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-shop-btn" href="shop.html?product=tesamorelin">View in Shop</a>
+            <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💪</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">GH Secretagogue <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Hexarelin</h3>
+            <p class="pep-tagline">Potent GH secretagogue, cardioprotective research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Hexarelin is one of the most potent GH secretagogues studied, with a genuine (though mostly preclinical/animal) research thread on GH-independent cardioprotective effects. It has been used in small human PK/endocrine studies but has no FDA approval and faster receptor desensitization is reported in the literature compared to Ipamorelin, which is why longer-term protocols are studied less frequently.<br><span class="pep-evidence ev-limited">Small Human Studies — No Approval</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mcg – 200 mcg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, subcutaneous</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💪</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Ghrelin Mimetics <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">GHRP-2 / GHRP-6</h3>
+            <p class="pep-tagline">Classic growth hormone releasing peptides</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">GHRP-2 and GHRP-6 are ghrelin-mimetic secretagogues among the earliest GH-releasing peptides studied. Both stimulate GH release through the ghrelin receptor, with GHRP-6 studied for a notably stronger appetite-stimulating effect (a documented ghrelin-pathway side effect) than GHRP-2. GHRP-2 (pralmorelin) is approved in Japan under the brand GHRP Kaken — but only as a single-dose <i>diagnostic test</i> for adult/pediatric GH deficiency (typically ~1 mcg/kg IV), not as a repeated therapeutic injection; that diagnostic-dose context is very different from the chronic daily SC community protocols below. GHRP-6 has no approval anywhere.<br><span class="pep-evidence ev-limited">GHRP-2 Approved Only as a Diagnostic Test (Japan)</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mcg – 300 mcg per dose (either compound; community-derived, distinct from the single-dose diagnostic protocol)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, subcutaneous</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/15230633/" target="_blank" rel="noopener">Pralmorelin (GHRP-2) — PMID 15230633</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- ══ SEXUAL HEALTH ══ -->
-  <div class="cat-group">
+  <div class="cat-group" id="cat-sexual">
     <div class="cat-group-hd reveal"><span class="emoji">💊</span><h3>Sexual Function &amp; Melanocortin Research</h3></div>
     <div class="pep-grid">
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="pt41-vials.png" alt="PT-141"/></div>
+          <div class="pep-card-img"><img src="PT-141 10mg.png" alt="PT-141"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Melanocortin Agonist</div>
+            <div class="pep-cat-line">Melanocortin Agonist <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">PT-141</h3>
             <p class="pep-tagline">Sexual function research compound (Bremelanotide)</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">PT-141 (Bremelanotide) is a melanocortin receptor agonist studied for its activity on central nervous system pathways involved in sexual arousal. Unlike traditional approaches that target vascular pathways, PT-141 research focuses on melanocortin receptor activation in the brain.</p>
+          <p class="pep-detail">PT-141 (Bremelanotide) is a melanocortin receptor agonist studied for its activity on central nervous system pathways involved in sexual arousal, rather than vascular pathways. It is FDA-approved as Vyleesi for acquired, generalized hypoactive sexual desire disorder (HSDD) in premenopausal women. The approved label uses a single fixed dose, not a titrated range.<br><span class="pep-evidence ev-fda">FDA-Approved Drug</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">0.5 mg – 2 mg per dose</span></div>
-            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">As-needed, subcutaneous — no more than once per 24-hour period, per literature-referenced protocols</span></div>
+            <div class="pep-dose-row"><span class="lbl">Approved Dose</span><span class="val">1.75 mg — fixed dose, self-injected at least 45 minutes before anticipated activity</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">No more than once per 24-hour period, and no more than 8 doses per month, per FDA label</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/210557s000lbl.pdf" target="_blank" rel="noopener">Vyleesi FDA Prescribing Information</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=pt141">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
@@ -492,24 +956,153 @@ footer a{color:var(--ep);text-decoration:none;}
 
       <div class="pep-card reveal">
         <div class="pep-card-top">
-          <div class="pep-card-img"><img src="MTII-vial.png" alt="Melanotan II"/></div>
+          <div class="pep-card-img"><img src="MT-2 10mg.png" alt="Melanotan II"/></div>
           <div class="pep-card-heading">
-            <div class="pep-cat-line">Melanocortin Peptide</div>
+            <div class="pep-cat-line">Melanocortin Peptide <span class="pep-badge stocked">In Stock</span></div>
             <h3 class="pep-name">Melanotan II</h3>
             <p class="pep-tagline">Pigmentation &amp; sexual arousal research</p>
           </div>
         </div>
         <div class="pep-card-body">
-          <p class="pep-detail">Melanotan II is a synthetic analog of alpha-melanocyte-stimulating hormone (α-MSH), studied for its effects on melanocortin receptors involved in pigmentation and appetite regulation. Research has also explored secondary effects on libido and mood via melanocortin receptor pathways.</p>
+          <p class="pep-detail">Melanotan II is a synthetic analog of alpha-melanocyte-stimulating hormone (α-MSH), studied in small academic pilot studies (e.g., Wessells et al.) for melanocortin receptor effects on pigmentation, appetite, and erectile/sexual response. It has <b>never been FDA-approved</b> for any use, and the published pilot studies dosed by body weight (e.g., 0.025 mg/kg subcutaneous), not by flat daily mg amounts — the flat "0.25 mg/day, titrating to 1 mg/day" figures widely circulated online do not match any published clinical protocol. Reported adverse effects in the literature include nausea (common), and postmarket/case reports have flagged rare but serious signals such as new or changing pigmented skin lesions and priapism.<br><span class="pep-evidence ev-preclinical">Small Pilot Studies Only — Never FDA-Approved</span></p>
           <div class="pep-dose-box">
             <h4>🧪 Suggested Research Dosage</h4>
-            <div class="pep-dose-row"><span class="lbl">Loading Phase</span><span class="val">0.25 mg/day, titrating up to 0.5–1 mg/day over ~7–10 days, per commonly referenced protocols</span></div>
-            <div class="pep-dose-row"><span class="lbl">Maintenance</span><span class="val">Reduced to 2–3 doses per week once a target response is reached</span></div>
+            <div class="pep-dose-row"><span class="lbl">Published Pilot Dose</span><span class="val">0.025 mg/kg subcutaneous per injection (Wessells et al.) — weight-based, not a flat mg amount</span></div>
+            <div class="pep-dose-row"><span class="lbl">Community Protocol</span><span class="val">0.25 mg/day, titrating up to 0.5–1 mg/day over ~7–10 days — a circulated convention, not clinical-trial-derived</span></div>
             <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
           </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.nature.com/articles/3900582" target="_blank" rel="noopener">Wessells et al., Int J Impot Res 2000</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/9679884/" target="_blank" rel="noopener">PMID 9679884</a></div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=mt2">View in Shop</a>
             <a class="pep-coa-btn" href="coas.html">Request COA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">💊</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Reproductive Axis Peptide <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Kisspeptin-10</h3>
+            <p class="pep-tagline">GnRH regulation &amp; fertility research</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Kisspeptin-10 is a decapeptide fragment studied for its central role in regulating GnRH (gonadotropin-releasing hormone) secretion. Most of the published human clinical program (led by Prof. Waljit Dhillo's group at Imperial College London) actually used the longer kisspeptin-54 fragment, administered by IV bolus or infusion in controlled research settings — kisspeptin-10 specifically has only a ~4-minute plasma half-life after IV administration, which is part of why it's less represented in the human trial literature and why no subcutaneous community dosing has any clinical basis.<br><span class="pep-evidence ev-limited">Clinical Data Mostly on a Different Fragment (Kisspeptin-54)</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Note</span><span class="val">Published dosing is IV/IM, in nmol/kg (e.g., kisspeptin-54 trials used 3.2–12.8 nmol/kg) — there is no established subcutaneous dosing convention for kisspeptin-10 itself</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4570165/" target="_blank" rel="noopener">Kisspeptin-54 trial, PMC4570165</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ COGNITIVE ══ -->
+  <div class="cat-group" id="cat-cognitive">
+    <div class="cat-group-hd reveal"><span class="emoji">🧠</span><h3>Cognitive &amp; Neurological Research</h3></div>
+    <div class="pep-grid">
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><img src="Selank=Semax.png" alt="Selank + Semax"/></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Nootropic Blend <span class="pep-badge pending">Coming Soon</span></div>
+            <h3 class="pep-name">Selank + Semax</h3>
+            <p class="pep-tagline">Cognitive &amp; anxiolytic research combo</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">This combination pairs Semax, a synthetic ACTH(4–10) fragment analog registered as a drug in Russia in 1994 for stroke recovery and cognitive symptoms, with Selank, a synthetic tuftsin analog registered in Russia in 2009 for generalized anxiety disorder. Both are approved pharmaceuticals in Russia (listed on the Vidal register) but have never been reviewed or approved by the FDA or EMA, and this specific combined formulation has not itself been studied in a published trial.<br><span class="pep-evidence ev-trial">Approved in Russia — No FDA/EMA Review</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">200 mcg – 300 mcg of each peptide, per nostril</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, intranasal</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About Availability</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">🧠</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">ACTH Fragment Analog <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Semax</h3>
+            <p class="pep-tagline">Cognitive &amp; neuroprotective research, standalone</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Semax is a synthetic heptapeptide analog of ACTH(4–10), registered by the Russian Ministry of Health in 1994 as a nasal-spray drug for ischemic stroke rehabilitation, chronic cerebrovascular insufficiency, and cognitive decline, following Russian Phase I/II evaluation. It is on Russia's List of Vital and Essential Drugs but has not been reviewed or approved by the FDA or EMA for any indication. Its short half-life and poor oral bioavailability make intranasal delivery the standard route in the available literature.<br><span class="pep-evidence ev-trial">Approved in Russia — No FDA/EMA Review</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">300 mcg – 600 mcg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, intranasal</span></div>
+          </div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">🧠</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Tuftsin Analog <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">Selank</h3>
+            <p class="pep-tagline">Anxiolytic &amp; nootropic research, standalone</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">Selank is a synthetic analog of the endogenous immunomodulatory peptide tuftsin, approved in Russia in 2009 for generalized anxiety disorder, studied for anxiolytic and nootropic effects without the sedation associated with traditional anxiolytic drug classes. Like Semax, it has not been reviewed or approved by the FDA or EMA and is studied almost exclusively via intranasal administration in the available literature.<br><span class="pep-evidence ev-trial">Approved in Russia — No FDA/EMA Review</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">250 mcg – 500 mcg per dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, intranasal</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://file.scirp.org/pdf/NM_2013120914223729.pdf" target="_blank" rel="noopener">Russian peptide drug development review</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SLEEP ══ -->
+  <div class="cat-group" id="cat-sleep">
+    <div class="cat-group-hd reveal"><span class="emoji">😴</span><h3>Sleep Research</h3></div>
+    <div class="pep-grid">
+
+      <div class="pep-card reveal">
+        <div class="pep-card-top">
+          <div class="pep-card-img"><div class="pep-icon-placeholder">😴</div></div>
+          <div class="pep-card-heading">
+            <div class="pep-cat-line">Sleep-Regulating Nonapeptide <span class="pep-badge ref">Reference Only</span></div>
+            <h3 class="pep-name">DSIP</h3>
+            <p class="pep-tagline">Delta Sleep-Inducing Peptide</p>
+          </div>
+        </div>
+        <div class="pep-card-body">
+          <p class="pep-detail">DSIP (Delta Sleep-Inducing Peptide) is a nonapeptide first isolated from rabbit cerebral venous blood in 1974 by the Schoenenberger-Monnier group. Real human clinical trials followed in the late 1970s–1980s (small studies of chronic insomniacs, mostly using slow <i>intravenous</i> administration, not subcutaneous), with reported improvements in sleep duration and quality. Pharmaceutical development stalled after the 1990s and it was never FDA-approved; the subcutaneous nightly dosing circulated in community protocols today is not the route or dose used in the original human trials.<br><span class="pep-evidence ev-limited">Real but Dated Human Trials (IV) — Never Approved</span></p>
+          <div class="pep-dose-box">
+            <h4>🧪 Suggested Research Dosage</h4>
+            <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mcg – 300 mcg per dose (community-derived subcutaneous convention)</span></div>
+            <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once nightly, subcutaneous, before bed</span></div>
+          </div>
+          <div class="pep-sources"><b>Sources:</b> <a href="https://link.springer.com/article/10.1007/BF01971753" target="_blank" rel="noopener">Schoenenberger-Monnier group, DSIP human sleep study</a></div>
+          <div class="pep-card-actions">
+            <a class="pep-info-btn" href="contact.html">✉ Ask About This Compound</a>
           </div>
         </div>
       </div>
@@ -523,8 +1116,8 @@ footer a{color:var(--ep);text-decoration:none;}
 
 <section>
   <div class="pep-footer-note reveal">
-    <h4>⚠️ A Note on These Dosage Figures</h4>
-    <p>Every range on this page is compiled from published research literature and widely circulated peptide-research community protocols — it is background reference material, not a clinical dosing guideline and not medical advice. Individual research protocols vary by study design, model, and objective. Elevated Peptides sells all compounds strictly for laboratory research use; nothing here is intended to diagnose, treat, cure, or prevent any disease, and none of these compounds are approved for human or animal administration. Always default to the primary literature and your own institution's research protocols.</p>
+    <h4>⚠️ A Note on These Dosage Figures &amp; Sources</h4>
+    <p>Each card on this page distinguishes between what is actually FDA-approved or clinical-trial-tested (cited to the primary source — an FDA label, PubMed, ClinicalTrials.gov, or the original journal article) and what is a community-circulated convention with no clinical validation behind it. Where a compound's real evidence is thin, preclinical (animal-only), foreign/non-Western, or entirely absent for the form actually sold, we say so directly rather than presenting an invented-sounding number as fact. Two important distinctions worth repeating here: the TB-500 sold as a peptide is a short fragment that has not itself been tested in humans, distinct from the full-length Thymosin Beta-4 that RegeneRx has studied clinically; and injectable Follistatin-344 is distinct from the AAV gene-therapy version of follistatin studied at Nationwide Children's Hospital. None of this is a clinical dosing guideline or medical advice — it is background reference material. Elevated Peptides sells all compounds strictly for laboratory research use; nothing here is intended to diagnose, treat, cure, or prevent any disease, and none of these compounds (apart from the specific FDA-approved drugs named on their cards, for their approved indications only) are approved for human or animal administration. Always default to the primary literature and your own institution's research protocols.</p>
   </div>
 </section>
 
@@ -557,9 +1150,12 @@ footer a{color:var(--ep);text-decoration:none;}
   <p style="margin-top:6px;">&copy; <span id="yr"></span> Elevated Peptides. <a href="index.html">Home</a> · <a href="contact.html">Contact</a></p>
 </footer>
 
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⬆</button>
+
 <script>
 if(sessionStorage.getItem('umf_unlocked')!=='1'){ location.href='index.html'; }
 document.getElementById('yr').textContent = new Date().getFullYear();
+window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
 
 /* ── STARFIELD ── */
 (function(){
@@ -600,6 +1196,29 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 function toggleNav(){
   document.getElementById('navLinks').classList.toggle('open');
   document.getElementById('hbgBtn').classList.toggle('active');
+}
+
+/* ── SEARCH ── */
+function filterPeptides(){
+  const term=document.getElementById('pepSearch').value.trim().toLowerCase();
+  document.getElementById('pepSearchClear').classList.toggle('show',term.length>0);
+  let totalVisible=0;
+  document.querySelectorAll('.cat-group').forEach(group=>{
+    let groupVisible=0;
+    group.querySelectorAll('.pep-card').forEach(card=>{
+      const match=!term||card.textContent.toLowerCase().includes(term);
+      card.style.display=match?'':'none';
+      if(match){ groupVisible++; totalVisible++; card.classList.add('in'); }
+    });
+    group.style.display=groupVisible?'':'none';
+  });
+  document.getElementById('pepNoResults').style.display=totalVisible?'none':'block';
+  document.getElementById('pepSearchCount').textContent=term?`${totalVisible} compound${totalVisible!==1?'s':''} found`:'';
+}
+function clearPepSearch(){
+  document.getElementById('pepSearch').value='';
+  filterPeptides();
+  document.getElementById('pepSearch').focus();
 }
 
 /* ── SCROLL REVEAL ── */

@@ -317,6 +317,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     <h1 data-ep-text="shop-title">The <b>Shop</b></h1>
     <p data-ep-text="shop-sub">Browse the catalog, add your research compounds to the cart, then complete checkout right here.</p>
     <p style="margin-top:10px;font-size:13px;color:var(--ep);font-weight:700;">🚚 Free shipping on orders $100+</p>
+    <div id="saleBanner" style="display:none;margin:14px auto 0;max-width:560px;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,rgba(255,122,0,.18),rgba(255,160,40,.1));border:1.5px solid rgba(255,140,0,.6);color:#ffb347;font-family:'Montserrat',sans-serif;font-size:13px;line-height:1.5;box-shadow:0 0 22px rgba(255,122,0,.25);"></div>
   </div>
 </div>
 
@@ -550,7 +551,7 @@ function showCompoundInfo(key){
     ${(p.detail||p.note)?`<p style="font-size:13.5px;color:var(--dim);line-height:1.6;margin-bottom:12px;">${p.detail||p.note}</p>`:''}
     ${RESEARCH_USES[p.key]?`<div style="font-size:13px;color:var(--tx);line-height:1.6;background:rgba(0,229,204,.06);border-left:3px solid var(--ep);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:14px;"><b style="display:block;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ep);margin-bottom:3px;">🔬 Commonly Researched For</b>${RESEARCH_USES[p.key]}</div>`:''}
     ${sl.txt?`<div class="pcard-stock stock ${sl.cls}" style="font-size:12.5px;font-weight:700;margin-bottom:14px;">${sl.txt}</div>`:''}
-    <div style="font-size:12.5px;color:var(--dim);line-height:1.7;"><b style="color:var(--ep);">Options:</b><br>${p.opts.map(o=>`${o[0]} &mdash; <b style="color:#fff;">$${o[1]}</b>`).join('<br>')}</div>
+    <div style="font-size:12.5px;color:var(--dim);line-height:1.7;"><b style="color:var(--ep);">Options:</b><br>${p.opts.map(o=>`${o[0]} &mdash; <b style="color:#fff;">${priceHTML(o[1])}</b>`).join('<br>')}</div>
   `;
   document.getElementById('compInfoOv').classList.add('on');
 }
@@ -569,7 +570,7 @@ function renderProducts(){
       const isInquire=p.opts[0][0]==='Inquire';
       const imgSrc=p.img||'SHOPVIALS.png';
       if(selectedOpts[p.key]===undefined) selectedOpts[p.key]=0;
-      const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>$${o[1]}</span></button>`).join('')}</div>`;
+      const sizeBtns=isInquire?'':`<div class="pcard-size-btns" id="sbtns-${p.key}">${p.opts.map((o,i)=>`<button class="size-btn${i===(selectedOpts[p.key]||0)?' selected':''}" data-idx="${i}" onclick="selectSize(this,'${p.key}')">${o[0]}<span>${priceHTML(o[1])}</span></button>`).join('')}</div>`;
       const addDisabled=(p.stock<=0||isInquire)?'disabled':'';
       const addLabel=isInquire?'?':(p.stock<=0?'✕':'+');
       return `<div class="pcard" id="pcard-${p.key}">
@@ -595,6 +596,7 @@ function renderProducts(){
   if(!any) root.innerHTML='<div class="no-results">No products match your search</div>';
 }
 renderProducts();
+showSaleBanner();
 
 /* ══ JUMP TO SPECIFIC PRODUCT ══ */
 (function(){
@@ -650,6 +652,8 @@ window.addEventListener('pagehide',()=>{ sendAbandonedCartEmail('closed/navigate
 /* ══ CART ══ */
 let cart=[];
 try{ cart=JSON.parse(localStorage.getItem('umf_cart')||'[]'); }catch(e){ cart=[]; }
+// Re-price saved carts so sale prices start/stop correctly for returning visitors
+cart.forEach(c=>{ const p=products.find(x=>x.key===c.key); const o=p&&p.opts[parseInt(c.ckey.split('-').pop())]; if(o) c.price=salePrice(o[1]); });
 if(cart.length) updateCartUI();
 function addToCart(key){
   const p=products.find(x=>x.key===key);
@@ -657,7 +661,7 @@ function addToCart(key){
   const opt=p.opts[optIdx];
   const ckey=key+'-'+optIdx;
   const existing=cart.find(c=>c.ckey===ckey);
-  if(existing){ existing.qty++; } else { cart.push({ckey,key,name:p.name,label:opt[0],price:opt[1],qty:1}); }
+  if(existing){ existing.qty++; } else { cart.push({ckey,key,name:p.name,label:opt[0],price:salePrice(opt[1]),qty:1}); }
   updateCartUI();
   showAddedToast(p.name);
 }
@@ -690,7 +694,7 @@ function updateCartUI(){
   count.style.display=n>0?'flex':'none'; count.textContent=n;
   if(!cart.length){ body.innerHTML='<div class="c-empty">Your cart is empty ⚡</div>'; foot.style.display='none'; checkoutBlock.style.display='none'; }
   else{
-    body.innerHTML=cart.map(c=>`<div class="c-row"><div class="ci"><b>${c.name} (${c.label})</b><span>$${c.price} × ${c.qty}</span></div><button onclick="changeQty('${c.ckey}',-1)">−</button><button onclick="changeQty('${c.ckey}',1)">+</button><button onclick="removeFromCart('${c.ckey}')">✕</button></div>`).join('');
+    body.innerHTML=cart.map(c=>`<div class="c-row"><div class="ci"><b>${c.name} (${c.label})</b><span>$${fmtPrice(c.price)} × ${c.qty}</span></div><button onclick="changeQty('${c.ckey}',-1)">−</button><button onclick="changeQty('${c.ckey}',1)">+</button><button onclick="removeFromCart('${c.ckey}')">✕</button></div>`).join('');
     foot.style.display='block'; checkoutBlock.style.display='block';
     document.getElementById('ctot').textContent='$'+cartTotal().toFixed(2);
     const remaining=FREE_SHIPPING_THRESHOLD-cartTotal();
@@ -712,7 +716,7 @@ function renderOrderSummary(){
 }
 function buildOrderEmailText(name,email,address,notes){
   const lines=cart.map(c=>`${c.qty} x ${c.name} (${c.label}) - $${c.price.toFixed(2)} each = $${(c.price*c.qty).toFixed(2)}`);
-  return `New order from Elevated Peptides — payment not yet sent.\n\nORDER DETAILS\nCustomer: ${name||'(name)'}\nEmail: ${email||'(email)'}\nShipping Address:\n${address||'(address)'}\n\nItems:\n${lines.join('\n')}\n\nTOTAL: $${cartTotal().toFixed(2)}\n\nNotes: ${notes||'(none)'}`;
+  return `New order from Elevated Peptides — payment not yet sent.\n\nORDER DETAILS\nCustomer: ${name||'(name)'}\nEmail: ${email||'(email)'}\nShipping Address:\n${address||'(address)'}\n\nItems:\n${lines.join('\n')}\n\n${saleOn()?`${SALE.name}: ${SALE.percent}% off applied to the prices above\n`:''}TOTAL: $${cartTotal().toFixed(2)}\n\nNotes: ${notes||'(none)'}`;
 }
 function submitOrder(){
   const name=document.getElementById('ord-name').value.trim(),email=document.getElementById('ord-email').value.trim(),address=document.getElementById('ord-address').value.trim(),notes=document.getElementById('ord-notes').value.trim();

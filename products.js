@@ -5,6 +5,24 @@ const CATS = [
   { key: 'supplies',   emoji: '💧', label: 'Supplies' },
 ];
 
+/* ══ SALE — prices are discounted automatically until `ends`, then go back to normal on their own ══ */
+const SALE = {
+  name: '🎃 Halloween Sale',
+  percent: 20,                                   // % off every product
+  ends: new Date('2026-11-01T00:00:00-04:00'),   // midnight at the end of Oct 31 (Eastern Time)
+};
+function saleOn(){ return Date.now() < SALE.ends.getTime(); }
+function salePrice(price){ return saleOn() ? Math.round(price * (100 - SALE.percent)) / 100 : price; }
+function fmtPrice(n){ return Number.isInteger(n) ? String(n) : n.toFixed(2); }
+// Price HTML: struck-through original + sale price while the sale is on
+function priceHTML(price){ return saleOn() ? `<s style="opacity:.55;font-weight:500;">$${fmtPrice(price)}</s> $${fmtPrice(salePrice(price))}` : `$${fmtPrice(price)}`; }
+// Banner shown at the top of the home & shop pages while the sale is on
+function showSaleBanner(){
+  const el = document.getElementById('saleBanner'); if (!el || !saleOn()) return;
+  el.innerHTML = `${SALE.name} — <b>${SALE.percent}% OFF EVERYTHING</b> · Ends Oct 31 · Prices already discounted, no code needed`;
+  el.style.display = 'block';
+}
+
 function P(key, name, cat, opts, stock = 25, note = null, img = null, detail = null, coa = null) {
   return { key, name, cat, opts, stock, note, img, detail, coa };
 }

@@ -312,6 +312,7 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
     <div class="hero-rule"></div>
     <p data-ep-text="home-hero-sub">Lab-grade research peptides &amp; compounds — sourced, tested, and trusted by the research community.</p>
     <p style="margin-top:10px;font-size:13px;color:var(--ep);font-weight:700;">🚚 Free shipping on orders $100+</p>
+    <div id="saleBanner" style="display:none;margin:14px auto 0;max-width:560px;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,rgba(255,122,0,.18),rgba(255,160,40,.1));border:1.5px solid rgba(255,140,0,.6);color:#ffb347;font-family:'Montserrat',sans-serif;font-size:13px;line-height:1.5;box-shadow:0 0 22px rgba(255,122,0,.25);"></div>
   </div>
   <button class="hero-btn" onclick="location.href='shop.html'">SHOP NOW →</button>
 </div>
@@ -470,6 +471,17 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
 
 </div><!-- /#site -->
 
+<script src="products.js"></script>
+<script>
+// Sale: show the banner and discount the featured prices while the sale is on
+showSaleBanner();
+if(saleOn()) document.querySelectorAll('.feat-price').forEach(el=>{
+  const t=el.firstChild; const m=t&&t.nodeType===3&&t.textContent.match(/\$(\d+(?:\.\d+)?)/);
+  if(!m) return;
+  const span=document.createElement('span'); span.innerHTML=priceHTML(parseFloat(m[1]))+' ';
+  el.replaceChild(span,t);
+});
+</script>
 <script>
 /* ══ GATE ══ */
 const SITE_PIN = "elevateurself";

@@ -49,3 +49,25 @@ const STARTER_PRODUCTS = [
   P('ghkculotion', 'GHK-Cu Lotion', 'cosmetics', [['60g', 65]],  0, 'Deeply hydrating barrier-repair lotion with GHK-Cu — softer, firmer skin with daily use.', 'ghkcu-lotion-60g.jpg', 'This deeply hydrating lotion combines GHK-Cu with a barrier-repair formula to support skin softness, firmness, and moisture retention. Designed for daily use, it\'s formulated to work with the skin\'s natural renewal processes for long-term texture and hydration benefits.'),
 ];
 
+/* ── "Commonly Researched For" text shown in the shop's Compound Info popup (keyed by product key) ── */
+const RESEARCH_USES = {
+  tirz: "Weight-management and appetite-regulation research, glucose control in type 2 diabetes models, insulin-sensitivity studies, and obesity-related sleep apnea (the subject of its Zepbound OSA approval).",
+  reta: "Obesity and weight-reduction research — its Phase 2 trial reported some of the largest average reductions seen in an obesity study — plus glycemic-control and fatty-liver (MASLD) research.",
+  bpctb: "Tissue-repair research — tendon, ligament, muscle, and joint healing models — along with post-injury recovery and inflammation studies.",
+  klow80: "Combined tissue-repair research: soft-tissue healing (BPC-157/TB-500), inflammatory and gut signaling (KPV), and skin, hair-follicle, and collagen research (GHK-Cu).",
+  bpc157: "Tendon, ligament, and muscle repair models, gastrointestinal research (ulcer, gut-lining, and IBD-type models), angiogenesis, and general wound-healing studies.",
+  tb500: "Soft-tissue and muscle-repair research, actin regulation and cell-migration studies, inflammation research, and systemic recovery models.",
+  kpv: "Anti-inflammatory research — especially intestinal inflammation (colitis/IBD models) and inflammatory skin models such as dermatitis.",
+  ghkcu: "Skin-regeneration research — collagen and elastin synthesis, fine lines and firmness — plus wound and scar healing, hair-follicle studies, and antioxidant activity.",
+  ss31: "Mitochondrial-function and cellular-energy research, Barth syndrome (its only approved indication), and studies of skeletal muscle weakness, cardiac function, and age-related mitochondrial decline.",
+  epithalon: "Longevity and telomerase research, pineal-gland and melatonin-rhythm studies, and age-related biomarker research.",
+  motsc: "Metabolic research — insulin sensitivity, glucose homeostasis, and fat metabolism — plus exercise-capacity and healthy-aging studies.",
+  nad: "Cellular energy metabolism, DNA-repair and sirtuin research, age-related NAD+ decline, and fatigue and cognitive-function studies.",
+  cjipa: "Pulsatile growth-hormone secretion research, with study interest in body composition (lean mass and fat), sleep, and recovery markers.",
+  tesamorelin: "Visceral adipose tissue research — approved for HIV-associated abdominal fat — plus broader body-composition and liver-fat studies.",
+  selanksemax: "Combined cognitive and anxiolytic research — memory, attention, and neuroprotection (Semax) alongside non-sedating anxiety and stress research (Selank).",
+  pt141: "Central (brain-pathway) sexual-arousal and desire research — approved for hypoactive sexual desire disorder in premenopausal women — with additional study in male sexual dysfunction.",
+  mt2: "Melanocortin-receptor research covering skin pigmentation, sexual-arousal response, and appetite regulation.",
+  ghkcuserum: "Topical skin research on GHK-Cu — collagen and elastin synthesis, firmness and fine lines, skin-barrier repair, and wound and scar healing.",
+  ghkculotion: "Topical skin research on GHK-Cu — collagen and elastin synthesis, firmness and fine lines, skin-barrier repair, and wound and scar healing.",
+};

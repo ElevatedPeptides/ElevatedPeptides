@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — Elevated Peptides</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ep:#00e5cc; --ep2:#007a6a; --ep3:#00fff0;
+  --bg:#040c0c; --card:#0a1818; --card2:#0d1e1e;
+  --tx:#edfaf7; --dim:#8fbfb8;
+  --bp:rgba(0,229,204,.2); --bc:rgba(0,229,204,.45);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;min-height:100vh;}
+h1,h2,h3,.brand{font-family:'Montserrat',sans-serif;letter-spacing:.01em;}
+
+#wallpaper{position:fixed;inset:0;z-index:-1;background:url('wallpaper.jpg') center center/cover no-repeat;background-attachment:fixed;filter:brightness(1.15) saturate(1.4);}
+
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star{position:absolute;border-radius:50%;animation:twinkle var(--td,3s) ease-in-out var(--dl,0s) infinite;}
+
+@keyframes mistDrift{0%,100%{opacity:.18;transform:translate(-2%,-2%);}50%{opacity:.28;transform:translate(2%,2%);}}
+.teal-mist{position:fixed;inset:-10%;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 40% at 20% 25%,rgba(0,229,204,.18) 0%,transparent 60%),radial-gradient(ellipse 50% 45% at 80% 20%,rgba(0,180,160,.14) 0%,transparent 60%);filter:blur(30px);animation:mistDrift 18s ease-in-out infinite;}
+
+@keyframes sparkOrbit{from{transform:rotate(var(--oa,0deg)) translateX(var(--or,80px));}to{transform:rotate(calc(var(--oa,0deg) + 360deg)) translateX(var(--or,80px));}}
+@keyframes sparkPulse{0%,100%{opacity:var(--sop,.6);box-shadow:0 0 var(--sg,5px) 1px var(--sc,#00e5cc);}50%{opacity:1;box-shadow:0 0 calc(var(--sg,5px)*2) 2px var(--sc,#00e5cc);}}
+.logo-spark-wrap{position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:10;overflow:visible;}
+.logo-spark{position:absolute;top:50%;left:50%;width:var(--sw,4px);height:var(--sw,4px);margin:calc(var(--sw,4px)/-2);border-radius:50%;background:var(--sc,#00e5cc);box-shadow:0 0 var(--sg,5px) 1px var(--sc,#00e5cc);transform-origin:0 0;animation:sparkOrbit var(--od,10s) linear var(--odl,0s) infinite,sparkPulse var(--op,2.5s) ease-in-out var(--odl,0s) infinite;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:500;background:rgba(4,12,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bp);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:68px;}
+.brand-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.nav-logo-wrap{position:relative;width:46px;height:46px;flex-shrink:0;}
+@keyframes navLogoPulse{0%,100%{box-shadow:0 0 14px rgba(0,229,204,.5);}50%{box-shadow:0 0 28px rgba(0,229,204,.8),0 0 50px rgba(0,229,204,.3);}}
+.nav-logo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:2px solid rgba(0,229,204,.6);display:block;animation:navLogoPulse 3.5s ease-in-out infinite;}
+.brand{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:.1em;}
+.brand b{color:var(--ep);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a,.nav-links button{background:transparent;border:none;border-bottom:2px solid transparent;color:var(--tx);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;cursor:pointer;padding:8px 12px;transition:all .2s;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;}
+.nav-links a:hover,.nav-links button:hover{color:var(--ep);border-bottom-color:var(--ep);}
+.nav-links a.active{color:var(--ep);border-bottom-color:var(--ep);}
+.hbg{display:none;flex-shrink:0;background:rgba(0,229,204,.06);border:1.5px solid var(--bp);border-radius:10px;width:42px;height:42px;color:var(--ep);font-size:20px;cursor:pointer;transition:all .2s;align-items:center;justify-content:center;}
+.hbg:hover{background:rgba(0,229,204,.14);border-color:var(--bc);}
+
+/* ── PAGE ── */
+main{position:relative;z-index:2;max-width:740px;margin:0 auto;padding:0 24px 80px;}
+
+/* ── HERO / PAGE HEAD ── */
+@keyframes spinRing{to{transform:rotate(360deg)}}
+@keyframes epRingPulse{0%,100%{box-shadow:0 0 0 3px rgba(0,229,204,.35),0 0 30px rgba(0,229,204,.25);}50%{box-shadow:0 0 0 5px rgba(0,229,204,.6),0 0 55px rgba(0,229,204,.4);}}
+.pagehead{position:relative;z-index:2;text-align:center;padding:50px 20px 14px;}
+.hero-badge{position:relative;width:140px;height:140px;margin:0 auto 22px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.hero-badge::before{content:'';position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 0deg,rgba(0,229,204,.9) 0deg,rgba(0,180,160,.5) 60deg,transparent 100deg,rgba(0,229,204,.2) 140deg,rgba(0,180,160,.5) 180deg,rgba(0,229,204,.9) 220deg,rgba(0,180,160,.5) 280deg,transparent 320deg,rgba(0,229,204,.9) 360deg);filter:blur(3px);animation:spinRing 6s linear infinite;}
+.hero-badge::after{content:'';position:absolute;inset:-3px;border-radius:50%;animation:epRingPulse 3s ease-in-out infinite;pointer-events:none;}
+.hero-badge img{position:relative;z-index:2;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:cover;border-radius:50%;border:3px solid rgba(0,229,204,.7);box-shadow:inset 0 0 30px rgba(0,0,0,.5);}
+.main-head{text-align:center;background:rgba(4,12,12,.94);border:1px solid var(--bp);border-radius:16px;padding:20px 28px 24px;backdrop-filter:blur(6px);margin-bottom:30px;max-width:640px;margin-left:auto;margin-right:auto;}
+.main-head h1{font-family:'Rajdhani',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:700;color:var(--tx);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.main-head h1 b{color:var(--ep);}
+.main-head .updated{color:var(--dim);font-size:13px;}
+
+.ep-line{height:2px;background:linear-gradient(90deg,transparent,var(--ep),transparent);max-width:90%;margin:24px auto;opacity:.6;}
+
+.tcard{background:var(--card);border:1.5px solid var(--bp);border-radius:14px;padding:22px 24px;margin-bottom:14px;transition:border-color .2s,box-shadow .2s;}
+.tcard:hover{border-color:rgba(0,229,204,.4);box-shadow:0 0 24px rgba(0,229,204,.1);}
+.tcard h2{font-family:'Rajdhani',sans-serif;font-size:17px;color:var(--ep);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
+.tcard p{font-size:13.5px;color:var(--dim);line-height:1.7;}
+.tcard p b{color:var(--tx);}
+.tcard p+p{margin-top:10px;}
+.tcard ul{margin:4px 0 0 18px;font-size:13.5px;color:var(--dim);line-height:1.7;}
+.tcard a{color:var(--ep);text-decoration:none;}
+
+footer{position:relative;z-index:2;text-align:center;padding:32px 20px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--bp);}
+footer::before{content:'⬡  EP  ⬡  ELEVATE YOUR RESEARCH  ⬡  EP  ⬡';display:block;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--ep);margin-bottom:12px;opacity:.6;}
+footer a{color:var(--ep);text-decoration:none;cursor:pointer;}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--ep2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--ep);}
+
+/* ── SCROLL TOP ── */
+#scrollTopBtn{position:fixed;bottom:24px;right:20px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ep2),var(--ep));border:none;color:#000;font-size:20px;cursor:pointer;box-shadow:0 0 20px rgba(0,229,204,.5);z-index:850;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;}
+#scrollTopBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+#scrollTopBtn:hover{transform:translateY(-3px);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media(max-width:780px){
+  .nav-links{display:none;position:fixed;top:68px;right:0;width:min(260px,84vw);height:calc(100vh - 68px);overflow-y:auto;background:rgba(2,8,8,.98);flex-direction:column;align-items:stretch;gap:4px;padding:18px;border-left:1px solid var(--bp);z-index:600;}
+  .nav-links.open{display:flex;}
+  .nav-links a,.nav-links button{width:100%;text-align:left;padding:13px 14px;border-bottom:1px solid rgba(0,229,204,.1)!important;}
+  .hbg{display:flex;}
+}
+</style>
+</head>
+<body>
+<div id="wallpaper"></div>
+<div class="teal-mist"></div>
+<div id="starfield"></div>
+
+<nav>
+  <div class="brand-wrap" onclick="location.href='index.html'">
+    <div class="nav-logo-wrap"><img src="logo.png" alt="Elevated Peptides"/></div>
+    <span class="brand">ELEVATED <b>PEPTIDES</b></span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="peptide-index.html">Peptide Index</a>
+    <a href="coas.html">COAs</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="hbg" id="hbgBtn" onclick="toggleNav()">☰</button>
+</nav>
+
+<div class="pagehead">
+  <div class="hero-badge">
+    <div class="logo-spark-wrap"></div>
+    <img src="logo.png" alt="Elevated Peptides"/>
+  </div>
+  <div class="main-head reveal">
+    <h1>Privacy <b>Policy</b></h1>
+    <p class="updated">Effective October 31, 2026</p>
+  </div>
+</div>
+
+<main>
+  <div class="ep-line"></div>
+
+  <div class="tcard reveal">
+    <h2>1. Who We Are</h2>
+    <p>This policy explains what information Elevated Peptides ("we," "us") collects through this website, how we use it, and the choices you have. Questions or requests can be sent to <a href="mailto:epicresearch26@gmail.com">epicresearch26@gmail.com</a>.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>2. Information We Collect</h2>
+    <p><b>Order details you enter.</b> When you check out, you enter your name, email, shipping address, and any notes. When you press Submit, this is placed into an email that is sent to us through your own email app, along with the items in your cart.</p>
+    <p><b>Unfinished carts.</b> If you add items to your cart and then leave the shop, go idle for several minutes, or close the page without submitting your order, the shop sends us a notice through our form provider (Formspree) containing your cart contents and any name or email you had already typed into the checkout form.</p>
+    <p><b>Messages you send us.</b> If you email us (for an order, a COA request, or a preorder), we receive your email address and whatever you include in your message.</p>
+    <p><b>Payment.</b> Payments are made through PayPal. We receive the name and email on the PayPal account that pays us; we never see or store your card or bank details.</p>
+    <p><b>Basic technical data.</b> Our website host (Cloudflare) may automatically log technical information such as IP address, browser type, and pages requested, for security and to keep the site running.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>3. Information Stored on Your Device</h2>
+    <p>The site uses your browser's local storage to remember your cart, that you passed the age confirmation, and whether an unfinished-cart notice was already sent. This information stays in your browser. We do not use advertising cookies, analytics, or tracking pixels. You can clear it at any time by clearing your browser's site data.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>4. How We Use Your Information</h2>
+    <ul><li>To process, ship, and confirm your orders and send payment instructions</li><li>To reply to your questions, COA requests, and preorder requests</li><li>To follow up on an unfinished cart if you left one</li><li>To prevent fraud, keep records, and meet legal obligations</li></ul>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>5. How We Share It</h2>
+    <p>We do <b>not</b> sell your personal information or share it for advertising. We share it only with the services needed to run the shop — our form provider (Formspree), our email provider, PayPal, shipping carriers, and our website host (Cloudflare) — or when required by law.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>6. How Long We Keep It</h2>
+    <p>We keep order and contact information only as long as needed to fulfill orders, keep business and tax records, resolve disputes, and meet legal requirements.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>7. Your Choices &amp; Rights</h2>
+    <p>You can ask us to tell you what personal information we have about you, correct it, or delete it by emailing <a href="mailto:epicresearch26@gmail.com">epicresearch26@gmail.com</a>. Depending on where you live (for example, California), you may have additional rights under local privacy law; we will honor valid requests and will not treat you differently for making one.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>8. Age Requirement</h2>
+    <p>This site is only for adults 21 and older. We do not knowingly collect information from anyone under 21; if you believe a minor has sent us information, contact us and we will delete it.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>9. Security</h2>
+    <p>We take reasonable steps to protect the information we receive, but no website, email, or internet transmission is completely secure.</p>
+  </div>
+
+  <div class="tcard reveal">
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Changes take effect when posted on this page, and the effective date above will be updated.</p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Elevated Peptides. <a href="index.html">Home</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⬆</button>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+window.addEventListener('scroll',()=>{ document.getElementById('scrollTopBtn').classList.toggle('show',window.scrollY>500); });
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hbgBtn').classList.toggle('active');
+}
+(function(){
+  const sf=document.getElementById('starfield');
+  for(let i=0;i<100;i++){
+    const s=document.createElement('div'); s.className='star';
+    const sz=(Math.random()*2+.3).toFixed(1);
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*90).toFixed(2)}%;background:#d0f0ec;opacity:${(0.15+Math.random()*.6).toFixed(2)};--td:${(2+Math.random()*5).toFixed(1)}s;--dl:${(Math.random()*5).toFixed(1)}s;`;
+    sf.appendChild(s);
+  }
+})();
+(function(){
+  function spawnSparks(wrap){
+    const NUM=16, colors=['#00e5cc','#00fff0','#00b8a0','#80ffe8','#00d4b8','#40ffd4'];
+    const r=Math.round((wrap.offsetWidth||140)/2*0.9);
+    for(let i=0;i<NUM;i++){
+      const s=document.createElement('div'); s.className='logo-spark';
+      const oa=Math.round(i*(360/NUM)+(Math.random()*18-9));
+      const or=r+Math.round((Math.random()-.5)*10);
+      const dir=i%2===0?1:-1;
+      const od=(8+Math.random()*10).toFixed(1);
+      const odl=-(Math.random()*10).toFixed(1);
+      const sw=(2+Math.random()*3).toFixed(1);
+      const sc=colors[Math.floor(Math.random()*colors.length)];
+      const sg=(3+Math.random()*5).toFixed(0);
+      const sop=(0.4+Math.random()*0.55).toFixed(2);
+      const op=(1.4+Math.random()*2).toFixed(1);
+      s.style.cssText=`--oa:${oa}deg;--or:${or}px;--od:${dir<0?'-':''}${od}s;--odl:${odl}s;--sw:${sw}px;--sc:${sc};--sg:${sg}px;--sop:${sop};--op:${op}s;`;
+      wrap.appendChild(s);
+    }
+  }
+  setTimeout(()=>{ document.querySelectorAll('.logo-spark-wrap').forEach(spawnSparks); },120);
+})();
+(function(){
+  const io=new IntersectionObserver((entries)=>{ entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i*60); io.unobserve(e.target); } }); },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>

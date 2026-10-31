@@ -65,13 +65,6 @@ nav{position:sticky;top:0;z-index:500;background:rgba(4,12,12,.92);backdrop-filt
 .pep-disclaimer b{color:var(--ep);}
 .pep-disclaimer a{color:var(--ep);text-decoration:none;}
 
-.recon-calc-banner{position:relative;z-index:2;max-width:760px;margin:20px auto 0;display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,rgba(0,229,204,.1),rgba(0,20,20,.9));border:1.5px solid var(--bc);border-radius:16px;padding:16px 20px;box-shadow:0 0 24px rgba(0,229,204,.12);flex-wrap:wrap;}
-.recon-calc-icon{font-size:30px;flex-shrink:0;}
-.recon-calc-text{flex:1;min-width:180px;}
-.recon-calc-text h3{font-family:'Rajdhani',sans-serif;font-size:17px;color:var(--tx);letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px;}
-.recon-calc-text p{font-size:12.5px;color:var(--dim);line-height:1.5;}
-.recon-calc-btn{flex-shrink:0;background:linear-gradient(90deg,var(--ep2),var(--ep));color:#000;border:none;border-radius:10px;padding:10px 18px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .2s;}
-.recon-calc-btn:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(0,229,204,.5);}
 
 /* ── SECTIONS ── */
 section{position:relative;z-index:2;padding:30px 24px;max-width:1180px;margin:0 auto;}
@@ -238,15 +231,6 @@ footer a{color:var(--ep);text-decoration:none;}
   <div class="pep-search-count" id="pepSearchCount"></div>
 </div>
 
-<div class="recon-calc-banner reveal">
-  <div class="recon-calc-icon">🧮</div>
-  <div class="recon-calc-text">
-    <h3>Reconstitution Calculator</h3>
-    <p>Turn a vial's mg strength and your bacteriostatic water volume into a precise mcg-per-unit draw — use it alongside the dosage ranges below.</p>
-  </div>
-  <a class="recon-calc-btn" href="https://glowklowcalc.com/" target="_blank" rel="noopener">Open Calculator →</a>
-</div>
-
 <div class="pep-jump reveal">
   <a href="#cat-metabolic">⚖️ Metabolic</a>
   <a href="#cat-healing">🩹 Healing</a>
@@ -286,7 +270,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">2.5 mg – 15 mg per dose (5/10/15 mg are the approved maintenance doses; 2.5 mg is a start-only dose, not a maintenance dose)</span></div>
             <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Start 2.5 mg for 4 weeks, then increase in 2.5 mg steps no sooner than every 4 weeks, up to a 15 mg ceiling</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://pi.lilly.com/us/zepbound-uspi.pdf" target="_blank" rel="noopener">Zepbound FDA Prescribing Information</a> · <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/217806s031lbl.pdf" target="_blank" rel="noopener">FDA label (accessdata.fda.gov)</a></div>
           <div class="pep-card-actions">
@@ -313,7 +297,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <div class="pep-dose-row"><span class="lbl">Trial Arms</span><span class="val">1 mg, 4 mg, 8 mg, or 12 mg once weekly (the 4/8/12 mg arms used a lower 2 mg starting dose for the first 4 weeks)</span></div>
             <div class="pep-dose-row"><span class="lbl">Titration</span><span class="val">Trial protocol stepped doses up over several 4-week intervals — no FDA-approved titration schedule exists</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once weekly, subcutaneous</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2301972" target="_blank" rel="noopener">Jastreboff et al., NEJM 2023 (PMID 37366315)</a></div>
           <div class="pep-card-actions">
@@ -448,7 +432,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <div class="pep-dose-row"><span class="lbl">BPC-157</span><span class="val">250 mcg – 500 mcg, once or twice daily</span></div>
             <div class="pep-dose-row"><span class="lbl">TB-500</span><span class="val">2 mg – 2.5 mg, once or twice weekly</span></div>
             <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Research cycles of ~4–6 weeks are commonly referenced</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://www.regenerx.com/" target="_blank" rel="noopener">RegeneRx Biopharmaceuticals (Tβ4 clinical program)</a></div>
           <div class="pep-card-actions">
@@ -474,7 +458,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">Reconstitute the full 80mg vial, then draw a proportional daily fraction (commonly referenced as 20–40 units on an insulin syringe, once or twice daily)</span></div>
             <div class="pep-dose-row"><span class="lbl">Protocol Length</span><span class="val">Research cycles of ~4–8 weeks are commonly referenced</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above to convert vial concentration into an exact per-unit dose</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=klow80">View in Shop</a>
@@ -606,7 +590,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Topical</span><span class="val">Formulations studied at ~1–2% concentration, applied daily</span></div>
             <div class="pep-dose-row"><span class="lbl">Subcutaneous</span><span class="val">1 mg – 2 mg per day (community-derived, not from a published injectable trial)</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=ghkcu">View in Shop</a>
@@ -631,7 +615,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">1 mg – 5 mg per day — a community-circulated range, not the Forzinity label dose, which is weight-based and specific to Barth syndrome</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">Once daily, subcutaneous</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://umdf.org/fda-approves-elamipretide/" target="_blank" rel="noopener">FDA approval of elamipretide for Barth syndrome (UMDF)</a></div>
           <div class="pep-card-actions">
@@ -715,7 +699,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">5 mg – 10 mg per dose (community-derived, not from a completed clinical trial)</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">2–3 times per week (every other day), subcutaneous</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://clinicaltrials.gov/study/NCT07505745" target="_blank" rel="noopener">Phase 2a MOTS-c trial (ClinicalTrials.gov)</a> · <a href="https://www.nature.com/articles/s41598-021-96419-z" target="_blank" rel="noopener">MOTS-c and exercise, Sci Rep 2021</a></div>
           <div class="pep-card-actions">
@@ -741,7 +725,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mg – 500 mg per week, split across 2–3 doses (community-derived range)</span></div>
             <div class="pep-dose-row"><span class="lbl">Administration</span><span class="val">Slow subcutaneous / IM push commonly referenced to reduce flushing/discomfort</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mg/mL</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=nad">View in Shop</a>
@@ -796,7 +780,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">100 mcg – 300 mcg of each peptide, combined into one dose</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">2–3 times daily (commonly referenced upon waking, pre-workout, and before bed, fasted), often cycled 5 days on / 2 days off — more frequent than DAC-bound CJC-1295 due to its short half-life</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=cjipa">View in Shop</a>
@@ -973,7 +957,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Approved Dose</span><span class="val">1.75 mg — fixed dose, self-injected at least 45 minutes before anticipated activity</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">No more than once per 24-hour period, and no more than 8 doses per month, per FDA label</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/210557s000lbl.pdf" target="_blank" rel="noopener">Vyleesi FDA Prescribing Information</a></div>
           <div class="pep-card-actions">
@@ -999,7 +983,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Published Pilot Dose</span><span class="val">0.025 mg/kg subcutaneous per injection (Wessells et al.) — weight-based, not a flat mg amount</span></div>
             <div class="pep-dose-row"><span class="lbl">Community Protocol</span><span class="val">0.25 mg/day, titrating up to 0.5–1 mg/day over ~7–10 days — a circulated convention, not clinical-trial-derived</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-sources"><b>Sources:</b> <a href="https://www.nature.com/articles/3900582" target="_blank" rel="noopener">Wessells et al., Int J Impot Res 2000</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/9679884/" target="_blank" rel="noopener">PMID 9679884</a></div>
           <div class="pep-card-actions">
@@ -1056,7 +1040,7 @@ footer a{color:var(--ep);text-decoration:none;}
             <h4>🧪 Suggested Research Dosage</h4>
             <div class="pep-dose-row"><span class="lbl">Typical Range</span><span class="val">200 mcg – 300 mcg of each peptide, per nostril</span></div>
             <div class="pep-dose-row"><span class="lbl">Frequency</span><span class="val">1–3 times daily, intranasal</span></div>
-            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water — use the calculator above for exact mcg/unit</span></div>
+            <div class="pep-dose-row"><span class="lbl">Reconstitution</span><span class="val">Bacteriostatic water</span></div>
           </div>
           <div class="pep-card-actions">
             <a class="pep-shop-btn" href="shop.html?product=selanksemax">View in Shop</a>

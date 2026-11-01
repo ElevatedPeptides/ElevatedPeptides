@@ -9,7 +9,7 @@ const CATS = [
 const SALE = {
   name: '🎃 Halloween Sale',
   percent: 20,                                   // % off every product
-  ends: new Date('2026-11-01T00:00:00-04:00'),   // midnight at the end of Oct 31 (Eastern Time)
+  ends: new Date('2026-11-01T00:00:00-05:00'),   // midnight at the end of Oct 31 (Central Time)
 };
 function saleOn(){ return Date.now() < SALE.ends.getTime(); }
 function salePrice(price){ return saleOn() ? Math.round(price * (100 - SALE.percent)) / 100 : price; }

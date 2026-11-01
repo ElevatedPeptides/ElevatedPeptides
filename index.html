@@ -85,9 +85,6 @@ body.locked{overflow:hidden;}
 .gate-enter:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(0,229,204,.5);}
 .gate-enter:active{transform:translateY(1px);}
 #gate-err{color:#ff6b6b;font-size:12.5px;margin-top:6px;min-height:18px;text-align:center;}
-.gate-links{text-align:center;margin-top:4px;font-size:12px;}
-.gate-links a{color:var(--dim);text-decoration:underline;text-underline-offset:3px;}
-.gate-links a:hover{color:var(--ep);}
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:500;background:rgba(4,12,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bp);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:68px;}
@@ -275,7 +272,6 @@ a:hover,button:hover:not(:disabled){filter:drop-shadow(0 0 6px rgba(0,229,204,.5
       <button class="gate-enter" onclick="gateSubmit()">ENTER</button>
     </div>
     <div id="gate-err"></div>
-    <div class="gate-links"><a href="privacy.html">Privacy Policy</a></div>
   </div>
 </div>
 
